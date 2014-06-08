@@ -40,23 +40,23 @@
 
 /* */
 
-#coco-social{
+.coco-social{
 	margin:20px 0;
 }
 
-#coco-social ul.coco-social-buttons{
+.coco-social ul.coco-social-buttons{
 	margin:0px;
 	min-height:40px;
 }
 
-#coco-social ul.coco-social-buttons li{
+.coco-social ul.coco-social-buttons li{
 	width:24%;
 	list-style-type:none;
 	float:left;
 	margin:0 1% 0 0;
 }
 
-#coco-social ul.coco-social-buttons li a{
+.coco-social ul.coco-social-buttons li a{
 	width:100%;
 	display: block;
 	text-align: center;
@@ -69,39 +69,39 @@
              transition: background-color 0.2s ease;
 }
 
-#coco-social ul.coco-social-buttons li a:hover{
+.coco-social ul.coco-social-buttons li a:hover{
 	text-decoration:none;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-facebook{
+.coco-social ul.coco-social-buttons li a.tdf-facebook{
 	background-color:#3b5998;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-facebook:hover{
+.coco-social ul.coco-social-buttons li a.tdf-facebook:hover{
 	background-color:#22407F;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-twitter{
+.coco-social ul.coco-social-buttons li a.tdf-twitter{
 	background-color:#00aced;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-twitter:hover{
+.coco-social ul.coco-social-buttons li a.tdf-twitter:hover{
 	background-color:#0093D4;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-googleplus{
+.coco-social ul.coco-social-buttons li a.tdf-googleplus{
 	background-color:#dd4b39;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-googleplus:hover{
+.coco-social ul.coco-social-buttons li a.tdf-googleplus:hover{
 	background-color:#C43220;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-linkedin{
+.coco-social ul.coco-social-buttons li a.tdf-linkedin{
 	background-color:#007bb6;
 }
 
-#coco-social ul.coco-social-buttons li a.tdf-linkedin:hover{
+.coco-social ul.coco-social-buttons li a.tdf-linkedin:hover{
 	background-color:#00629D;
 }
 
