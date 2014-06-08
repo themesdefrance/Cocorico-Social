@@ -5,7 +5,7 @@
 ////////////////////////////////////
 
 define('COCORICO_PREFIX', 'cocosocial_');
-//require_once 'admin/Cocorico/Cocorico.php';
+require_once 'Cocorico/Cocorico.php';
 
 ?>
 
