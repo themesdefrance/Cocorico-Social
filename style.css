@@ -1,0 +1,107 @@
+@font-face {
+	font-family: 'coco-social';
+	src:url('fonts/coco-social.eot?-euns9w');
+	src:url('fonts/coco-social.eot?#iefix-euns9w') format('embedded-opentype'),
+		url('fonts/coco-social.woff?-euns9w') format('woff'),
+		url('fonts/coco-social.ttf?-euns9w') format('truetype'),
+		url('fonts/coco-social.svg?-euns9w#coco-social') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="cocosocial-icon-"], [class*=" cocosocial-icon-"] {
+	font-family: 'coco-social';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	margin-right:10px;
+}
+
+.cocosocial-icon-twitter:before {
+	content: "\f099";
+}
+.cocosocial-icon-facebook:before {
+	content: "\f09a";
+}
+.cocosocial-icon-google-plus:before {
+	content: "\f0d5";
+}
+.cocosocial-icon-linkedin:before {
+	content: "\f0e1";
+}
+
+/* */
+
+#coco-social{
+	margin:20px 0;
+}
+
+#coco-social ul.coco-social-buttons{
+	margin:0px;
+	min-height:40px;
+}
+
+#coco-social ul.coco-social-buttons li{
+	width:24%;
+	list-style-type:none;
+	float:left;
+	margin:0 1% 0 0;
+}
+
+#coco-social ul.coco-social-buttons li a{
+	width:100%;
+	display: block;
+	text-align: center;
+	color:#ffffff;
+	padding:10px 0;
+	-webkit-transition: background-color 0.2s ease;
+        -moz-transition: background-color 0.2s ease;
+         -ms-transition: background-color 0.2s ease;
+          -o-transition: background-color 0.2s ease;
+             transition: background-color 0.2s ease;
+}
+
+#coco-social ul.coco-social-buttons li a:hover{
+	text-decoration:none;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-facebook{
+	background-color:#3b5998;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-facebook:hover{
+	background-color:#22407F;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-twitter{
+	background-color:#00aced;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-twitter:hover{
+	background-color:#0093D4;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-googleplus{
+	background-color:#dd4b39;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-googleplus:hover{
+	background-color:#C43220;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-linkedin{
+	background-color:#007bb6;
+}
+
+#coco-social ul.coco-social-buttons li a.tdf-linkedin:hover{
+	background-color:#00629D;
+}
+
