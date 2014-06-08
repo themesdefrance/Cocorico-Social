@@ -65,6 +65,7 @@ function coco_social_button($network){
 	
 	global $post;
 	$share_url = '';
+	$name = $network;
 	switch($network){
 		case 'facebook' :
 			$share_url = 'https://www.facebook.com/sharer/sharer.php?u=';
@@ -74,6 +75,7 @@ function coco_social_button($network){
 		break;
 		case 'googleplus' :
 			$share_url = 'https://plus.google.com/share?url=';
+			$name = 'Google+';
 		break;
 		case 'linkedin' :
 			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url=';
@@ -83,38 +85,17 @@ function coco_social_button($network){
 		
 	}
 	
-	$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','coco_social'),ucfirst($network)).'" class="tdf-'.$network.'"><i class="cocosocial-icon-'.$network.'"></i>'.ucfirst($network).'</a>';
+	$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','coco_social'),ucfirst($name)).'" class="tdf-'.$network.'"><i class="cocosocial-icon-'.$network.'"></i>'.ucfirst($name).'</a>';
 	return $button;
 }
 
+// Exemples urls
 
-
-function coco_social_facebook_button(){
-	global $post;
-	$button = '<a href="https://www.facebook.com/sharer/sharer.php?u='.get_permalink($post->ID).'" title="'.__('Partager sur Facebook','coco_social').'" class="tdf-fb"><i class="cocosocial-icon-facebook"></i>Facebook</a>';
-	return $button;
-}
 // https://www.facebook.com/sharer/sharer.php?u=http://www.businessinsider.com/chrome-browser-share-2014-6
 
-function coco_social_twitter_button(){
-	global $post;
-	$button = '<a href="http://twitter.com/share?url='.get_permalink($post->ID).'" title="'.__('Partager sur Twitter','coco_social').'" class="tdf-tw"><i class="cocosocial-icon-twitter"></i>Twitter</a>';
-	return $button;
-}
 // http://www.businessinsider.com/chrome-browser-share-2014-6&via=sai&text=Internet%20Explorer%20Has%20Basically%20Been%20Annihilated%20By%20Google%27s%20Chrome%20Browser
 
-function coco_social_googleplus_button(){
-	global $post;
-	$button = '<a href="https://plus.google.com/share?url='.get_permalink($post->ID).'" title="'.__('Partager sur Google+','coco_social').'" class="tdf-gp"><i class="cocosocial-icon-google-plus"></i>Google+</a>';
-	return $button;
-}
 // https://plus.google.com/share?url=http://www.businessinsider.com/chrome-browser-share-2014-6
-
-function coco_social_linkedin_button(){
-	global $post;
-	$button = '<a href="http://www.linkedin.com/shareArticle?mini=true&url='.get_permalink($post->ID).'" title="'.__('Partager sur LinkedIn','coco_social').'" class="tdf-lk"><i class="cocosocial-icon-linkedin"></i>LinkedIn</a>';
-	return $button;
-}
 
 // http://www.linkedin.com/shareArticle?mini=true&url=http://www.businessinsider.com/chrome-browser-share-2014-6&title=Internet%20Explorer%20Has%20Basically%20Been%20Annihilated%20By%20Google%27s%20Chrome%20Browser&summary=On%20mobile%20devices,%20probably%20the%20most%20important%20arena%20for%20browsers%20right%20now%20due%20to%20its%20growth,%20Explorer%20barely%20exists.
 
