@@ -32,15 +32,21 @@ function coco_social_options(){
 // Plugin Functions
 
 function coco_social_share_top($content) {
-        if(!is_feed() && !is_home()) { 
-                $buttons = "<div id='coco-social'>";
-                $buttons.= "<ul class='coco-social-buttons'>";
-                $buttons.= "<li>".coco_social_button('facebook')."</li>";
-				$buttons.= "<li>".coco_social_button('twitter')."</li>";
-				$buttons.= "<li>".coco_social_button('googleplus')."</li>";
-				$buttons.= "<li>".coco_social_button('linkedin')."</li>";
-                $buttons.= "</div>";
-                $content = $buttons.$content;
+		
+		if(!is_feed() && !is_home()) { 
+			// Après on les récupèrera via les options des plugins
+			$networks = array('facebook', 'twitter', 'googleplus','linkedin');
+			$nb_networks = count($networks);
+	
+            $buttons = "<div class='coco-social'>";
+            $buttons.= "<ul class='coco-social-buttons'>";
+            
+            for($i=0;$i<$nb_networks;$i++){
+                $buttons.= "<li>".coco_social_button($networks[$i])."</li>";
+            }
+
+            $buttons.= "</ul></div>";
+            $content = $buttons.$content;
         }
         return $content;
 }
@@ -48,14 +54,19 @@ add_filter ('the_content', 'coco_social_share_top');
 
 function coco_social_share_bottom($content) {
         if(!is_feed() && !is_home()) { 
-                $content.= "<div id='coco-social'>";
-                $content.= "<h4>Partager cet article</h4>";
-                $content.= "<ul class='coco-social-buttons'>";
-                $content.= "<li>".coco_social_button('facebook')."</li>";
-				$content.= "<li>".coco_social_button('twitter')."</li>";
-				$content.= "<li>".coco_social_button('googleplus')."</li>";
-				$content.= "<li>".coco_social_button('linkedin')."</li>";
-                $content.= "</div>";
+        	// Après on les récupèrera via les options des plugins
+			$networks = array('facebook', 'twitter', 'googleplus','linkedin');
+			$nb_networks = count($networks);
+    		
+            $content.= "<div class='coco-social'>";
+            $content.= "<h4>Partager cet article</h4>";
+            $content.= "<ul class='coco-social-buttons'>";
+            
+            for($i=0;$i<$nb_networks;$i++){
+                $content.= "<li>".coco_social_button($networks[$i])."</li>";
+            }
+			
+            $content.= "</ul></div>";
         }
         return $content;
 }
