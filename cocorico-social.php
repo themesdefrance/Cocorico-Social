@@ -31,13 +31,25 @@ function coco_social_options(){
 
 // Plugin Functions
 
-function coco_social_share_top($content) {
+function coco_social_share($content) {
 		
-		$location = get_option('cocosocial_location');
+		$location = get_option('cocosocial_location', false);
 		$networks =  get_option('cocosocial_networks');
 		
-		if(is_single() && $location[0] == 'top' && $networks!='') { 
+		if(is_single() && $location && $networks!='') { 
 			
+			if(in_array('top', $location))
+				$content = coco_social_buttons($networks,'top').$content;
+			if(in_array('bottom', $location))
+				$content = $content.coco_social_buttons($networks,'bottom');
+            
+        }
+        return $content;
+}
+add_filter ('the_content', 'coco_social_share');
+
+function coco_social_buttons($networks,$location){
+
 			$nb_networks = count($networks);
 			
 			// Format
@@ -47,6 +59,10 @@ function coco_social_share_top($content) {
     		$buttons_class = coco_social_get_class($nb_networks);
 			
             $buttons = "<div class='coco-social'>";
+            
+            if($location=='bottom')
+            	$buttons.= "<h4>Partager cet article</h4>";
+            
             $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
             for($i=0;$i<$nb_networks;$i++){
@@ -54,40 +70,9 @@ function coco_social_share_top($content) {
             }
 
             $buttons.= "</ul></div>";
-            $content = $buttons.$content;
-        }
-        return $content;
-}
-add_filter ('the_content', 'coco_social_share_top');
-
-function coco_social_share_bottom($content) {
-
-		$location = get_option('cocosocial_location');
-		$networks =  get_option('cocosocial_networks');
-		
-		if(is_single() && $location[0] == 'bottom' && $networks!='') { 
-		
-			$nb_networks = count($networks);
-    		
-    		// Format
-			$format = get_option('cocosocial_format');
-			
-			// Apply the right class 
-    		$buttons_class = coco_social_get_class($nb_networks);
-    		
-            $content.= "<div class='coco-social'>";
-            $content.= "<h4>Partager cet article</h4>";
-            $content.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
-            for($i=0;$i<$nb_networks;$i++){
-                $content.= "<li>".coco_social_button($networks[$i],$format)."</li>";
-            }
-			
-            $content.= "</ul></div>";
-        }
-        return $content;
+            return $buttons;
 }
-add_filter ('the_content', 'coco_social_share_bottom');
 
 function coco_social_button($coco_network, $coco_format){
 	
@@ -142,7 +127,8 @@ function coco_social_get_class($number){
 	switch($number)
 	{
 		case 1:
-			$class='full';
+			//$class='full';
+			$class='halfs';
 		break;
 		case 2:
 			$class='halfs';
