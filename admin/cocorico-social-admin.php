@@ -28,7 +28,9 @@ $form->setting(array('type'=>'checkbox',
 					 ),
 					 'options'=>array(
 					 	'after'=>'<br/>'
-					 )));
+					 ),
+					 'description'=>__("Choisissez où placer les boutons de partage dans vos articles.", 'cocosocial')
+					 ));
 
 
 $form->setting(array('type'=>'checkbox',
@@ -42,7 +44,10 @@ $form->setting(array('type'=>'checkbox',
 					 ),
 					 'options'=>array(
 					 	'after'=>'<br/>'
-					 )));
+					 ),
+					 'description'=>__("Choisissez les boutons de partage à afficher.", 'cocosocial')
+					 ));	
+						
 
 $form->setting(array('type'=>'radio',
 					 'label'=>__('Format des boutons', 'cocosocial'),
@@ -55,7 +60,16 @@ $form->setting(array('type'=>'radio',
 					 'options'=>array(
 					 	'after'=>'<br/>',
 					 	'default'=>'icon_text'
-					 )));	
+					 ),
+					 'description'=>__("Choisissez le format de bouton qui vous convient le mieux.", 'cocosocial')
+					 ));
+					 
+					 
+$form->setting(array('type'=>'text',
+					 'name'=> 'bottom_message',
+					 'label'=>__("Incitation au partage", 'cocosocial'),
+					 'description'=>__("Si vous utilisez les boutons de partage sous vos articles, ce texte sera affiché juste avant pour inciter vos visiteurs à cliquer. Exemple : Partager cet article", 'cocosocial')
+					 ));
 
 $form->endForm();
 

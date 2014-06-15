@@ -54,6 +54,7 @@ function coco_social_buttons($networks,$location){
 			
 			// Format
 			$format = get_option('cocosocial_format');
+			$share_message = get_option('cocosocial_bottom_message');
 			
 			// Apply the right class 
     		$buttons_class = coco_social_get_class($nb_networks);
@@ -61,7 +62,7 @@ function coco_social_buttons($networks,$location){
             $buttons = "<div class='coco-social'>";
             
             if($location=='bottom')
-            	$buttons.= "<h4>Partager cet article</h4>";
+            	$buttons.= "<h4>".( $share_message ? $share_message : '')."</h4>";
             
             $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
