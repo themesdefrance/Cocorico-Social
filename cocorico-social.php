@@ -108,7 +108,7 @@ function coco_social_button($coco_network, $coco_format){
 			$name = 'Google+';
 		break;
 		case 'linkedin' :
-			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.urlencode(get_permalink($post->ID));
+			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.urlencode(get_permalink($post->ID)).'&title='.urlencode(get_the_title($post->ID)).'&summary='.urlencode(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200));
 		break;
 		default:
 		$share_url = '';
