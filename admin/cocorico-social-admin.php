@@ -12,6 +12,11 @@ $form->startWrapper('titre');
 $form->component('raw', __('Options Cocorico Social', 'cocosocial'));
 $form->endWrapper('titre');
 
+$form->groupHeader(array('general'=>__('Général', 'cocosocial'), 
+						 'networks'=>__('Réseaux', 'cocosocial')));
+
+$form->startWrapper('tab', 'general');
+
 $form->startForm();
 
 $form->setting(array('type'=>'checkbox',
@@ -36,8 +41,7 @@ $form->setting(array('type'=>'checkbox',
 						 'linkedin'=>__('LinkedIn', 'cocosocial')
 					 ),
 					 'options'=>array(
-					 	'after'=>'<br/>',
-					 	'default'=>array('facebook','twitter','googleplus','linkedin')
+					 	'after'=>'<br/>'
 					 )));
 
 $form->setting(array('type'=>'radio',
@@ -53,10 +57,38 @@ $form->setting(array('type'=>'radio',
 					 	'default'=>'icon_text'
 					 )));	
 
+$form->endForm();
+
+$form->endWrapper('tab');
 
 
+$form->startWrapper('tab', 'networks');
+
+$form->startForm();
+
+$form->setting(array('type'=>'url',
+					 'name'=>'facebook_url',
+					 'label'=>__("Facebook", 'cocosocial'),
+					 'description'=>__("Entrez l'adresse de votre profil/page Facebook.", 'cocosocial')));
+
+$form->setting(array('type'=>'text',
+					 'name'=>'twitter_username',
+					 'label'=>__("Twitter", 'cocosocial'),
+					 'description'=>__("Entrez votre identifiant Twitter (sans le @).", 'cocosocial')));
+					 
+$form->setting(array('type'=>'url',
+					 'name'=>'googleplus_url',
+					 'label'=>__("Google+", 'cocosocial'),
+					 'description'=>__("Entrez l'adresse de votre profil/page Google+.", 'cocosocial')));
+					 
+$form->setting(array('type'=>'url',
+					 'name'=>'linkedin_url',
+					 'label'=>__("LinkedIn", 'cocosocial'),
+					 'description'=>__("Entrez l'adresse de votre profil LinkedIn.", 'cocosocial')));
 
 $form->endForm();
+
+$form->endWrapper('tab');
 
 $form->component('submit', 'submit', array('value'=>__('Sauvegarder les réglages', 'cocosocial')));
 

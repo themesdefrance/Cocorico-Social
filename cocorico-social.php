@@ -31,23 +31,23 @@ function coco_social_options(){
 
 // Plugin Functions
 
-
-
 function coco_social_share_top($content) {
 		
 		$location = get_option('cocosocial_location');
-		//var_dump($location);
+		$networks =  get_option('cocosocial_networks');
 		
-		if(is_single() && $location) { 
-			// Après on les récupèrera via les options des plugins
-			$networks =  get_option('cocosocial_networks');
+		if(is_single() && $location[0] == 'top' && $networks!='') { 
+			
 			$nb_networks = count($networks);
 			
 			// Format
 			$format = get_option('cocosocial_format');
-	
+			
+			// Apply the right class 
+    		$buttons_class = coco_social_get_class($nb_networks);
+			
             $buttons = "<div class='coco-social'>";
-            $buttons.= "<ul class='coco-social-buttons $format'>";
+            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
             for($i=0;$i<$nb_networks;$i++){
                 $buttons.= "<li>".coco_social_button($networks[$i],$format)."</li>";
@@ -63,18 +63,21 @@ add_filter ('the_content', 'coco_social_share_top');
 function coco_social_share_bottom($content) {
 
 		$location = get_option('cocosocial_location');
+		$networks =  get_option('cocosocial_networks');
 		
-        if(is_single() && $location) { 
-        	// Après on les récupèrera via les options des plugins
-			$networks =  get_option('cocosocial_networks');
+		if(is_single() && $location[0] == 'bottom' && $networks!='') { 
+		
 			$nb_networks = count($networks);
     		
     		// Format
 			$format = get_option('cocosocial_format');
+			
+			// Apply the right class 
+    		$buttons_class = coco_social_get_class($nb_networks);
     		
             $content.= "<div class='coco-social'>";
             $content.= "<h4>Partager cet article</h4>";
-            $content.= "<ul class='coco-social-buttons $format'>";
+            $content.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
             for($i=0;$i<$nb_networks;$i++){
                 $content.= "<li>".coco_social_button($networks[$i],$format)."</li>";
@@ -94,17 +97,18 @@ function coco_social_button($coco_network, $coco_format){
 	
 	switch($coco_network){
 		case 'facebook' :
-			$share_url = 'https://www.facebook.com/sharer/sharer.php?u=';
+			$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode(get_permalink($post->ID));
 		break;
 		case 'twitter' :
-			$share_url = 'http://twitter.com/share?url=';
+			$twitter = get_option('cocosocial_twitter_username');
+			$share_url = 'http://twitter.com/share?url='.urlencode(get_permalink($post->ID)).'&text='.urlencode(get_the_title($post->ID)).( $twitter ? '&via='.$twitter : '');
 		break;
 		case 'googleplus' :
-			$share_url = 'https://plus.google.com/share?url=';
+			$share_url = 'https://plus.google.com/share?url='.urlencode(get_permalink($post->ID));
 			$name = 'Google+';
 		break;
 		case 'linkedin' :
-			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url=';
+			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.urlencode(get_permalink($post->ID));
 		break;
 		default:
 		$share_url = '';
@@ -113,23 +117,44 @@ function coco_social_button($coco_network, $coco_format){
 	
 	switch($coco_format){
 		case 'icon_text' :
-			$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 		break;
 		
 		case 'icon_only' :
-			$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
 		break;
 		
 		case 'text_only' :
-			$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'">'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank">'.ucfirst($name).'</a>';
 		break;
 		
 		default:
-			$button = '<a href="'.$share_url.get_permalink($post->ID).'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 	}
 	
 	
 	return $button;
+}
+
+function coco_social_get_class($number){
+
+	$class = '';
+	switch($number)
+	{
+		case 1:
+			$class='full';
+		break;
+		case 2:
+			$class='halfs';
+		break;
+		case 3:
+			$class='thirds';
+		break;
+		default :
+			$class='';
+			
+	}
+	return $class;
 }
 
 // Exemples urls
