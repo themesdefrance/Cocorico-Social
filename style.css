@@ -25,6 +25,10 @@
 	margin-right:10px;
 }
 
+.coco-social-buttons.icon_only a > i{
+	margin-right:0
+}
+
 .cocosocial-icon-twitter:before {
 	content: "\f099";
 }
