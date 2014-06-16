@@ -76,14 +76,14 @@ add_filter ('the_content', 'coco_social_share');
 
 function coco_social_buttons($networks,$location){
 
-			$nb_networks = count($networks);
-			
+			$networks_array = array_count_values($networks);
+
 			// Format
 			$format = get_option('cocosocial_format');
 			$share_message = get_option('cocosocial_bottom_message');
 			
 			// Apply the right class 
-    		$buttons_class = coco_social_get_class($nb_networks);
+    		$buttons_class = coco_social_get_class($networks_array[1]);
 			
             $buttons = "<div class='coco-social'>";
             
