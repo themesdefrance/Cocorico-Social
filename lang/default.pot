@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cocorico Social\n"
+"POT-Creation-Date: 2014-06-16 09:39+0100\n"
+"PO-Revision-Date: 2014-06-16 09:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: Themes de France <question@themesdefrance.fr>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: /Users/Alexandre/Documents/GitHub/Cocorico-Social\n"
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:120
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:124
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:128
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:132
+#, php-format
+msgid "Share on %1$s"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:12
+msgid "Cocorico Social Settings"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:15
+msgid "General"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:16
+msgid "Networks"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:23
+msgid "Buttons location"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:26
+msgid "Top of single posts"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:27
+msgid "Bottom of single posts"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:32
+msgid "Choose where to insert share buttons in single posts."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:37
+msgid "Networks buttons"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:40
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:85
+msgid "Facebook"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:41
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:90
+msgid "Twitter"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:42
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:95
+msgid "Google+"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:43
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:100
+msgid "LinkedIn"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:48
+msgid "Choose the share buttons to display."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:53
+msgid "Buttons' format"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:56
+msgid "Text and icons"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:57
+msgid "Icon only"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:58
+msgid "Text only"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:64
+msgid "Choose the format that makes you feel good."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:70
+msgid "Share incentive"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:71
+msgid ""
+"If you use bottom share buttons, this text will be displayed before the "
+"buttons to motivate visitors clicks. E.g : Share this post."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:86
+msgid "Add your Facebook profile/page link."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
+msgid "Add your Twitter username (without @)."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:96
+msgid "Add your Google+ profile/page link."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:101
+msgid "Add your LinkedIn profile link."
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:107
+msgid "Save Changes"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:115
+msgid "Cocorico Social is brought to you by"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:180
+msgid "Save all changes"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:257
+msgid "Select"
+msgstr ""
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:304
+msgid "Delete"
+msgstr ""

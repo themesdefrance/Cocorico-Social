@@ -6,8 +6,22 @@ Description: The share plugin from Themes de France
 Version: 1.0.0
 Author: Alex from Themes de France
 Author URI: https://www.themesdefrance.fr
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cocosocial
+Domain Path: /lang/
+License: GPL v3
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // Load Styles
@@ -24,6 +38,16 @@ function coco_social_menu_item(){
 }
 
 add_action('admin_menu','coco_social_menu_item');
+
+
+function coco_social_load_textdomain() {
+	$domain = 'cocosocial';
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+	
+	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
+}
+add_action( 'init', 'coco_social_load_textdomain' );
 
 function coco_social_options(){
     	include('admin/cocorico-social-admin.php');
@@ -103,19 +127,19 @@ function coco_social_button($coco_network, $coco_format){
 	
 	switch($coco_format){
 		case 'icon_text' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 		break;
 		
 		case 'icon_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
 		break;
 		
 		case 'text_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank">'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank">'.ucfirst($name).'</a>';
 		break;
 		
 		default:
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Partager sur %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 	}
 	
 	
@@ -143,14 +167,3 @@ function coco_social_get_class($number){
 	}
 	return $class;
 }
-
-// Exemples urls
-
-// https://www.facebook.com/sharer/sharer.php?u=http://www.businessinsider.com/chrome-browser-share-2014-6
-
-// http://www.businessinsider.com/chrome-browser-share-2014-6&via=sai&text=Internet%20Explorer%20Has%20Basically%20Been%20Annihilated%20By%20Google%27s%20Chrome%20Browser
-
-// https://plus.google.com/share?url=http://www.businessinsider.com/chrome-browser-share-2014-6
-
-// http://www.linkedin.com/shareArticle?mini=true&url=http://www.businessinsider.com/chrome-browser-share-2014-6&title=Internet%20Explorer%20Has%20Basically%20Been%20Annihilated%20By%20Google%27s%20Chrome%20Browser&summary=On%20mobile%20devices,%20probably%20the%20most%20important%20arena%20for%20browsers%20right%20now%20due%20to%20its%20growth,%20Explorer%20barely%20exists.
-
