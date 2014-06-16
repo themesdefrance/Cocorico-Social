@@ -31,20 +31,12 @@ $form->setting(array('type'=>'checkbox',
 					 ));
 
 
-$form->setting(array('type'=>'checkbox',
-					 'label'=>__('Networks buttons', 'cocosocial'),
-					 'name'=>'networks',
-					 'checkboxes'=>array(
-					 	 'facebook'=>__('Facebook', 'cocosocial'),
+$form->orderedList('networks_blocks',
+				__('Networks buttons (order them by drag & drop)', 'cocosocial'),
+				array(  'facebook'=>__('Facebook', 'cocosocial'),
 						 'twitter'=>__('Twitter', 'cocosocial'),
 						 'googleplus'=>__('Google+', 'cocosocial'),
-						 'linkedin'=>__('LinkedIn', 'cocosocial')
-					 ),
-					 'options'=>array(
-					 	'after'=>'<br/>'
-					 ),
-					 'description'=>__("Choose the share buttons to display.", 'cocosocial')
-					 ));	
+						 'linkedin'=>__('LinkedIn', 'cocosocial')));
 						
 
 $form->setting(array('type'=>'radio',

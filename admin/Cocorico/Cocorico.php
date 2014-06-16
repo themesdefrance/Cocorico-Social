@@ -27,6 +27,9 @@ if (!defined('COCORICO_PATH')){
 			wp_enqueue_style('wp-color-picker');
 			wp_enqueue_script('wp-color-picker');
 
+			wp_register_style( 'cocosocial_custom_admin_css', COCORICO_URI . '/extensions/cocorico-social/admin-style.css', false );
+			wp_enqueue_style( 'cocosocial_custom_admin_css' );
+			
 			wp_enqueue_media();
 		}
 	}
