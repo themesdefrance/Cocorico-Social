@@ -4,8 +4,6 @@
 // Cocorico Framework
 ////////////////////////////////////
 
-require_once 'Cocorico/Cocorico.php';
-
 $form = new Cocorico('cocosocial_');
 
 $form->startWrapper('titre');
