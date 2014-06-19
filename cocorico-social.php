@@ -60,7 +60,7 @@ function coco_social_options(){
 function coco_social_share($content) {
 		
 		$location = get_option('cocosocial_location', false);
-		$networks =  get_option('cocosocial_networks_blocks');
+		$networks =  get_option('cocosocial_networks');
 		
 		if(is_single() && $location && $networks!='') { 
 			
@@ -76,27 +76,26 @@ add_filter ('the_content', 'coco_social_share');
 
 function coco_social_buttons($networks,$location){
 
-			$networks_array = array_count_values($networks);
-
+			$nb_networks = count($networks);
+			
 			// Format
 			$format = get_option('cocosocial_format');
 			$share_message = get_option('cocosocial_bottom_message');
 			
 			// Apply the right class 
-    		$buttons_class = coco_social_get_class($networks_array[1]);
+    		$buttons_class = coco_social_get_class($nb_networks);
 			
             $buttons = "<div class='coco-social'>";
             
             if($location=='bottom')
-            	$buttons.= "<h4>".( $share_message ? $share_message : '')."</h4>";
+            	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
             
             $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             
-            foreach ($networks as $network=>$display){
-				if (!$display) continue;
-				$buttons.= "<li>".coco_social_button($network,$format)."</li>";
-			}
-			
+            for($i=0;$i<$nb_networks;$i++){
+                $buttons.= "<li>".coco_social_button($networks[$i],$format)."</li>";
+            }
+
             $buttons.= "</ul></div>";
             
             return $buttons;
