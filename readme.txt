@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Cocorico Social permet d'ajouter des boutons de partage (Facebook, Twitter, Goog
 
 Vous pouvez choisir où ajouter ces boutons, les réseaux à afficher et leur format (texte & icônes, icônes seules ou texte seul).
 
-Ce plugin utilise le nouveau framework Cocorico par l'équipe de [Themes de France](https://www.themesdefrance.com/). Vous pouvez le trouver [ici sur Github](https://github.com/y-lohse/Cocorico).
+Ce plugin utilise le nouveau framework Cocorico par l'équipe de [Themes de France](https://www.themesdefrance.fr/). Vous pouvez le trouver [ici sur Github](https://github.com/y-lohse/Cocorico).
 
 = English =
 
@@ -26,7 +26,7 @@ Cocorico Social lets you add social share buttons (Facebook, Twitter, Google+ an
 
 You can choose buttons location, the networks to show and their format (text & icon, icon only or text only).
 
-This plugin use the new Cocorico framework from the guys at [Themes de France](https://www.themesdefrance.com/). You can find it [here on Github](https://github.com/y-lohse/Cocorico).
+This plugin use the new Cocorico framework from the guys at [Themes de France](https://www.themesdefrance.fr/). You can find it [here on Github](https://github.com/y-lohse/Cocorico).
 
 == Installation ==
 
@@ -42,10 +42,20 @@ Contact question at themesdefrance dot fr
 
 == Screenshots ==
 
-1. Tab General
-2. Tab Networks
+1. Tab General - Onglet Général
+2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
 
+= 1.0.1 =
+06-19-2014 - Bug fixes and enhancements
+- Quotes are working in Twitter and LinkedIn buttons
+- Bottom message fix
+- Secure Cocorico loading
+- Twitter Hagtags are now generated from post categories and tags
+- Translation updated
+- readme.txt updated
+- Plugin cover image added
+
 = 1.0.0 =
-06-16-2014 - Initial release
+06-18-2014 - Initial release
