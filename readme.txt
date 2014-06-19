@@ -16,7 +16,7 @@ Cocorico Social is a simple sharing plugin for WordPress.
 
 Cocorico Social permet d'ajouter des boutons de partage (Facebook, Twitter, Google+ et LinkedIn pour le moment) au début et à la fin des articles.
 
-Vous pouvez choisir où ajouter ces boutons, les réseaux à afficher et leur format (texte & icônes, icônes seules ou texte seul).
+Vous pouvez choisir où ajouter ces boutons, les réseaux à afficher, leur ordre et leur format (texte & icônes, icônes seules ou texte seul).
 
 Ce plugin utilise le nouveau framework Cocorico par l'équipe de [Themes de France](https://www.themesdefrance.fr/). Vous pouvez le trouver [ici sur Github](https://github.com/y-lohse/Cocorico).
 
@@ -24,7 +24,7 @@ Ce plugin utilise le nouveau framework Cocorico par l'équipe de [Themes de Fran
 
 Cocorico Social lets you add social share buttons (Facebook, Twitter, Google+ and LinkedIn for now) before and after single post content.
 
-You can choose buttons location, the networks to show and their format (text & icon, icon only or text only).
+You can choose buttons location, the networks to show their order and their format (text & icon, icon only or text only).
 
 This plugin use the new Cocorico framework from the guys at [Themes de France](https://www.themesdefrance.fr/). You can find it [here on Github](https://github.com/y-lohse/Cocorico).
 
