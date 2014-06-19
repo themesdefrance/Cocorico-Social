@@ -24,25 +24,35 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+// Cocorico loading
 if(is_admin())
 	require_once 'admin/Cocorico/Cocorico.php';
+
+// Plugin Admin
+
+function coco_social_menu_item(){
+	add_options_page('Cocorico Social', 'Cocorico Social', 'manage_options', 'coco-social', 'coco_social_options');
+}
+add_action('admin_menu','coco_social_menu_item');
+
+function coco_social_options(){
+	include('admin/cocorico-social-admin.php');
+}
 
 // Load Styles
 function coco_social_load_style() {
 	wp_enqueue_style( 'coco-social', plugins_url( '/style.css', __FILE__ ), false, '1.0.0', 'screen' );
 }
-
 add_action( 'wp_enqueue_scripts', 'coco_social_load_style' );
 
-// Plugin Admin
-
-function coco_social_menu_item(){
-    	add_options_page('Cocorico Social', 'Cocorico Social', 'manage_options', 'coco-social', 'coco_social_options');
+// Setting link thanks to http://www.geekpress.fr/wordpress/tutoriel/ajouter-reglages-plugins-1154/
+function coco_social_action_links( $links, $file ) {
+    array_unshift( $links, '<a href="' . admin_url( 'options-general.php?page=coco-social' ) . '">' . __( 'Settings', 'cocosocial' ) . '</a>' );
+    return $links;
 }
+add_filter( 'plugin_action_links_'.plugin_basename( __FILE__ ), 'coco_social_action_links', 10, 2 );
 
-add_action('admin_menu','coco_social_menu_item');
-
-
+// Load translations
 function coco_social_load_textdomain() {
 	$domain = 'cocosocial';
 	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
@@ -52,9 +62,7 @@ function coco_social_load_textdomain() {
 }
 add_action( 'init', 'coco_social_load_textdomain' );
 
-function coco_social_options(){
-    	include('admin/cocorico-social-admin.php');
-}
+
 
 // Plugin Functions
 
