@@ -116,6 +116,7 @@ function coco_social_button($coco_network, $coco_format){
 	$post_title = urlencode(html_entity_decode(get_the_title($post->ID)));
 	$post_url = urlencode(get_permalink($post->ID));
 	$post_summary = urlencode(esc_attr(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200)));
+	
 	$share_url = '';
 	$name = $coco_network;
 	
@@ -125,7 +126,10 @@ function coco_social_button($coco_network, $coco_format){
 		break;
 		case 'twitter' :
 			$twitter = get_option('cocosocial_twitter_username');
-			$share_url = 'http://twitter.com/share?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '');
+			$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
+			if(has_tag())
+				$twitter_hastags .= urlencode( ','.implode( ',', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) ) );
+			$share_url = 'http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hastags;
 		break;
 		case 'googleplus' :
 			$share_url = 'https://plus.google.com/share?url='.$post_url;
