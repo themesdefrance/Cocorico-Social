@@ -105,23 +105,26 @@ function coco_social_buttons($networks,$location){
 function coco_social_button($coco_network, $coco_format){
 	
 	global $post;
+	$post_title = urlencode(html_entity_decode(get_the_title($post->ID)));
+	$post_url = urlencode(get_permalink($post->ID));
+	$post_summary = urlencode(esc_attr(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200)));
 	$share_url = '';
 	$name = $coco_network;
 	
 	switch($coco_network){
 		case 'facebook' :
-			$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode(get_permalink($post->ID));
+			$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
 		break;
 		case 'twitter' :
 			$twitter = get_option('cocosocial_twitter_username');
-			$share_url = 'http://twitter.com/share?url='.urlencode(get_permalink($post->ID)).'&text='.urlencode(get_the_title($post->ID)).( $twitter ? '&via='.$twitter : '');
+			$share_url = 'http://twitter.com/share?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '');
 		break;
 		case 'googleplus' :
-			$share_url = 'https://plus.google.com/share?url='.urlencode(get_permalink($post->ID));
+			$share_url = 'https://plus.google.com/share?url='.$post_url;
 			$name = 'Google+';
 		break;
 		case 'linkedin' :
-			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.urlencode(get_permalink($post->ID)).'&title='.urlencode(get_the_title($post->ID)).'&summary='.urlencode(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200));
+			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'&summary='.$post_summary;
 		break;
 		default:
 		$share_url = '';
