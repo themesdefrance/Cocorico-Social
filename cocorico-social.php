@@ -24,7 +24,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-require_once 'admin/Cocorico/Cocorico.php';
+if(is_admin())
+	require_once 'admin/Cocorico/Cocorico.php';
 
 // Load Styles
 function coco_social_load_style() {
