@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-06-16 23:27+0100\n"
-"PO-Revision-Date: 2014-06-16 23:28+0100\n"
+"POT-Creation-Date: 2014-06-19 16:16+0100\n"
+"PO-Revision-Date: 2014-06-19 16:16+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
@@ -137,10 +137,14 @@ msgstr "Sauvegarder les réglages"
 msgid "Cocorico Social is brought to you by"
 msgstr "Cocorico Social est un plugin proposé par"
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:133
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:137
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:141
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:145
+#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:50
+msgid "Settings"
+msgstr "Réglages"
+
+#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:148
+#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:152
+#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:156
+#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:160
 #, php-format
 msgid "Share on %1$s"
 msgstr "Partager sur %1$s"
