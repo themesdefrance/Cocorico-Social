@@ -3,7 +3,7 @@
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
 Description: The share plugin from Themes de France
-Version: 1.0.0
+Version: 1.0.2
 Author: Alex from Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial

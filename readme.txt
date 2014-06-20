@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Contact question at themesdefrance dot fr
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.0.2 =
+- Update version number
 
 = 1.0.1 =
 06-19-2014 - Bug fixes and enhancements
