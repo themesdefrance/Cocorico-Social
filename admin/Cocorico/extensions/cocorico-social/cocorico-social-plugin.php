@@ -59,9 +59,9 @@ function cocosocialOrderedListShorthand($cocorico, $name, $label, $checkboxes){
 	$cocorico->endWrapper('td');
 	$cocorico->endWrapper('tr');
 	
-	wp_register_script('cocosocial_slip', COCORICO_URI.'/extensions/cocorico-social/slip.js', array(), '1', true);
+	wp_register_script('cocosocial_slip', COCO_SOCIAL_URI.'/extensions/cocorico-social/slip.js', array(), '1', true);
 	wp_enqueue_script('cocosocial_slip');
-	wp_register_script('cocosocial_ordre', COCORICO_URI.'/extensions/cocorico-social/ordre.js', array('jquery'), '1', true);
+	wp_register_script('cocosocial_ordre', COCO_SOCIAL_URI.'/extensions/cocorico-social/ordre.js', array('jquery'), '1', true);
 	wp_enqueue_script('cocosocial_ordre');
 }
 CocoDictionary::register(CocoDictionary::SHORTHAND, 'orderedList', 'cocosocialOrderedListShorthand');

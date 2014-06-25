@@ -45,6 +45,13 @@ function coco_social_load_style() {
 }
 add_action( 'wp_enqueue_scripts', 'coco_social_load_style' );
 
+function coco_social_admin_enqueue(){
+	define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
+	wp_register_style( 'cocosocial_custom_admin_css', COCO_SOCIAL_URI . '/extensions/cocorico-social/admin-style.css', false );
+	wp_enqueue_style( 'cocosocial_custom_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'coco_social_admin_enqueue' );
+
 // Setting link thanks to http://www.geekpress.fr/wordpress/tutoriel/ajouter-reglages-plugins-1154/
 function coco_social_action_links( $links, $file ) {
     array_unshift( $links, '<a href="' . admin_url( 'options-general.php?page=coco-social' ) . '">' . __( 'Settings', 'cocosocial' ) . '</a>' );
