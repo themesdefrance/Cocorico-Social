@@ -47,6 +47,9 @@ Contact question at themesdefrance dot fr
 
 == Changelog ==
 
+= 1.0.3 =
+- New stuff
+
 = 1.0.2 =
 - Update version number
 
