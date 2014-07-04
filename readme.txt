@@ -73,6 +73,7 @@ Don't wait and drop us an email at question at themesdefrance dot fr
 - New : Pinterest, Viadeo and Email buttons added
 - New : Choose between content fitted width and auto width
 - Update : CSS optimizations when more than 4 buttons are displayed
+- Update : Buttons will only show up on posts (for now)
 
 = 1.0.3 =
 - Fix : Cocorico compatibility when used with a theme from Themes de France

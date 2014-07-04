@@ -81,6 +81,7 @@
 
 .coco-social ul.coco-social-buttons li a > span{
 	word-break: normal;
+	word-wrap: normal;
 }
 
 /* Icon only styles*/
