@@ -3,7 +3,7 @@
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
 Description: The share plugin from Themes de France
-Version: 1.0.3
+Version: 1.1.0
 Author: Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial
@@ -41,7 +41,7 @@ function coco_social_options(){
 
 // Load Styles
 function coco_social_load_style() {
-	wp_enqueue_style( 'coco-social', plugins_url( '/style.css', __FILE__ ), false, '1.0.0', 'screen' );
+	wp_enqueue_style( 'coco-social', plugins_url( '/style.css', __FILE__ ), false, '1.1.0', 'screen' );
 }
 add_action( 'wp_enqueue_scripts', 'coco_social_load_style' );
 
@@ -98,8 +98,11 @@ function coco_social_buttons($networks,$location){
 			$format = get_option('cocosocial_format');
 			$share_message = get_option('cocosocial_bottom_message');
 			
+			// Width
+			$width = get_option('cocosocial_width');
+			
 			// Apply the right class 
-    		$buttons_class = coco_social_get_class($networks_array[1]);
+    		$buttons_class = coco_social_get_class($networks_array[1],$width);
 			
             $buttons = "<div class='coco-social'>";
             
@@ -146,6 +149,17 @@ function coco_social_button($coco_network, $coco_format){
 		case 'linkedin' :
 			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'&summary='.$post_summary;
 		break;
+		case 'viadeo' : 
+			$share_url = 'http://www.viadeo.com/?&url='.$post_url.'&title='.$post_title;
+		break;
+		case 'pinterest' :
+			$pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+			$share_url = 'http://pinterest.com/pin/create/button/?url='.$post_url.'&media='.$pinterestimage[0].'&description='.$post_title;
+		break;
+		case 'email' :
+			$email_intro = urlencode(__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
+			$share_url = 'mailto:?Subject='.$post_title.'&Body='.$email_intro.' '.$post_summary.' '.$post_url;
+		break;
 		default:
 		$share_url = '';
 		
@@ -153,28 +167,32 @@ function coco_social_button($coco_network, $coco_format){
 	
 	switch($coco_format){
 		case 'icon_text' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).'</span></a>';
 		break;
 		
 		case 'icon_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
 		break;
 		
 		case 'text_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
 		break;
 		
 		default:
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="tdf-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 	}
 	
 	
 	return $button;
 }
 
-function coco_social_get_class($number){
-
+function coco_social_get_class($number,$size){
+	
 	$class = '';
+	
+	if($size == 'auto_width')
+		return 'auto_width';
+	
 	switch($number)
 	{
 		case 1:
@@ -187,9 +205,20 @@ function coco_social_get_class($number){
 		case 3:
 			$class='thirds';
 		break;
+		case 4:
+			$class='fourths';
+		break;
+		case 5:
+			$class='fifths';
+		break;
+		case 6:
+			$class='sixths';
+		break;
+		case 7:
+			$class='sevenths';
+		break;
 		default :
 			$class='';
-			
 	}
 	return $class;
 }

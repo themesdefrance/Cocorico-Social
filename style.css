@@ -9,6 +9,92 @@
 	font-style: normal;
 }
 
+.coco-social{
+	margin:10px 0;
+	display:inline-block;
+	width:100%;
+}
+
+.coco-social ul.coco-social-buttons{
+	margin:0px;
+}
+
+.coco-social ul.coco-social-buttons li{
+	list-style-type:none;
+	float:left;
+	margin:2px 0.5% 0 0;
+}
+
+.coco-social ul.coco-social-buttons.full li{
+	width:100%;
+	margin:0;
+}
+
+.coco-social ul.coco-social-buttons.halfs li{
+	width:49.75%;
+}
+
+.coco-social ul.coco-social-buttons.thirds li{
+	width:33%;
+}
+
+.coco-social ul.coco-social-buttons.fourths li{
+	width:24.625%;
+}
+
+.coco-social ul.coco-social-buttons.fifths li{
+	width:19.6%;
+}
+
+.coco-social ul.coco-social-buttons.sixths li{
+	width:16.25%;
+}
+
+.coco-social ul.coco-social-buttons.sevenths li{
+	width:13.857%;
+}
+
+.coco-social ul.coco-social-buttons li:last-child{
+	margin-right:0;
+}
+
+.coco-social ul.coco-social-buttons li a{
+	width:100%;
+	display: block;
+	text-align: center;
+	text-decoration:none;
+	color:#ffffff;
+	padding:9px 0 10px;
+	background-color:#888888;
+	-webkit-transition: background-color 0.2s ease;
+        -moz-transition: background-color 0.2s ease;
+         -ms-transition: background-color 0.2s ease;
+          -o-transition: background-color 0.2s ease;
+             transition: background-color 0.2s ease;
+    word-break:normal;
+}
+
+.coco-social ul.coco-social-buttons li a:hover{
+	text-decoration:none;
+	background-color:#6f6f6f;
+}
+
+.coco-social ul.coco-social-buttons li a > span{
+	word-break: normal;
+}
+
+/* Icon only styles*/
+
+.coco-social ul.coco-social-buttons.icon_only li a{
+	font-size:22px;
+}
+
+.coco-social ul.coco-social-buttons.icon_only li a > i{
+	margin-right:0
+}
+
+/* Buttons' icons */
+
 [class^="cocosocial-icon-"], [class*=" cocosocial-icon-"] {
 	font-family: 'coco-social';
 	speak: none;
@@ -23,8 +109,12 @@
 	-moz-osx-font-smoothing: grayscale;
 	
 	margin-right:10px;
+	vertical-align:middle;
 }
 
+[class^="cocosocial-icon-"]:before, [class*=" cocosocial-icon-"]:before{
+	font-size:x-large;
+}
 
 .cocosocial-icon-twitter:before {
 	content: "\f099";
@@ -38,89 +128,117 @@
 .cocosocial-icon-linkedin:before {
 	content: "\f0e1";
 }
-
-.coco-social{
-	margin:20px 0;
-	clear:both;
+.cocosocial-icon-viadeo:before {
+	content: "\e60d";
+}
+.cocosocial-icon-pinterest:before {
+	content: "\f0d2";
+}
+.cocosocial-icon-email:before {
+	content: "\f003";
 }
 
-.coco-social ul.coco-social-buttons{
-	margin:0px;
-	min-height:40px;
-}
+/* Icon text styles */
 
-.coco-social ul.coco-social-buttons li{
-	width:24%;
-	list-style-type:none;
-	float:left;
-	margin:0 1% 0 0;
-}
-
-.coco-social ul.coco-social-buttons.full li{
-	width:100%;
-	margin:0;
-}
-
-.coco-social ul.coco-social-buttons.halfs li{
-	width:49%;
-}
-
-.coco-social ul.coco-social-buttons.thirds li{
-	width:32.3%;
-}
-
-
-.coco-social ul.coco-social-buttons li a{
-	width:100%;
+.coco-social ul.coco-social-buttons.icon_text.fifths li a > i,
+.coco-social ul.coco-social-buttons.icon_text.sixths li a > i,
+.coco-social ul.coco-social-buttons.icon_text.sevenths li a > i{
 	display: block;
-	text-align: center;
-	text-decoration:none;
-	color:#ffffff;
-	padding:10px 0;
-	-webkit-transition: background-color 0.2s ease;
-        -moz-transition: background-color 0.2s ease;
-         -ms-transition: background-color 0.2s ease;
-          -o-transition: background-color 0.2s ease;
-             transition: background-color 0.2s ease;
+	margin: 0 0 5px;
 }
 
-.coco-social ul.coco-social-buttons li a:hover{
-	text-decoration:none;
+/* Text only styles */
+.coco-social ul.coco-social-buttons.text_only li a{
+	padding: 9px 0 7px;
 }
 
-.coco-social ul.coco-social-buttons.icon_only li a > i{
-	margin-right:0
+.coco-social ul.coco-social-buttons.text_only.fifths li a,
+.coco-social ul.coco-social-buttons.text_only.sixths li a,
+.coco-social ul.coco-social-buttons.text_only.sevenths li a{
+	font-size:small;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-facebook{
+/* Auto width styles */
+
+.coco-social ul.coco-social-buttons.auto_width li a{
+	padding:9px 15px 10px;
+}
+
+.coco-social ul.coco-social-buttons.auto_width.icon_only li{
+	width:50px;
+}
+
+.coco-social ul.coco-social-buttons.auto_width.icon_only li a{
+	padding:9px 0px 10px;
+}
+
+/* Buttons' colors */
+
+.coco-social ul.coco-social-buttons li a.coco-facebook{
 	background-color:#3b5998;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-facebook:hover{
+.coco-social ul.coco-social-buttons li a.coco-facebook:hover{
 	background-color:#22407f;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-twitter{
+.coco-social ul.coco-social-buttons li a.coco-twitter{
 	background-color:#00aced;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-twitter:hover{
+.coco-social ul.coco-social-buttons li a.coco-twitter:hover{
 	background-color:#0093d4;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-googleplus{
+.coco-social ul.coco-social-buttons li a.coco-googleplus{
 	background-color:#dd4b39;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-googleplus:hover{
+.coco-social ul.coco-social-buttons li a.coco-googleplus:hover{
 	background-color:#c43220;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-linkedin{
+.coco-social ul.coco-social-buttons li a.coco-linkedin{
 	background-color:#007bb6;
 }
 
-.coco-social ul.coco-social-buttons li a.tdf-linkedin:hover{
+.coco-social ul.coco-social-buttons li a.coco-linkedin:hover{
 	background-color:#00629d;
 }
+
+.coco-social ul.coco-social-buttons li a.coco-viadeo{
+	background-color:#ee7600;
+}
+
+.coco-social ul.coco-social-buttons li a.coco-viadeo:hover{
+	background-color:#d55d00;
+}
+
+.coco-social ul.coco-social-buttons li a.coco-pinterest{
+	background-color:#cb2027;
+}
+
+.coco-social ul.coco-social-buttons li a.coco-pinterest:hover{
+	background-color:#b2070e;
+}
+
+/* Responsive styles */
+
+@media only screen and (max-width:640px) { 
+	.coco-social ul.coco-social-buttons li a > span{
+		font-size:small;
+		word-break: normal;
+	}
+	
+	/* Normal font size when 1 or 2 buttons */
+	.coco-social ul.coco-social-buttons.halfs li a > span{
+		font-size:inherit;
+	}
+	
+	.coco-social ul.coco-social-buttons.text_only{
+		font-size:small;
+	}
+	
+}
+
 

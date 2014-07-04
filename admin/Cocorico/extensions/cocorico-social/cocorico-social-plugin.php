@@ -25,14 +25,18 @@ function cocosocialLiWrapper($content){
 CocoDictionary::register(CocoDictionary::WRAPPER, 'li', 'cocosocialLiWrapper');
 
 function cocosocialOrderedListShorthand($cocorico, $name, $label, $checkboxes){
+	
 	$stored = CoCoRequest::request($name);
 	if (!$stored) $stored = $cocorico->getStore()->get($name);
-	if (!$stored){
-		//first run
-		$stored = array();
-		foreach ($checkboxes as $index=>$value){
-			$stored[$index] = true;
-		}
+	
+	$local = array();
+	foreach ($checkboxes as $index=>$value){
+		$local[$index] = false;
+	}
+	
+	foreach($local as $index=>$value){
+		if(!array_key_exists($index,$stored))
+			$stored[$index]=$value;
 	}
 	
 	$reorderedCheckboxes = array();

@@ -33,10 +33,13 @@ $form->setting(array('type'=>'checkbox',
 
 $form->orderedList('networks_blocks',
 				__('Networks buttons (order them by drag & drop)', 'cocosocial'),
-				array(  'facebook'=>__('Facebook', 'cocosocial'),
+				array(   'facebook'=>__('Facebook', 'cocosocial'),
 						 'twitter'=>__('Twitter', 'cocosocial'),
 						 'googleplus'=>__('Google+', 'cocosocial'),
-						 'linkedin'=>__('LinkedIn', 'cocosocial')));
+						 'linkedin'=>__('LinkedIn', 'cocosocial'),
+						 'viadeo'=>__('Viadeo', 'cocosocial'),
+						 'pinterest'=>__('Pinterest', 'cocosocial'),
+						 'email'=>__('Email', 'cocosocial')));
 						
 
 $form->setting(array('type'=>'radio',
@@ -51,7 +54,21 @@ $form->setting(array('type'=>'radio',
 					 	'after'=>'<br/>',
 					 	'default'=>'icon_text'
 					 ),
-					 'description'=>__("Choose the format that makes you feel good.", 'cocosocial')
+					 'description'=>__('Choose the format that makes you feel good.', 'cocosocial')
+					 ));
+					 
+$form->setting(array('type'=>'radio',
+					 'label'=>__('Buttons\' width', 'cocosocial'),
+					 'name'=>'width',
+					 'radios'=>array(
+					 	 'fitted_width'=>__('Fill out the post width.', 'cocosocial'),
+						 'auto_width'=>__('Auto width', 'cocosocial')
+					 ),
+					 'options'=>array(
+					 	'after'=>'<br/>',
+					 	'default'=>'fitted_width'
+					 ),
+					 'description'=>__("Choose your best button's width.", 'cocosocial')
 					 ));
 					 
 					 
@@ -89,6 +106,16 @@ $form->setting(array('type'=>'url',
 					 'name'=>'linkedin_url',
 					 'label'=>__("LinkedIn", 'cocosocial'),
 					 'description'=>__("Add your LinkedIn profile link.", 'cocosocial')));
+					 
+$form->setting(array('type'=>'url',
+					 'name'=>'viadeo_url',
+					 'label'=>__("Viadeo", 'cocosocial'),
+					 'description'=>__("Add your Viadeo profile link.", 'cocosocial')));
+					 
+$form->setting(array('type'=>'url',
+					 'name'=>'pinterest_url',
+					 'label'=>__("Pinterest", 'cocosocial'),
+					 'description'=>__("Add your Pinterest profile link.", 'cocosocial')));
 
 $form->endForm();
 
