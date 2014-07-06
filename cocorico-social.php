@@ -78,6 +78,8 @@ function coco_social_share($content) {
 		$location = get_option('cocosocial_location', false);
 		$networks =  get_option('cocosocial_networks_blocks');
 		
+		// TO DO Check post types
+		
 		if(is_singular('post') && $location && $networks!='') { 
 			
 			if(in_array('top', $location))

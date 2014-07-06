@@ -1,5 +1,9 @@
 <?php
 
+require_once('functions.php');
+
+$all_post_types = coco_get_all_post_types();
+
 ////////////////////////////////////
 // Cocorico Framework
 ////////////////////////////////////
@@ -21,15 +25,24 @@ $form->setting(array('type'=>'checkbox',
 					 'label'=>__('Buttons location', 'cocosocial'),
 					 'name'=>'location',
 					 'checkboxes'=>array(
-					 	 'top'=>__('Top of single posts', 'cocosocial'),
-						 'bottom'=>__('Bottom of single posts', 'cocosocial')
+					 	 'top'=>__('Top of content', 'cocosocial'),
+						 'bottom'=>__('Bottom of content', 'cocosocial')
 					 ),
 					 'options'=>array(
 					 	'after'=>'<br/>'
 					 ),
-					 'description'=>__("Choose where to insert share buttons in single posts.", 'cocosocial')
+					 'description'=>__("Choose where to insert share buttons in content.", 'cocosocial')
 					 ));
 
+$form->setting(array('type'=>'checkbox',
+					 'label'=>__('Post types presence', 'cocosocial'),
+					 'name'=>'pt_presence',
+					 'checkboxes'=> $all_post_types,
+					 'options'=>array(
+					 	'after'=>'<br/>'
+					 ),
+					 'description'=>__("Select the post types where buttons should be displayed.", 'cocosocial')
+					 ));
 
 $form->orderedList('networks_blocks',
 				__('Networks buttons (order them by drag & drop)', 'cocosocial'),
