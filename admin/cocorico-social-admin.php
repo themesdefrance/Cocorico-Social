@@ -142,7 +142,7 @@ $form->render();
 
 <div style="margin-top:20px;">
 
-<?php _e('Cocorico Social is brought to you by','cocosocial'); ?> <a href="https://www.themesdefrance.fr/?utm_source=plugin&utm_medium=link&utm_campaign=cocoricosocial" target="_blank">Themes de France</a>
+<?php _e('Cocorico Social is brought to you by','cocosocial'); ?> <a href="https://www.themesdefrance.fr/?utm_source=plugin&utm_medium=link&utm_campaign=cocoricosocial" target="_blank">Themes de France</a> - <?php _e('If you found this plugin useful','cocosocial'); ?>, <a href="" target="_blank"><?php _e('give it 5 &#9733; on WordPress.org','cocosocial'); ?></a>
 
 </div>
 
