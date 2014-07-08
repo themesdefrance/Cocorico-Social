@@ -12,21 +12,59 @@ Cocorico Social is a simple sharing plugin for WordPress.
 
 == Description ==
 
-= Français =
-
-Cocorico Social permet d'ajouter des boutons de partage (Facebook, Twitter, Google+, LinkedIn, Viadeo, Pinterest et Email) au début et à la fin des articles.
-
-Il est possible de choisir les boutons à afficher, leur ordre et leur format (texte & icônes, icônes seules ou texte seul). Les boutons peuvent prendre toute la largeur des articles ou s'afficher les uns à la suite des autres.
-
-Ce plugin utilise le framework Cocorico par [Themes de France](https://www.themesdefrance.fr/).
-
 = English =
 
-Cocorico Social lets you add social share buttons (Facebook, Twitter, Google+, LinkedIn, Viadeo, Pinterest and Email) before and after posts.
+Cocorico Social lets you add social share buttons before and after your content.
+* Facebook
+* Twitter
+* Google+
+* LinkedIn
+* Viadeo
+* Pinterest
+* Email
 
-You can choose buttons to display, their order and their format (text & icon, icon only or text only). Buttons can also fit your post's width or appear one after the other.
+Cocorico Social lets you :
+* Choose the share buttons to display
+* Define the order in which display the buttons
+* Choose the post types where the buttons will show up
+* Select a style :
+ * Fill out the content width
+ * Auto width
+* Specify a button format :
+ * Text & icons
+ * Icons only
+ * Text only
 
-This plugin use the Cocorico framework from [Themes de France](https://www.themesdefrance.fr/).
+Need something else ? Contact us.
+
+[Themes de France](https://www.themesdefrance.fr/).
+
+= Français =
+
+Cocorico Social permet d'ajouter des boutons de partage au début et à la fin de vos contenus. Vous pourrez afficher les boutons de partage suivants :
+* Facebook
+* Twitter
+* Google+
+* LinkedIn
+* Viadeo
+* Pinterest
+* Email
+
+Il est possible de :
+* Choisir les boutons à afficher
+* Définir un ordre dans lequel afficher les boutons
+* Choisir les types de contenu sur lesquels les boutons s'afficheront
+* Choisir un style d'affichage :
+ * Toute la largeur du contenu
+ * Largeur automatique
+* Spécifier un format pour les boutons :
+ * Texte & icônes
+ * Icônes seules
+ * Texte seul
+
+Besoin d'autre chose ? Contactez-nous.
+
+[Themes de France](https://www.themesdefrance.fr/).
 
 == Installation ==
 
