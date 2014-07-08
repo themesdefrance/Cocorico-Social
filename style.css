@@ -159,6 +159,25 @@
 	font-size:small;
 }
 
+/* Big first style */
+
+.coco-social ul.coco-social-buttons.big_first li a{
+	padding:9px 15px 10px;
+}
+
+.coco-social ul.coco-social-buttons.big_first li:nth-child(n+2){
+	width:50px;
+}
+
+.coco-social ul.coco-social-buttons.big_first li:nth-child(n+2) span{
+	display:none;
+}
+
+.coco-social ul.coco-social-buttons.big_first li:nth-child(n+2) a > i{
+	margin-right:0
+}
+
+
 /* Auto width styles */
 
 .coco-social ul.coco-social-buttons.auto_width li a{

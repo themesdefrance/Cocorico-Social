@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-07-08 17:52+0100\n"
-"PO-Revision-Date: 2014-07-08 17:53+0100\n"
+"POT-Creation-Date: 2014-07-08 19:30+0100\n"
+"PO-Revision-Date: 2014-07-08 19:35+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
@@ -20,18 +20,24 @@ msgstr ""
 msgid "Settings"
 msgstr "Réglages"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:161
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:166
 msgid ""
 "Hey, I discovered this post and I wanted to share it with you. Tell me what "
 "you think : "
 msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:171
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:175
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:179
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:183
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:176
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:180
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:184
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:188
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:192
 #, php-format
 msgid "Share on %1$s"
+msgstr "Partager sur %1$s"
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/cocorico-social.php:188
+#, php-format
+msgid "Share this on %1$s"
 msgstr "Partager sur %1$s"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:14
@@ -60,7 +66,7 @@ msgstr "Après le contenu"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:34
 msgid "Choose where to insert share buttons in content."
-msgstr "Choisissez où placer les boutons de partage dans le contenu."
+msgstr "Choisissez où placer les boutons de partage dans vos contenus."
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:38
 msgid "Display buttons in"
@@ -68,39 +74,40 @@ msgstr "Afficher les boutons dans"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:44
 msgid "Select the post types where buttons should be displayed."
-msgstr "Sélectionnez dans quels types de contenus afficher les boutons."
+msgstr ""
+"Sélectionnez sur quels types de contenus les boutons doivent être affichés."
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:48
 msgid "Networks buttons (order them by drag & drop)"
 msgstr "Boutons à afficher (réorganisez-les par glisser déposer)"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:49
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:105
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:106
 msgid "Facebook"
 msgstr "Facebook"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:50
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:110
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:111
 msgid "Twitter"
 msgstr "Twitter"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:51
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:115
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:116
 msgid "Google+"
 msgstr "Google+"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:52
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:120
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:121
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:53
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:125
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:126
 msgid "Viadeo"
 msgstr "Viadeo"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:54
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:130
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:131
 msgid "Pinterest"
 msgstr "Pinterest"
 
@@ -140,60 +147,69 @@ msgstr "Prendre toute la largeur du contenu."
 msgid "Auto width"
 msgstr "Largeur automatique"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:84
-msgid "Choose your best button's width."
-msgstr "Choisissez la largeur des boutons."
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:79
+msgid "Big first button *"
+msgstr "Premier bouton en avant *"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:90
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:85
+msgid ""
+"Choose your best button's width.<br>* : If you select this, button's format "
+"will be ignored (give it a try it's awesome !)."
+msgstr ""
+"Choisissez l'agencement qui vous convient le mieux.<br>* : Si vous "
+"sélectionnez ceci, le format des boutons sera ignoré (essayez c'est "
+"génial !)."
+
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
 msgid "Share incentive"
 msgstr "Incitation au partage"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:92
 msgid ""
 "If you use bottom share buttons, this text will be displayed before the "
 "buttons to motivate visitors clicks. E.g : Share this."
 msgstr ""
-"Si vous utilisez les boutons de partage sous le contenu, ce texte sera "
-"affiché juste avant pour inciter vos visiteurs à cliquer. Exemple : Partager "
-"cette merveille."
+"Si vous utilisez les boutons de partage sous votre contenu, ce texte sera "
+"affiché juste avant pour inciter vos visiteurs à cliquer. Exemple : Le "
+"partage c'est la vie !."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:106
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:107
 msgid "Add your Facebook profile/page link."
 msgstr "Entrez l'adresse de votre profil/page Facebook."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:111
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:112
 msgid "Add your Twitter username (without @)."
 msgstr "Entrez votre identifiant Twitter (sans le @)."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:116
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:117
 msgid "Add your Google+ profile/page link."
 msgstr "Entrez l'adresse de votre profil/page Google+."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:121
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:122
 msgid "Add your LinkedIn profile link."
 msgstr "Entrez l'adresse de votre profil LinkedIn."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:126
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:127
 msgid "Add your Viadeo profile link."
 msgstr "Entrez l'adresse de votre profil Viadeo."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:131
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:132
 msgid "Add your Pinterest profile link."
 msgstr "Entrez l'adresse de votre profil Pinterest."
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:137
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:138
 msgid "Save Changes"
 msgstr "Sauvegarder les réglages"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:145
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
 msgid "Cocorico Social is brought to you by"
 msgstr "Cocorico Social est un plugin proposé par"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:145
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
 msgid "If you found this plugin useful"
 msgstr "Si vous avez trouvé ce plugin utile"
 
-#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:145
+#: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
 msgid "give it 5 &#9733; on WordPress.org"
 msgstr "donnez-lui 5 &#9733; sur WordPress.org"
 
@@ -208,6 +224,9 @@ msgstr "Sélectionner"
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:304
 msgid "Delete"
 msgstr "Supprimer"
+
+#~ msgid "Choose your best button's width."
+#~ msgstr "Choisissez la largeur des boutons."
 
 #~ msgid "Networks buttons"
 #~ msgstr "Réseaux à utiliser"

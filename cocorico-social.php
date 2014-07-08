@@ -110,7 +110,12 @@ function coco_social_buttons($networks,$location){
             if($location=='bottom')
             	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
             
-            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
+            if($buttons_class == 'big_first'){
+            	$format = $buttons_class;
+            	$buttons.= "<ul class='coco-social-buttons $format'>";
+            }else{
+	            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
+            }
             
             foreach ($networks as $network=>$display){
 				if (!$display) continue;
@@ -179,6 +184,10 @@ function coco_social_button($coco_network, $coco_format){
 			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
 		break;
 		
+		case 'big_first' :
+		$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.sprintf(__('Share this on %1$s','cocosocial'),ucfirst($name)).'</span></a>';
+		break;
+		
 		default:
 			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 	}
@@ -191,11 +200,21 @@ function coco_social_get_class($number,$size){
 	
 	$class = '';
 	
+	switch($size){
+		case 'auto_width':
+			return 'auto_width';
+		break;
+		case 'big_first':
+			return 'big_first';
+		break;
+		default:
+			$class = '';
+		
+	}
 	if($size == 'auto_width')
 		return 'auto_width';
 	
-	switch($number)
-	{
+	switch($number){
 		case 1:
 			//$class='full';
 			$class='halfs';

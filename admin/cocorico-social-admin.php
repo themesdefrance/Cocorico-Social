@@ -75,13 +75,14 @@ $form->setting(array('type'=>'radio',
 					 'name'=>'width',
 					 'radios'=>array(
 					 	 'fitted_width'=>__('Fill out the content width.', 'cocosocial'),
-						 'auto_width'=>__('Auto width', 'cocosocial')
+						 'auto_width'=>__('Auto width', 'cocosocial'),
+						 'big_first'=>__('Big first button *','cocosocial')
 					 ),
 					 'options'=>array(
 					 	'after'=>'<br/>',
 					 	'default'=>'fitted_width'
 					 ),
-					 'description'=>__("Choose your best button's width.", 'cocosocial')
+					 'description'=>__("Choose your best button's width.<br>* : If you select this, button's format will be ignored (give it a try it's awesome !).", 'cocosocial')
 					 ));
 					 
 					 
