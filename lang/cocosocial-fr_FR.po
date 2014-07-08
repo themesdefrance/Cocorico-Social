@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-07-08 17:17+0100\n"
-"PO-Revision-Date: 2014-07-08 17:18+0100\n"
+"POT-Creation-Date: 2014-07-08 17:52+0100\n"
+"PO-Revision-Date: 2014-07-08 17:53+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
@@ -133,8 +133,8 @@ msgid "Buttons' width"
 msgstr "Largeur des boutons"
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:77
-msgid "Fill out the post width."
-msgstr "Prendre toute la largeur de l'article."
+msgid "Fill out the content width."
+msgstr "Prendre toute la largeur du contenu."
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:78
 msgid "Auto width"
@@ -151,11 +151,11 @@ msgstr "Incitation au partage"
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
 msgid ""
 "If you use bottom share buttons, this text will be displayed before the "
-"buttons to motivate visitors clicks. E.g : Share this post."
+"buttons to motivate visitors clicks. E.g : Share this."
 msgstr ""
-"Si vous utilisez les boutons de partage sous vos articles, ce texte sera "
+"Si vous utilisez les boutons de partage sous le contenu, ce texte sera "
 "affiché juste avant pour inciter vos visiteurs à cliquer. Exemple : Partager "
-"cet article."
+"cette merveille."
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:106
 msgid "Add your Facebook profile/page link."

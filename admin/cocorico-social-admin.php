@@ -74,7 +74,7 @@ $form->setting(array('type'=>'radio',
 					 'label'=>__('Buttons\' width', 'cocosocial'),
 					 'name'=>'width',
 					 'radios'=>array(
-					 	 'fitted_width'=>__('Fill out the post width.', 'cocosocial'),
+					 	 'fitted_width'=>__('Fill out the content width.', 'cocosocial'),
 						 'auto_width'=>__('Auto width', 'cocosocial')
 					 ),
 					 'options'=>array(
@@ -88,7 +88,7 @@ $form->setting(array('type'=>'radio',
 $form->setting(array('type'=>'text',
 					 'name'=> 'bottom_message',
 					 'label'=>__("Share incentive", 'cocosocial'),
-					 'description'=>__("If you use bottom share buttons, this text will be displayed before the buttons to motivate visitors clicks. E.g : Share this post.", 'cocosocial')
+					 'description'=>__("If you use bottom share buttons, this text will be displayed before the buttons to motivate visitors clicks. E.g : Share this.", 'cocosocial')
 					 ));
 
 $form->endForm();

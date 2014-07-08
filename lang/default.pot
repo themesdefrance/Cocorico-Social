@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-07-08 17:18+0100\n"
-"PO-Revision-Date: 2014-07-08 17:18+0100\n"
+"POT-Creation-Date: 2014-07-08 17:53+0100\n"
+"PO-Revision-Date: 2014-07-08 17:53+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: en\n"
@@ -132,7 +132,7 @@ msgid "Buttons' width"
 msgstr ""
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:77
-msgid "Fill out the post width."
+msgid "Fill out the content width."
 msgstr ""
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:78
@@ -150,7 +150,7 @@ msgstr ""
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
 msgid ""
 "If you use bottom share buttons, this text will be displayed before the "
-"buttons to motivate visitors clicks. E.g : Share this post."
+"buttons to motivate visitors clicks. E.g : Share this."
 msgstr ""
 
 #: /Users/Alexandre/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:106
