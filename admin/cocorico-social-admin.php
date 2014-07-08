@@ -35,7 +35,7 @@ $form->setting(array('type'=>'checkbox',
 					 ));
 
 $form->setting(array('type'=>'checkbox',
-					 'label'=>__('Post types presence', 'cocosocial'),
+					 'label'=>__('Display buttons in', 'cocosocial'),
 					 'name'=>'pt_presence',
 					 'checkboxes'=> $all_post_types,
 					 'options'=>array(
