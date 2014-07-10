@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,7 @@ Cocorico Social lets you :
 * Select a style :
  * Fill out the content width
  * Auto width
+ * Big first button (try it, it rocks !)
 * Specify a button format :
  * Text & icons
  * Icons only
@@ -57,6 +58,7 @@ Il est possible de :
 * Choisir un style d'affichage :
  * Toute la largeur du contenu
  * Largeur automatique
+ * Premier bouton en avant (essayez ça vaut le coup)
 * Spécifier un format pour les boutons :
  * Texte & icônes
  * Icônes seules
@@ -68,29 +70,21 @@ Besoin d'autre chose ? Contactez-nous.
 
 == Installation ==
 
-= Français =
-
-1. Envoyez le dossier `cocorico-social` dans le dossier `/wp-content/plugins/`
-1. Activez Cocorico Social sur la page des plugins de WordPress
-1. Configurez le plugin en allant dans le menu `Cocorico Social` placé dans le menu Réglages
-
 = English =
 
 1. Upload the `cocorico-social` folder to the `/wp-content/plugins/` directory
 1. Activate the Cocorico Social plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin by going to the `Cocorico Social` menu that appears in the Settings admin menu
 
+= Français =
+
+1. Envoyez le dossier `cocorico-social` dans le dossier `/wp-content/plugins/`
+1. Activez Cocorico Social sur la page des plugins de WordPress
+1. Configurez le plugin en allant dans le menu `Cocorico Social` placé dans le menu Réglages
+
 == Frequently Asked Questions ==
 
 = Do you have a question ? =
-
-= Français =
-
-= Il manque le bouton XXX, pourvez-vous l'ajouter ? =
-Envoyez-nous votre demande de bouton à question arobase themesdefrance point fr et nous verrons si nous pouvons l'ajouter :)
-
-= D'autres questions ? =
-N'attendez plus et envoyez-nous un email à question arobase themesdefrance point fr
 
 = English =
 
@@ -100,12 +94,25 @@ Send us your button request here (question at themesdefrance dot fr) and we'll s
 = Other questions ? =
 Don't wait and drop us an email at question at themesdefrance dot fr
 
+= Français =
+
+= Il manque le bouton XXX, pourvez-vous l'ajouter ? =
+Envoyez-nous votre demande de bouton à question arobase themesdefrance point fr et nous verrons si nous pouvons l'ajouter :)
+
+= D'autres questions ? =
+N'attendez plus et envoyez-nous un email à question arobase themesdefrance point fr
+
 == Screenshots ==
 
 1. Tab General - Onglet Général
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.1 =
+- New : Choose the post types where to display the buttons
+- New : Big first button mode added
+- New : Footer admin link to Cocorico Social review page (be nice and give us 5* :))
 
 = 1.1.0 =
 - New : Pinterest, Viadeo and Email buttons added
