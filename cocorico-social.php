@@ -105,14 +105,14 @@ function coco_social_buttons($networks,$location){
 			// Apply the right class 
     		$buttons_class = coco_social_get_class($networks_array[1],$width);
 			
-			$buttons = apply_filters('coco_social_before_div', '');
+			$buttons = apply_filters('coco_social_before_div_'.$location, '');
 			
             $buttons.= "<div class='coco-social'>";
             
             if($location=='bottom')
             	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
             
-            $buttons.= apply_filters('coco_social_before_ul', '');
+            $buttons.= apply_filters('coco_social_before_ul_'.$location, '');
             
             if($buttons_class == 'big_first'){
             	$format = $buttons_class;
@@ -121,7 +121,7 @@ function coco_social_buttons($networks,$location){
 	            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             }
             
-            $buttons.= apply_filters('coco_social_before_first_li', '');
+            $buttons.= apply_filters('coco_social_before_first_li_'.$location, '');
             
             foreach ($networks as $network=>$display){
 				if (!$display) continue;
@@ -129,15 +129,15 @@ function coco_social_buttons($networks,$location){
 				
 			}
 			
-			$buttons.= apply_filters('coco_social_after_last_li', '');
+			$buttons.= apply_filters('coco_social_after_last_li_'.$location, '');
 			
             $buttons.= "</ul>";
             
-            $buttons.= apply_filters('coco_social_after_ul', '');
+            $buttons.= apply_filters('coco_social_after_ul_'.$location, '');
             
             $buttons.= "</div>";
             
-            $buttons.= apply_filters('coco_social_after_div', '');
+            $buttons.= apply_filters('coco_social_after_div_'.$location, '');
             
             return $buttons;
 }
