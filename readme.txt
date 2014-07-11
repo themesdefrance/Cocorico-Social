@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,9 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.3 =
+- SVN issue ! This version really bring back 3 files !
 
 = 1.1.2 =
 - SVN issue ! This version bring back 3 files !
