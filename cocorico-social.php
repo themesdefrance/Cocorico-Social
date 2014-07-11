@@ -73,187 +73,200 @@ add_action( 'init', 'coco_social_load_textdomain' );
 
 // Plugin Functions
 
-function coco_social_share($content) {
-		
-		$location = get_option('cocosocial_location', false);
-		$networks =  get_option('cocosocial_networks_blocks');
-		
-		$posttypes = get_option('cocosocial_pt_presence');
+if(!function_exists('coco_social_buttons')){
+	function coco_social_share($content) {
 			
-		if(is_singular($posttypes) && $location && $networks!='') { 
+			$location = get_option('cocosocial_location', false);
+			$networks =  get_option('cocosocial_networks_blocks');
 			
-				if(in_array('top', $location))
-					$content = coco_social_buttons($networks,'top').$content;
-				if(in_array('bottom', $location))
-					$content = $content.coco_social_buttons($networks,'bottom');
-        }
-        return $content;
+			$posttypes = get_option('cocosocial_pt_presence');
+				
+			if(is_singular($posttypes) && $location && $networks!='') { 
+				
+					if(in_array('top', $location))
+						$content = coco_social_buttons($networks,'top').$content;
+					if(in_array('bottom', $location))
+						$content = $content.coco_social_buttons($networks,'bottom');
+	        }
+	        return $content;
+	}
 }
 add_filter ('the_content', 'coco_social_share');
 
-function coco_social_buttons($networks,$location){
+if(!function_exists('coco_social_buttons')){
 
-			$networks_array = array_count_values($networks);
+	function coco_social_buttons($networks,$location){
+
+		$networks_array = array_count_values($networks);
+		
+		// Format
+		$format = get_option('cocosocial_format');
+		$share_message = get_option('cocosocial_bottom_message');
+		
+		// Width
+		$width = get_option('cocosocial_width');
+		
+		// Apply the right class 
+		$buttons_class = coco_social_get_class($networks_array[1],$width);
+		
+		$buttons = apply_filters('coco_social_before_div_'.$location, '');
+		
+        $buttons.= "<div class='coco-social'>";
+        
+        if($location=='bottom')
+        	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
+        
+        $buttons.= apply_filters('coco_social_before_ul_'.$location, '');
+        
+        if($buttons_class == 'big_first'){
+        	$format = $buttons_class;
+        	$buttons.= "<ul class='coco-social-buttons $format'>";
+        }else{
+            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
+        }
+        
+        $buttons.= apply_filters('coco_social_before_first_li_'.$location, '');
+        
+        foreach ($networks as $network=>$display){
+			if (!$display) continue;
+			$buttons.= "<li>".coco_social_button($network,$format)."</li>";
 			
-			// Format
-			$format = get_option('cocosocial_format');
-			$share_message = get_option('cocosocial_bottom_message');
-			
-			// Width
-			$width = get_option('cocosocial_width');
-			
-			// Apply the right class 
-    		$buttons_class = coco_social_get_class($networks_array[1],$width);
-			
-			$buttons = apply_filters('coco_social_before_div_'.$location, '');
-			
-            $buttons.= "<div class='coco-social'>";
-            
-            if($location=='bottom')
-            	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
-            
-            $buttons.= apply_filters('coco_social_before_ul_'.$location, '');
-            
-            if($buttons_class == 'big_first'){
-            	$format = $buttons_class;
-            	$buttons.= "<ul class='coco-social-buttons $format'>";
-            }else{
-	            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
-            }
-            
-            $buttons.= apply_filters('coco_social_before_first_li_'.$location, '');
-            
-            foreach ($networks as $network=>$display){
-				if (!$display) continue;
-				$buttons.= "<li>".coco_social_button($network,$format)."</li>";
-				
-			}
-			
-			$buttons.= apply_filters('coco_social_after_last_li_'.$location, '');
-			
-            $buttons.= "</ul>";
-            
-            $buttons.= apply_filters('coco_social_after_ul_'.$location, '');
-            
-            $buttons.= "</div>";
-            
-            $buttons.= apply_filters('coco_social_after_div_'.$location, '');
-            
-            return $buttons;
+		}
+		
+		$buttons.= apply_filters('coco_social_after_last_li_'.$location, '');
+		
+        $buttons.= "</ul>";
+        
+        $buttons.= apply_filters('coco_social_after_ul_'.$location, '');
+        
+        $buttons.= "</div>";
+        
+        $buttons.= apply_filters('coco_social_after_div_'.$location, '');
+        
+        return $buttons;
+	}
 }
 
-function coco_social_button($coco_network, $coco_format){
-	
-	global $post;
-	$post_title = urlencode(html_entity_decode(get_the_title($post->ID)));
-	$post_url = urlencode(get_permalink($post->ID));
-	$post_summary = urlencode(esc_attr(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200)));
-	
-	$share_url = '';
-	$name = $coco_network;
-	
-	switch($coco_network){
-		case 'facebook' :
-			$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
-		break;
-		case 'twitter' :
-			$twitter = get_option('cocosocial_twitter_username');
-			$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
-			if(has_tag())
-				$twitter_hastags .= urlencode( ','.implode( ',', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) ) );
-			$share_url = 'http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hastags;
-		break;
-		case 'googleplus' :
-			$share_url = 'https://plus.google.com/share?url='.$post_url;
-			$name = 'Google+';
-		break;
-		case 'linkedin' :
-			$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'&summary='.$post_summary;
-		break;
-		case 'viadeo' : 
-			$share_url = 'http://www.viadeo.com/?&url='.$post_url.'&title='.$post_title;
-		break;
-		case 'pinterest' :
-			$pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-			$share_url = 'http://pinterest.com/pin/create/button/?url='.$post_url.'&media='.$pinterestimage[0].'&description='.$post_title;
-		break;
-		case 'email' :
-			$email_intro = apply_filters('coco_social_email_body',__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
-			$share_url = 'mailto:?subject='.urldecode($post_title).'&body='.$email_intro.' '.urldecode($post_summary).' '.$post_url;
-		break;
-		default:
+if(!function_exists('coco_social_button')){
+
+	function coco_social_button($coco_network, $coco_format){
+		
+		global $post;
+		$post_title = urlencode(html_entity_decode(get_the_title($post->ID)));
+		$post_url = urlencode(get_permalink($post->ID));
+		$post_summary = urlencode(esc_attr(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200)));
+		
 		$share_url = '';
+		$name = $coco_network;
 		
+		switch($coco_network){
+			case 'facebook' :
+				$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
+			break;
+			case 'twitter' :
+				$twitter = get_option('cocosocial_twitter_username');
+				$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
+				if(has_tag())
+					$twitter_hastags .= urlencode( ','.implode( ',', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) ) );
+				$share_url = 'http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hastags;
+			break;
+			case 'googleplus' :
+				$share_url = 'https://plus.google.com/share?url='.$post_url;
+				$name = 'Google+';
+			break;
+			case 'linkedin' :
+				$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'&summary='.$post_summary;
+			break;
+			case 'viadeo' : 
+				$share_url = 'http://www.viadeo.com/?&url='.$post_url.'&title='.$post_title;
+			break;
+			case 'pinterest' :
+				$pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+				$share_url = 'http://pinterest.com/pin/create/button/?url='.$post_url.'&media='.$pinterestimage[0].'&description='.$post_title;
+			break;
+			case 'email' :
+				$email_intro = apply_filters('coco_social_email_body',__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
+				$share_url = 'mailto:?subject='.urldecode($post_title).'&body='.$email_intro.' '.urldecode($post_summary).' '.$post_url;
+			break;
+			default:
+			$share_url = '';
+			
+		}
+		
+		switch($coco_format){
+			case 'icon_text' :
+				$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).'</span></a>';
+			break;
+			
+			case 'icon_only' :
+				$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
+			break;
+			
+			case 'text_only' :
+				$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
+			break;
+			
+			case 'big_first' :
+			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.sprintf(__('Share this on %1$s','cocosocial'),ucfirst($name)).'</span></a>';
+			break;
+			
+			default:
+				$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+		}
+		
+		
+		return $button;
 	}
-	
-	switch($coco_format){
-		case 'icon_text' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).'</span></a>';
-		break;
-		
-		case 'icon_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
-		break;
-		
-		case 'text_only' :
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
-		break;
-		
-		case 'big_first' :
-		$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.sprintf(__('Share this on %1$s','cocosocial'),ucfirst($name)).'</span></a>';
-		break;
-		
-		default:
-			$button = '<a href="'.$share_url.'" title="'.sprintf(__('Share on %1$s','cocosocial'),ucfirst($name)).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
-	}
-	
-	
-	return $button;
+
 }
 
-function coco_social_get_class($number,$size){
-	
-	$class = '';
-	
-	switch($size){
-		case 'auto_width':
-			return 'auto_width';
-		break;
-		case 'big_first':
-			return 'big_first';
-		break;
-		default:
-			$class = '';
+if(!function_exists('coco_social_get_class')){
+
+	function coco_social_get_class($number,$size){
 		
+		$class = '';
+		
+		switch($size){
+			case 'auto_width':
+				return 'auto_width';
+			break;
+			case 'big_first':
+				return 'big_first';
+			break;
+			default:
+				$class = '';
+			
+		}
+		if($size == 'auto_width')
+			return 'auto_width';
+		
+		switch($number){
+			case 1:
+				//$class='full';
+				$class='halfs';
+			break;
+			case 2:
+				$class='halfs';
+			break;
+			case 3:
+				$class='thirds';
+			break;
+			case 4:
+				$class='fourths';
+			break;
+			case 5:
+				$class='fifths';
+			break;
+			case 6:
+				$class='sixths';
+			break;
+			case 7:
+				$class='sevenths';
+			break;
+			default :
+				$class='';
+		}
+		return $class;
 	}
-	if($size == 'auto_width')
-		return 'auto_width';
-	
-	switch($number){
-		case 1:
-			//$class='full';
-			$class='halfs';
-		break;
-		case 2:
-			$class='halfs';
-		break;
-		case 3:
-			$class='thirds';
-		break;
-		case 4:
-			$class='fourths';
-		break;
-		case 5:
-			$class='fifths';
-		break;
-		case 6:
-			$class='sixths';
-		break;
-		case 7:
-			$class='sevenths';
-		break;
-		default :
-			$class='';
-	}
-	return $class;
+
 }
