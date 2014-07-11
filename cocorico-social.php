@@ -105,10 +105,14 @@ function coco_social_buttons($networks,$location){
 			// Apply the right class 
     		$buttons_class = coco_social_get_class($networks_array[1],$width);
 			
-            $buttons = "<div class='coco-social'>";
+			$buttons = apply_filters('coco_social_before_div', '');
+			
+            $buttons.= "<div class='coco-social'>";
             
             if($location=='bottom')
             	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
+            
+            $buttons.= apply_filters('coco_social_before_ul', '');
             
             if($buttons_class == 'big_first'){
             	$format = $buttons_class;
@@ -117,12 +121,23 @@ function coco_social_buttons($networks,$location){
 	            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
             }
             
+            $buttons.= apply_filters('coco_social_before_first_li', '');
+            
             foreach ($networks as $network=>$display){
 				if (!$display) continue;
 				$buttons.= "<li>".coco_social_button($network,$format)."</li>";
+				
 			}
-
-            $buttons.= "</ul></div>";
+			
+			$buttons.= apply_filters('coco_social_after_last_li', '');
+			
+            $buttons.= "</ul>";
+            
+            $buttons.= apply_filters('coco_social_after_ul', '');
+            
+            $buttons.= "</div>";
+            
+            $buttons.= apply_filters('coco_social_after_div', '');
             
             return $buttons;
 }
@@ -163,8 +178,8 @@ function coco_social_button($coco_network, $coco_format){
 			$share_url = 'http://pinterest.com/pin/create/button/?url='.$post_url.'&media='.$pinterestimage[0].'&description='.$post_title;
 		break;
 		case 'email' :
-			$email_intro = urlencode(__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
-			$share_url = 'mailto:?Subject='.$post_title.'&Body='.$email_intro.' '.$post_summary.' '.$post_url;
+			$email_intro = apply_filters('coco_social_email_body',__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
+			$share_url = 'mailto:?subject='.urldecode($post_title).'&body='.$email_intro.' '.urldecode($post_summary).' '.$post_url;
 		break;
 		default:
 		$share_url = '';
