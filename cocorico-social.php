@@ -96,7 +96,13 @@ add_filter ('the_content', 'coco_social_share');
 if(!function_exists('coco_social_buttons')){
 
 	function coco_social_buttons($networks,$location){
-
+		
+		// Are we in a shortcode ?
+		if($location == 'shortcode'){
+			// Set up the $network array in order to get the right class
+			$networks = array_fill_keys($networks,1);
+		}
+		// How many networks are active ?
 		$networks_array = array_count_values($networks);
 		
 		// Format
@@ -111,7 +117,7 @@ if(!function_exists('coco_social_buttons')){
 		
 		$buttons = apply_filters('coco_social_before_div_'.$location, '');
 		
-        $buttons.= "<div class='coco-social'>";
+        $buttons.= "<div class='coco-social $location'>";
         
         if($location=='bottom')
         	$buttons.= ( $share_message ? "<h4>".sanitize_text_field($share_message)."</h4>" : '');
@@ -152,6 +158,7 @@ if(!function_exists('coco_social_button')){
 	function coco_social_button($coco_network, $coco_format){
 		
 		global $post;
+		
 		$post_title = urlencode(html_entity_decode(get_the_title($post->ID)));
 		$post_url = urlencode(get_permalink($post->ID));
 		$post_summary = urlencode(esc_attr(mb_substr(strip_shortcodes(strip_tags(get_the_content($post->ID))), 0, 200)));
@@ -159,6 +166,7 @@ if(!function_exists('coco_social_button')){
 		$share_url = '';
 		$name = $coco_network;
 		
+		// Set up the share url for each network
 		switch($coco_network){
 			case 'facebook' :
 				$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
@@ -189,8 +197,7 @@ if(!function_exists('coco_social_button')){
 				$share_url = 'mailto:?subject='.urldecode($post_title).'&body='.$email_intro.' '.urldecode($post_summary).' '.$post_url;
 			break;
 			default:
-			$share_url = '';
-			
+				$share_url = $post_url;
 		}
 		
 		switch($coco_format){
@@ -269,3 +276,32 @@ if(!function_exists('coco_social_get_class')){
 	}
 
 }
+
+// Shortcode to insert share buttons everywhere (in the loop for now)
+
+if(!function_exists('coco_social_shortcode')){
+	function coco_social_shortcode($atts){
+		
+		$atts = shortcode_atts( array(
+	        'networks' => get_option('cocosocial_networks_blocks')
+	        ), $atts, 'shortcode_atts_cocosocial');
+		
+		// if it's not an array, create an array with networks parameters
+		// To do : better error handling
+		$atts[ 'networks' ] = ( !is_array($atts[ 'networks' ]) ? explode( ",", $atts[ 'networks' ] ) : $atts[ 'networks' ]);
+		
+		// Generate buttons
+		$buttons = coco_social_buttons($atts[ 'networks' ],'shortcode');
+		
+		return $buttons;
+	}
+}
+add_shortcode('cocosocial', 'coco_social_shortcode');
+
+
+
+
+
+
+
+
