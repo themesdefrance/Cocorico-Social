@@ -193,53 +193,99 @@
 	padding:9px 0px 10px;
 }
 
+/* Single button styles */
+.coco-social-single{
+	margin: 10px 0;
+}
+
+.coco-social-single a{
+	padding:9px 15px 10px;
+	display: inline-block;
+	color:#ffffff !important;
+	background-color:#888888;
+	-webkit-transition: background-color 0.2s ease;
+        -moz-transition: background-color 0.2s ease;
+         -ms-transition: background-color 0.2s ease;
+          -o-transition: background-color 0.2s ease;
+             transition: background-color 0.2s ease;
+    word-break:normal;
+}
+
+.coco-social-single a:hover{
+	background-color:#6f6f6f;
+}
+
+.coco-social-single a:hover,
+.coco-social-single a i,
+.coco-social-single a span{
+	color:#ffffff !important;
+	text-decoration:none !important;
+	
+}
+
+.coco-social-single.icon_only a i{
+	margin-right:0;
+}
+
 /* Buttons' colors */
 
-.coco-social ul.coco-social-buttons li a.coco-facebook{
+.coco-social ul.coco-social-buttons li a.coco-facebook,
+.coco-social-single a.coco-facebook{
 	background-color:#3b5998;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-facebook:hover{
+.coco-social ul.coco-social-buttons li a.coco-facebook:hover,
+.coco-social-single a.coco-facebook:hover{
 	background-color:#22407f;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-twitter{
+.coco-social ul.coco-social-buttons li a.coco-twitter,
+.coco-social-single a.coco-twitter{
 	background-color:#00aced;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-twitter:hover{
+.coco-social ul.coco-social-buttons li a.coco-twitter:hover,
+.coco-social-single a.coco-twitter:hover{
 	background-color:#0093d4;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-googleplus{
+.coco-social ul.coco-social-buttons li a.coco-googleplus,
+.coco-social-single a.coco-googleplus{
 	background-color:#dd4b39;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-googleplus:hover{
+.coco-social ul.coco-social-buttons li a.coco-googleplus:hover,
+.coco-social-single a.coco-googleplus:hover{
 	background-color:#c43220;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-linkedin{
+.coco-social ul.coco-social-buttons li a.coco-linkedin,
+.coco-social-single a.coco-linkedin{
 	background-color:#007bb6;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-linkedin:hover{
+.coco-social ul.coco-social-buttons li a.coco-linkedin:hover,
+.coco-social-single a.coco-linkedin:hover{
 	background-color:#00629d;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-viadeo{
+.coco-social ul.coco-social-buttons li a.coco-viadeo,
+.coco-social-single a.coco-viadeo{
 	background-color:#ee7600;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-viadeo:hover{
+.coco-social ul.coco-social-buttons li a.coco-viadeo:hover,
+.coco-social-single a.coco-viadeo:hover{
 	background-color:#d55d00;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-pinterest{
+.coco-social ul.coco-social-buttons li a.coco-pinterest,
+.coco-social-single a.coco-pinterest{
 	background-color:#cb2027;
 }
 
-.coco-social ul.coco-social-buttons li a.coco-pinterest:hover{
+.coco-social ul.coco-social-buttons li a.coco-pinterest:hover,
+.coco-social-single a.coco-pinterest:hover{
 	background-color:#b2070e;
 }
 

@@ -287,7 +287,6 @@ if(!function_exists('coco_social_shortcode')){
 	        ), $atts, 'shortcode_atts_cocosocial');
 		
 		// if it's not an array, create an array with networks parameters
-		// To do : better error handling
 		$atts[ 'networks' ] = ( !is_array($atts[ 'networks' ]) ? explode( ",", $atts[ 'networks' ] ) : $atts[ 'networks' ]);
 		
 		// Generate buttons
@@ -298,8 +297,23 @@ if(!function_exists('coco_social_shortcode')){
 }
 add_shortcode('cocosocial', 'coco_social_shortcode');
 
-
-
+if(!function_exists('coco_social_single_button')){
+	function coco_social_single_button($atts){
+		$atts = shortcode_atts( array(
+	        'network' => 'facebook',
+	        'format'  => 'big_first'
+	        ), $atts, 'shortcode_atts_cocosocial_button');
+	    
+	    $format = $atts['format'];
+	    
+	    $button = "<div class='coco-social-single $format'>";
+	    $button.= coco_social_button($atts['network'],$atts['format']);
+	    $button.= "</div>";
+	    
+	    return $button;
+	}
+}
+add_shortcode('cocosocial_button', 'coco_social_single_button');
 
 
 
