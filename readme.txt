@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,8 @@ Cocorico Social is a simple sharing plugin for WordPress.
 
 = English =
 
-Cocorico Social lets you add social share buttons before and after your content.
+Cocorico Social lets you add social share buttons before and after your content. The following networks are supported :
+
 * Facebook
 * Twitter
 * Google+
@@ -24,6 +25,7 @@ Cocorico Social lets you add social share buttons before and after your content.
 * Email
 
 Cocorico Social lets you :
+
 * Choose the share buttons to display
 * Define the order in which display the buttons
 * Choose the post types where the buttons will show up
@@ -36,13 +38,44 @@ Cocorico Social lets you :
  * Icons only
  * Text only
 
-Need something else ? Contact us.
+**SHORTCODES**
+
+2 shortcodes are available to include share buttons anywhere in posts, pages and custom post types :
+
+*[cocosocial networks="COMMA_SEPARATED_NETWORKS"]*
+
+COMMA_SEPARATED_NETWORKS : Choose the following networks facebook, twitter, googleplus, linkedin, viadeo, pinterest and email.
+
+*[cocosocial_button network="ONE_NETWORK" format="FORMAT"]*
+
+ONE_NETWORK : Any network from facebook, twitter, googleplus, linkedin, viadeo, pinterest or email.
+
+FORMAT : Choose from icon_text, icon_only, text_only or big_first.
+
+**FILTERS**
+
+Many filters are available to let you customize the look and feel of the buttons :
+
+*Note : LOCATION can be equal to top, bottom or shortcode*
+
+* coco_social_before_div_LOCATION
+* coco_social_before_ul_LOCATION
+* coco_social_before_first_li_LOCATION
+* coco_social_after_last_li_LOCATION
+* coco_social_after_ul_LOCATION
+* coco_social_after_div_LOCATION
+* coco_social_email_body
+* coco_social_share_label (buttons title attribute)
+* coco_social_big_first_share_label
+
+**Need something else ? Contact us.**
 
 [Themes de France](https://www.themesdefrance.fr/).
 
 = Français =
 
 Cocorico Social permet d'ajouter des boutons de partage au début et à la fin de vos contenus. Vous pourrez afficher les boutons de partage suivants :
+
 * Facebook
 * Twitter
 * Google+
@@ -52,6 +85,7 @@ Cocorico Social permet d'ajouter des boutons de partage au début et à la fin d
 * Email
 
 Il est possible de :
+
 * Choisir les boutons à afficher
 * Définir un ordre dans lequel afficher les boutons
 * Choisir les types de contenu sur lesquels les boutons s'afficheront
@@ -64,7 +98,37 @@ Il est possible de :
  * Icônes seules
  * Texte seul
 
-Besoin d'autre chose ? Contactez-nous.
+**SHORTCODES**
+
+2 shortcodes sont disponibles pour inclure des boutons de partage dans n'importe quel article, page ou types de contenu personnalisés :
+
+*[cocosocial networks="RESEAUX_SEPARES_PAR_DES_VIRGULES"]*
+
+RESEAUX_SEPARES_PAR_DES_VIRGULES : Choisissez parmi les réseaux disponibles facebook, twitter, googleplus, linkedin, viadeo, pinterest et email.
+
+*[cocosocial_button network="UN_RESEAU" format="FORMAT"]*
+
+ONE_NETWORK : Entrez un réseau parmi les suivant facebook, twitter, googleplus, linkedin, viadeo, pinterest ou email.
+
+FORMAT : Choisissez entre icon_text, icon_only, text_only or big_first.
+
+**FILTERS**
+
+Des filtres sont disponibles pour vous permettre de personnaliser l'apparence des boutons :
+
+*Note : LOCATION peut être égal à top, bottom ou shortcode pour cibler une localisation précise*
+
+* coco_social_before_div_LOCATION
+* coco_social_before_ul_LOCATION
+* coco_social_before_first_li_LOCATION
+* coco_social_after_last_li_LOCATION
+* coco_social_after_ul_LOCATION
+* coco_social_after_div_LOCATION
+* coco_social_email_body
+* coco_social_share_label (attribut titre des boutons)
+* coco_social_big_first_share_label
+
+**Besoin d'autre chose ? Contactez-nous.**
 
 [Themes de France](https://www.themesdefrance.fr/).
 
@@ -108,6 +172,12 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.4 =
+- New : Shortcode to display share buttons anywhere in the loop [cocosocial]. See docs for more info.
+- New : Shortcode to display a single button anywhere in posts, pages and any custom post type [cocosocial_button]. See docs for more info.
+- New : Several filters were added to let you take full control. See docs for more info.
+- Fix : admin/functions.php was missing so Cocorico Social admin didn't show up.
 
 = 1.1.3 =
 - SVN issue ! This version really bring back 3 files !
