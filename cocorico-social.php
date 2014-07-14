@@ -3,7 +3,7 @@
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
 Description: The share plugin from Themes de France
-Version: 1.1.4
+Version: 1.1.5
 Author: Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial
@@ -318,10 +318,10 @@ if(!function_exists('coco_social_single_button')){
 	    // translate format parameter (French => English)
 	    $format = $atts['format'];
 	    switch($format){
-		    case 'textes_icones':
+		    case 'texte_icone':
 		    $format = 'icon_text';
 		    break;
-		    case 'icones_seules':
+		    case 'icone_seule':
 		    $format = 'icon_only';
 		    break;
 		    case 'texte_seul':
@@ -339,7 +339,8 @@ if(!function_exists('coco_social_single_button')){
 	    return $button;
 	}
 }
-add_shortcode(__('cocosocial_button', 'cocosocial'), 'coco_social_single_button');
+add_shortcode( 'cocosocial_button' , 'coco_social_single_button');
+add_shortcode( 'bouton_cocosocial' , 'coco_social_single_button');
 
 
 

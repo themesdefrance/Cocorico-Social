@@ -222,6 +222,10 @@
 	text-decoration:none !important;
 	
 }
+.coco-social-single.icon_only a{
+	width:50px;
+	text-align:center;
+}
 
 .coco-social-single.icon_only a i{
 	margin-right:0;

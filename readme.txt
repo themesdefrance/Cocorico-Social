@@ -110,7 +110,7 @@ RESEAUX_SEPARES_PAR_DES_VIRGULES : Choisissez parmi les réseaux disponibles fac
 
 UN_RESEAU : Entrez un réseau parmi les suivant facebook, twitter, googleplus, linkedin, viadeo, pinterest ou email.
 
-FORMAT : Choisissez entre textes_icones, icones_seules, texte_seul or gros_bouton.
+FORMAT : Choisissez entre texte_icone, icone_seule, texte_seul or gros_bouton.
 
 **FILTERS**
 

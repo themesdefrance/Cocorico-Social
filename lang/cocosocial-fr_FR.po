@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-07-14 12:25+0100\n"
-"PO-Revision-Date: 2014-07-14 12:25+0100\n"
+"POT-Creation-Date: 2014-07-14 13:06+0100\n"
+"PO-Revision-Date: 2014-07-14 13:06+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
@@ -217,11 +217,11 @@ msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
 #: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:217
 #: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:221
 msgid "Share on"
-msgstr "Partager sur %1$s"
+msgstr "Partager sur"
 
 #: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:217
 msgid "Share this via"
-msgstr "Partager via %1$s"
+msgstr "Partager via"
 
 #: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:287
 #: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:290
@@ -233,9 +233,8 @@ msgstr "reseaux"
 msgid "network"
 msgstr "reseau"
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:342
-msgid "cocosocial_button"
-msgstr "bouton_cocosocial"
+#~ msgid "cocosocial_button"
+#~ msgstr "bouton_cocosocial"
 
 #~ msgid "Choose your best button's width."
 #~ msgstr "Choisissez la largeur des boutons."
