@@ -28,6 +28,7 @@ function cocosocialOrderedListShorthand($cocorico, $name, $label, $checkboxes){
 	
 	$stored = CoCoRequest::request($name);
 	if (!$stored) $stored = $cocorico->getStore()->get($name);
+	if (!is_array($stored)) $stored = array();
 	
 	$local = array();
 	foreach ($checkboxes as $index=>$value){
