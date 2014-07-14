@@ -175,7 +175,7 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 
 = 1.1.5 =
 - Update : Shortcodes are now internationalized thanks to Remi Corson http://www.remicorson.com/how-to-create-translation-ready-shortcodes/
--
+- Update : CSS fixes to get proper rendering
 
 = 1.1.4 =
 - New : Shortcode to display share buttons anywhere in the loop [cocosocial]. See docs for more info.
