@@ -11,19 +11,25 @@
 
 .coco-social{
 	margin:10px 0;
+	padding:0;
 	display:inline-block;
 	width:100%;
 }
 
 .coco-social ul.coco-social-buttons{
-	margin:0px;
+	margin:0;
+	padding:0;
 	overflow:hidden;
+	background:none;
+	list-style-type:none;
 }
 
 .coco-social ul.coco-social-buttons li{
 	list-style-type:none;
 	float:left;
 	margin:2px 0.5% 0 0;
+	padding:0;
+	background:none;
 }
 
 .coco-social ul.coco-social-buttons.full li{
@@ -60,7 +66,7 @@
 }
 
 .coco-social ul.coco-social-buttons li a{
-	width:100%;
+	width:auto;
 	display: block;
 	text-align: center;
 	text-decoration:none;
