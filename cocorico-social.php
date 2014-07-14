@@ -214,7 +214,7 @@ if(!function_exists('coco_social_button')){
 			break;
 			
 			case 'big_first' :
-			$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this on','cocosocial')).' '.ucfirst($name).'</span></a>';
+			$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this via','cocosocial')).' '.ucfirst($name).'</span></a>';
 			break;
 			
 			default:
@@ -278,19 +278,22 @@ if(!function_exists('coco_social_get_class')){
 }
 
 // Shortcode to insert share buttons everywhere (in the loop for now)
+// Shortcodes internationalization thanks to http://www.remicorson.com/how-to-create-translation-ready-shortcodes/
 
 if(!function_exists('coco_social_shortcode')){
 	function coco_social_shortcode($atts){
 		
 		$atts = shortcode_atts( array(
-	        'networks' => get_option('cocosocial_networks_blocks')
+	        __('networks', 'cocosocial') => get_option('cocosocial_networks_blocks')
 	        ), $atts, 'shortcode_atts_cocosocial');
 		
+		$networks = $atts[__('networks', 'cocosocial')];
+		
 		// if it's not an array, create an array with networks parameters
-		$atts[ 'networks' ] = ( !is_array($atts[ 'networks' ]) ? explode( ",", $atts[ 'networks' ] ) : $atts[ 'networks' ]);
+		$networks = ( !is_array($networks) ? explode( ",", $networks ) : $networks);
 		
 		// Generate buttons
-		$buttons = coco_social_buttons($atts[ 'networks' ],'shortcode');
+		$buttons = coco_social_buttons($networks,'shortcode');
 		
 		return $buttons;
 	}
@@ -299,21 +302,44 @@ add_shortcode('cocosocial', 'coco_social_shortcode');
 
 if(!function_exists('coco_social_single_button')){
 	function coco_social_single_button($atts){
+	
 		$atts = shortcode_atts( array(
-	        'network' => 'facebook',
+	        __('network', 'cocosocial') => 'facebook',
 	        'format'  => 'big_first'
 	        ), $atts, 'shortcode_atts_cocosocial_button');
 	    
+	    $network = $atts[__('network', 'cocosocial')];
+	    $networks = get_option('cocosocial_networks_blocks');
+	    
+	    // if input network isn't correct
+	    if(!array_key_exists($network, $networks))
+		    return '';
+	    	
+	    // translate format parameter (French => English)
 	    $format = $atts['format'];
+	    switch($format){
+		    case 'textes_icones':
+		    $format = 'icon_text';
+		    break;
+		    case 'icones_seules':
+		    $format = 'icon_only';
+		    break;
+		    case 'texte_seul':
+		    $format = 'text_only';
+		    break;
+		    case 'gros_bouton':
+		    $format = 'big_first';
+		    break;
+	    }
 	    
 	    $button = "<div class='coco-social-single $format'>";
-	    $button.= coco_social_button($atts['network'],$atts['format']);
+	    $button.= coco_social_button($network,$format);
 	    $button.= "</div>";
 	    
 	    return $button;
 	}
 }
-add_shortcode('cocosocial_button', 'coco_social_single_button');
+add_shortcode(__('cocosocial_button', 'cocosocial'), 'coco_social_single_button');
 
 
 

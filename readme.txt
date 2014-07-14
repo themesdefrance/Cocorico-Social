@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,15 +102,15 @@ Il est possible de :
 
 2 shortcodes sont disponibles pour inclure des boutons de partage dans n'importe quel article, page ou types de contenu personnalisés :
 
-*[cocosocial networks="RESEAUX_SEPARES_PAR_DES_VIRGULES"]*
+*[cocosocial reseaux="RESEAUX_SEPARES_PAR_DES_VIRGULES"]*
 
 RESEAUX_SEPARES_PAR_DES_VIRGULES : Choisissez parmi les réseaux disponibles facebook, twitter, googleplus, linkedin, viadeo, pinterest et email.
 
-*[cocosocial_button network="UN_RESEAU" format="FORMAT"]*
+*[cocosocial_button reseau="UN_RESEAU" format="FORMAT"]*
 
-ONE_NETWORK : Entrez un réseau parmi les suivant facebook, twitter, googleplus, linkedin, viadeo, pinterest ou email.
+UN_RESEAU : Entrez un réseau parmi les suivant facebook, twitter, googleplus, linkedin, viadeo, pinterest ou email.
 
-FORMAT : Choisissez entre icon_text, icon_only, text_only or big_first.
+FORMAT : Choisissez entre textes_icones, icones_seules, texte_seul or gros_bouton.
 
 **FILTERS**
 
@@ -172,6 +172,10 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.5 =
+- Update : Shortcodes are now internationalized thanks to Remi Corson http://www.remicorson.com/how-to-create-translation-ready-shortcodes/
+-
 
 = 1.1.4 =
 - New : Shortcode to display share buttons anywhere in the loop [cocosocial]. See docs for more info.
