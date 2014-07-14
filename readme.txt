@@ -106,7 +106,7 @@ Il est possible de :
 
 RESEAUX_SEPARES_PAR_DES_VIRGULES : Choisissez parmi les réseaux disponibles facebook, twitter, googleplus, linkedin, viadeo, pinterest et email.
 
-*[cocosocial_button reseau="UN_RESEAU" format="FORMAT"]*
+*[bouton_cocosocial reseau="UN_RESEAU" format="FORMAT"]*
 
 UN_RESEAU : Entrez un réseau parmi les suivant facebook, twitter, googleplus, linkedin, viadeo, pinterest ou email.
 
