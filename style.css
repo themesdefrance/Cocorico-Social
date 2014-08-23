@@ -32,6 +32,10 @@
 	background:none;
 }
 
+.coco-social ul.coco-social-buttons .coco-count{
+	margin-left:7px;
+}
+
 .coco-social ul.coco-social-buttons.full li{
 	width:100%;
 	margin:0;

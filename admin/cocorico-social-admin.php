@@ -70,6 +70,8 @@ $form->setting(array('type'=>'radio',
 					 'description'=>__('Choose the format that makes you feel good.', 'cocosocial')
 					 ));
 					 
+
+					 
 $form->setting(array('type'=>'radio',
 					 'label'=>__('Buttons\' width', 'cocosocial'),
 					 'name'=>'width',
@@ -82,9 +84,17 @@ $form->setting(array('type'=>'radio',
 					 	'after'=>'<br/>',
 					 	'default'=>'fitted_width'
 					 ),
-					 'description'=>__("Choose your best button's width.<br>* : If you select this, button's format will be ignored (give it a try it's awesome !).", 'cocosocial')
+					 'description'=>__("Choose your best button's width.<br>* : If you select this, button's format will be ignored and share counts won't show up (but give it a try it's awesome !).", 'cocosocial')
 					 ));
 					 
+$form->setting(array('type'=>'checkbox',
+					 'label'=>__('Show share count', 'cocosocial'),
+					 'name'=>'count_activation',
+					 'checkboxes'=>array(
+					 	 'showcount'=>__('Check to display the share count.', 'cocosocial')
+					 ),
+					 'description'=>__("Check this box in order to display the share count.", 'cocosocial')
+					 ));
 					 
 $form->setting(array('type'=>'text',
 					 'name'=> 'bottom_message',

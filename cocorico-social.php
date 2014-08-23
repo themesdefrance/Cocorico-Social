@@ -28,6 +28,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 if(is_admin())
 	require_once 'admin/Cocorico/Cocorico.php';
 
+// Load Social Count functions
+
+require_once 'cocorico-social-counts.php';
+
 // Plugin Admin
 
 function coco_social_menu_item(){
@@ -135,6 +139,7 @@ if(!function_exists('coco_social_buttons')){
         
         foreach ($networks as $network=>$display){
 			if (!$display) continue;
+			$count = coco_social_get_count($network);
 			$buttons.= "<li>".coco_social_button($network,$format)."</li>";
 			
 		}
@@ -200,17 +205,18 @@ if(!function_exists('coco_social_button')){
 				$share_url = $post_url;
 		}
 		
+		
 		switch($coco_format){
 			case 'icon_text' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).'</span></a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).coco_social_get_count($coco_network).'</span></a>';
 			break;
 			
 			case 'icon_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i></a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.coco_social_get_count($coco_network).'</a>';
 			break;
 			
 			case 'text_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).'</a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).coco_social_get_count($coco_network).'</a>';
 			break;
 			
 			case 'big_first' :
