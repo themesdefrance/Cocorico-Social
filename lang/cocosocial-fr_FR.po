@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
 "POT-Creation-Date: 2014-08-26 06:30+0100\n"
-"PO-Revision-Date: 2014-08-26 08:30+0100\n"
+"PO-Revision-Date: 2014-08-26 06:33+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
@@ -179,7 +179,7 @@ msgstr ""
 
 #: ../admin/cocorico-social-admin.php:91
 msgid "Show share count"
-msgstr "Compteurs de partage"
+msgstr "Afficher les compteurs"
 
 #: ../admin/cocorico-social-admin.php:94
 msgid "Check to display the share count."

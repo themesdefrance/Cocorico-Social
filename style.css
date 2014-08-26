@@ -27,7 +27,7 @@
 .coco-social ul.coco-social-buttons li{
 	list-style-type:none;
 	float:left;
-	margin:2px 0.5% 0 0;
+	margin:2px 2px 0 0;
 	padding:0;
 	background:none;
 }
@@ -74,7 +74,6 @@
 
 .coco-social ul.coco-social-buttons li a{
 	width:auto;
-	min-height:40px;
 	display: block;
 	text-align: center;
 	text-decoration:none;
@@ -98,7 +97,7 @@
 .coco-social ul.coco-social-buttons li a > span{
 	word-break: normal;
 	word-wrap: normal;
-	vertical-align:text-top;
+
 }
 
 /* Buttons' icons */

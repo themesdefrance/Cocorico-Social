@@ -1,14 +1,14 @@
 === Cocorico Social ===
 Contributors: themesdefrance
 Donate link: https://www.themesdefrance.fr/
-Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin
+Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin, social share
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Cocorico Social is a simple sharing plugin for WordPress.
+Cocorico Social is a simple social sharing plugin for WordPress.
 
 == Description ==
 
@@ -33,6 +33,7 @@ Cocorico Social lets you :
  * Fill out the content width
  * Auto width
  * Big first button (try it, it rocks !)
+* (new) Show the share count number
 * Specify a button format :
  * Text & icons
  * Icons only
@@ -67,6 +68,8 @@ Many filters are available to let you customize the look and feel of the buttons
 * coco_social_email_body
 * coco_social_share_label (buttons title attribute)
 * coco_social_big_first_share_label
+* coco_social_cat_hashtags
+* coco_social_tag_hashtags
 
 **Need something else ? Contact us.**
 
@@ -93,6 +96,7 @@ Il est possible de :
  * Toute la largeur du contenu
  * Largeur automatique
  * Premier bouton en avant (essayez ça vaut le coup)
+* (nouveau) Afficher les compteurs de partage
 * Spécifier un format pour les boutons :
  * Texte & icônes
  * Icônes seules
@@ -127,6 +131,8 @@ Des filtres sont disponibles pour vous permettre de personnaliser l'apparence de
 * coco_social_email_body
 * coco_social_share_label (attribut titre des boutons)
 * coco_social_big_first_share_label
+* coco_social_cat_hashtags
+* coco_social_tag_hashtags
 
 **Besoin d'autre chose ? Contactez-nous.**
 
@@ -172,6 +178,11 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.6 =
+- New : Share counters are now included
+- New : 2 new filters to show/hide Twitter hashtags from categories and tags
+- Update : CSS optimization
 
 = 1.1.5 =
 - Update : Shortcodes are now internationalized thanks to Remi Corson http://www.remicorson.com/how-to-create-translation-ready-shortcodes/

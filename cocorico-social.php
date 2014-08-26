@@ -2,8 +2,8 @@
 /*
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
-Description: The share plugin from Themes de France
-Version: 1.1.5
+Description: The social share plugin from Themes de France
+Version: 1.1.6
 Author: Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial
@@ -190,10 +190,12 @@ if(!function_exists('coco_social_button')){
 			break;
 			case 'twitter' :
 				$twitter = get_option('cocosocial_twitter_username');
-				$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
-				if(has_tag())
+				$twitter_hashtags = '';
+				if(apply_filters('coco_social_cat_hashtags', true))
+					$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
+				if(has_tag() && apply_filters('coco_social_tag_hashtags', true) )
 					$twitter_hastags .= urlencode( ','.implode( ',', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) ) );
-				$share_url = 'http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hastags;
+				$share_url = 'http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hashtags;
 			break;
 			case 'googleplus' :
 				$share_url = 'https://plus.google.com/share?url='.$post_url;

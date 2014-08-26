@@ -55,9 +55,9 @@ if(!function_exists('coco_social_get_count')){
 	function coco_social_get_count($network_name){
 		global $post;
 		
-		//$post_url = get_permalink($post->ID);
+		$post_url = get_permalink($post->ID);
 		// Post with a lot of shares for testing purpose (read it by the way, it's awesome !)
-		$post_url = "http://conversionxl.com/pricing-experiments-you-might-not-know-but-can-learn-from/";
+		//$post_url = "http://conversionxl.com/pricing-experiments-you-might-not-know-but-can-learn-from/";
 		
 		switch($network_name){
 			case 'facebook' :
@@ -124,7 +124,6 @@ if(!function_exists('coco_social_twitter_count')){
 	function coco_social_twitter_count($url , $id){
 		
 		$key = "tw-".$id;
-		
 		if(!get_transient($key)){
 		
 			$url = 'https://cdn.api.twitter.com/1/urls/count.json?url='.$url;
@@ -179,7 +178,6 @@ if(!function_exists('coco_social_linkedin_count')){
 	function coco_social_linkedin_count($url , $id){
 		
 		$key = "lk-".$id;
-
 		if(!get_transient($key)){
 		
 			$url = 'http://www.linkedin.com/countserv/count/share?format=json&url='.$url;
