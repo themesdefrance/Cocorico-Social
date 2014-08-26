@@ -28,9 +28,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 if(is_admin())
 	require_once 'admin/Cocorico/Cocorico.php';
 
-// Load Social Count functions
+// Load the plugins necessary functions
+require_once 'cocorico-social-functions.php';
 
-require_once 'cocorico-social-counts.php';
+// Load Shortcodes
+require_once 'cocorico-social-shortcodes.php';
 
 // Plugin Admin
 
@@ -75,22 +77,29 @@ add_action( 'init', 'coco_social_load_textdomain' );
 
 
 
-// Plugin Functions
+// Plugin Main Functions
 
-if(!function_exists('coco_social_buttons')){
+if(!function_exists('coco_social_share')){
 	function coco_social_share($content) {
 			
-			$location = get_option('cocosocial_location', false);
+			// Which buttons to display ?
 			$networks =  get_option('cocosocial_networks_blocks');
 			
+			// Where the buttons have to show up ? (top || bottom)
+			$location = get_option('cocosocial_location', false);
+			
+			// Do we have to show the share counters ?
+			$counters = (get_option('cocosocial_count_activation') ? true : false);
+			
+			// On which do we have to display the share buttons
 			$posttypes = get_option('cocosocial_pt_presence');
 				
 			if(is_singular($posttypes) && $location && $networks!='') { 
 				
 					if(in_array('top', $location))
-						$content = coco_social_buttons($networks,'top').$content;
+						$content = coco_social_buttons($networks,'top',$counters).$content;
 					if(in_array('bottom', $location))
-						$content = $content.coco_social_buttons($networks,'bottom');
+						$content = $content.coco_social_buttons($networks,'bottom',$counters);
 	        }
 	        return $content;
 	}
@@ -98,14 +107,17 @@ if(!function_exists('coco_social_buttons')){
 add_filter ('the_content', 'coco_social_share');
 
 if(!function_exists('coco_social_buttons')){
-
-	function coco_social_buttons($networks,$location){
+	function coco_social_buttons($networks,$location,$counters){
 		
 		// Are we in a shortcode ?
 		if($location == 'shortcode'){
 			// Set up the $network array in order to get the right class
 			$networks = array_fill_keys($networks,1);
 		}
+		
+		// Do we show the share counters ?
+		$counters_class = ($counters ? 'counters-on' : '');
+		
 		// How many networks are active ?
 		$networks_array = array_count_values($networks);
 		
@@ -130,9 +142,9 @@ if(!function_exists('coco_social_buttons')){
         
         if($buttons_class == 'big_first'){
         	$format = $buttons_class;
-        	$buttons.= "<ul class='coco-social-buttons $format'>";
+        	$buttons.= "<ul class='coco-social-buttons $format $counters_class'>";
         }else{
-            $buttons.= "<ul class='coco-social-buttons $format $buttons_class'>";
+            $buttons.= "<ul class='coco-social-buttons $format $counters_class $buttons_class'>";
         }
         
         $buttons.= apply_filters('coco_social_before_first_li_'.$location, '');
@@ -140,7 +152,7 @@ if(!function_exists('coco_social_buttons')){
         foreach ($networks as $network=>$display){
 			if (!$display) continue;
 			$count = coco_social_get_count($network);
-			$buttons.= "<li>".coco_social_button($network,$format)."</li>";
+			$buttons.= "<li>".coco_social_button($network,$format,$counters)."</li>";
 			
 		}
 		
@@ -160,7 +172,7 @@ if(!function_exists('coco_social_buttons')){
 
 if(!function_exists('coco_social_button')){
 
-	function coco_social_button($coco_network, $coco_format){
+	function coco_social_button($coco_network, $coco_format, $coco_counters = false){
 		
 		global $post;
 		
@@ -208,15 +220,15 @@ if(!function_exists('coco_social_button')){
 		
 		switch($coco_format){
 			case 'icon_text' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).coco_social_get_count($coco_network).'</span></a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
 			break;
 			
 			case 'icon_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.coco_social_get_count($coco_network).'</a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'text_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).coco_social_get_count($coco_network).'</a>';
+				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'big_first' :
@@ -231,122 +243,6 @@ if(!function_exists('coco_social_button')){
 	}
 
 }
-
-if(!function_exists('coco_social_get_class')){
-
-	function coco_social_get_class($number,$size){
-		
-		$class = '';
-		
-		switch($size){
-			case 'auto_width':
-				return 'auto_width';
-			break;
-			case 'big_first':
-				return 'big_first';
-			break;
-			default:
-				$class = '';
-			
-		}
-		if($size == 'auto_width')
-			return 'auto_width';
-		
-		switch($number){
-			case 1:
-				//$class='full';
-				$class='halfs';
-			break;
-			case 2:
-				$class='halfs';
-			break;
-			case 3:
-				$class='thirds';
-			break;
-			case 4:
-				$class='fourths';
-			break;
-			case 5:
-				$class='fifths';
-			break;
-			case 6:
-				$class='sixths';
-			break;
-			case 7:
-				$class='sevenths';
-			break;
-			default :
-				$class='';
-		}
-		return $class;
-	}
-
-}
-
-// Shortcode to insert share buttons everywhere (in the loop for now)
-// Shortcodes internationalization thanks to http://www.remicorson.com/how-to-create-translation-ready-shortcodes/
-
-if(!function_exists('coco_social_shortcode')){
-	function coco_social_shortcode($atts){
-		
-		$atts = shortcode_atts( array(
-	        __('networks', 'cocosocial') => get_option('cocosocial_networks_blocks')
-	        ), $atts, 'shortcode_atts_cocosocial');
-		
-		$networks = $atts[__('networks', 'cocosocial')];
-		
-		// if it's not an array, create an array with networks parameters
-		$networks = ( !is_array($networks) ? explode( ",", $networks ) : $networks);
-		
-		// Generate buttons
-		$buttons = coco_social_buttons($networks,'shortcode');
-		
-		return $buttons;
-	}
-}
-add_shortcode('cocosocial', 'coco_social_shortcode');
-
-if(!function_exists('coco_social_single_button')){
-	function coco_social_single_button($atts){
-	
-		$atts = shortcode_atts( array(
-	        __('network', 'cocosocial') => 'facebook',
-	        'format'  => 'big_first'
-	        ), $atts, 'shortcode_atts_cocosocial_button');
-	    
-	    $network = $atts[__('network', 'cocosocial')];
-	    $networks = get_option('cocosocial_networks_blocks');
-	    
-	    // if input network isn't correct
-	    if(!array_key_exists($network, $networks))
-		    return '';
-	    	
-	    // translate format parameter (French => English)
-	    $format = $atts['format'];
-	    switch($format){
-		    case 'texte_icone':
-		    $format = 'icon_text';
-		    break;
-		    case 'icone_seule':
-		    $format = 'icon_only';
-		    break;
-		    case 'texte_seul':
-		    $format = 'text_only';
-		    break;
-		    case 'gros_bouton':
-		    $format = 'big_first';
-		    break;
-	    }
-	    
-	    $button = "<div class='coco-social-single $format'>";
-	    $button.= coco_social_button($network,$format);
-	    $button.= "</div>";
-	    
-	    return $button;
-	}
-}
-add_shortcode( 'cocosocial_button' , 'coco_social_single_button');
-add_shortcode( 'bouton_cocosocial' , 'coco_social_single_button');
 
 
 

@@ -32,8 +32,11 @@
 	background:none;
 }
 
-.coco-social ul.coco-social-buttons .coco-count{
+/* Counter style */
+.coco-social ul.coco-social-buttons .coco-count,
+.coco-social-single .coco-count{
 	margin-left:7px;
+	vertical-align:bottom;
 }
 
 .coco-social ul.coco-social-buttons.full li{
@@ -71,11 +74,13 @@
 
 .coco-social ul.coco-social-buttons li a{
 	width:auto;
+	min-height:40px;
 	display: block;
 	text-align: center;
 	text-decoration:none;
+	font-size:14px;
 	color:#ffffff;
-	padding:9px 0 10px;
+	padding:10px 0;
 	background-color:#888888;
 	-webkit-transition: background-color 0.2s ease;
         -moz-transition: background-color 0.2s ease;
@@ -93,16 +98,7 @@
 .coco-social ul.coco-social-buttons li a > span{
 	word-break: normal;
 	word-wrap: normal;
-}
-
-/* Icon only styles*/
-
-.coco-social ul.coco-social-buttons.icon_only li a{
-	font-size:22px;
-}
-
-.coco-social ul.coco-social-buttons.icon_only li a > i{
-	margin-right:0
+	vertical-align:text-top;
 }
 
 /* Buttons' icons */
@@ -125,7 +121,7 @@
 }
 
 [class^="cocosocial-icon-"]:before, [class*=" cocosocial-icon-"]:before{
-	font-size:x-large;
+	font-size:16px;
 }
 
 .cocosocial-icon-twitter:before {
@@ -159,25 +155,70 @@
 	margin: 0 0 5px;
 }
 
+.coco-social ul.coco-social-buttons.icon_text.fifths .coco-count,
+.coco-social ul.coco-social-buttons.icon_text.sixths .coco-count,
+.coco-social ul.coco-social-buttons.icon_text.sevenths .coco-count{
+	display:block;
+	margin-left:0;
+}
+.coco-social ul.coco-social-buttons.icon_text.counters-on.fifths li a,
+.coco-social ul.coco-social-buttons.icon_text.counters-on.sixths li a,
+.coco-social ul.coco-social-buttons.icon_text.counters-on.sevenths li a{
+	min-height:77px;
+}
+
+.coco-social ul.coco-social-buttons.icon_text.counters-on.fifths li a.coco-email,
+.coco-social ul.coco-social-buttons.icon_text.counters-on.sixths li a.coco-email,
+.coco-social ul.coco-social-buttons.icon_text.counters-on.sevenths li a.coco-email{
+	padding:18px 0;
+}
+
+/* Icon only styles*/
+
+.coco-social ul.coco-social-buttons.icon_only li a > i{
+	margin-right:0
+}
+
+.coco-social ul.coco-social-buttons.icon_only.counters-on li a > i{
+	vertical-align: bottom;
+}
+
+.coco-social ul.coco-social-buttons.icon_only.counters-on li a.coco-email{
+	padding: 11px 0 9px;
+}
+
 /* Text only styles */
+
 .coco-social ul.coco-social-buttons.text_only li a{
-	padding: 9px 0 7px;
+	padding: 12px 0 10px;
+	vertical-align:bottom;
 }
 
 .coco-social ul.coco-social-buttons.text_only.fifths li a,
 .coco-social ul.coco-social-buttons.text_only.sixths li a,
 .coco-social ul.coco-social-buttons.text_only.sevenths li a{
 	font-size:small;
+	padding: 14px 0 10px;
+}
+
+.coco-social ul.coco-social-buttons.text_only.fifths .coco-count,
+.coco-social ul.coco-social-buttons.text_only.sixths .coco-count,
+.coco-social ul.coco-social-buttons.text_only.sevenths .coco-count{
+	display:block;
+	margin-left:0;
+}
+
+.coco-social ul.coco-social-buttons.text_only.counters-on.fifths li a.coco-email,
+.coco-social ul.coco-social-buttons.text_only.counters-on.sixths li a.coco-email,
+.coco-social ul.coco-social-buttons.text_only.counters-on.sevenths li a.coco-email{
+	min-height:56px;
+	padding:20px 0;
 }
 
 /* Big first style */
 
 .coco-social ul.coco-social-buttons.big_first li a{
-	padding:9px 15px 10px;
-}
-
-.coco-social ul.coco-social-buttons.big_first li:nth-of-type(n+2){
-	width:50px;
+	padding:10px 15px;
 }
 
 .coco-social ul.coco-social-buttons.big_first li:nth-of-type(n+2) span{
@@ -192,7 +233,7 @@
 /* Auto width styles */
 
 .coco-social ul.coco-social-buttons.auto_width li a{
-	padding:9px 15px 10px;
+	padding:10px;
 }
 
 .coco-social ul.coco-social-buttons.auto_width.icon_only li{
@@ -203,13 +244,18 @@
 	padding:9px 0px 10px;
 }
 
+.coco-social ul.coco-social-buttons.auto_width.text_only li a {
+	padding: 12px 10px;
+}
+
 /* Single button styles */
 .coco-social-single{
 	margin: 10px 0;
+	font-size:14px;
 }
 
 .coco-social-single a{
-	padding:9px 15px 10px;
+	padding:10px 15px 10px;
 	display: inline-block;
 	color:#ffffff !important;
 	background-color:#888888;
@@ -233,7 +279,6 @@
 	
 }
 .coco-social-single.icon_only a{
-	width:50px;
 	text-align:center;
 }
 

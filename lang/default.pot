@@ -13,218 +13,218 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_x;_n\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: /Users/alexborto/Documents/GitHub/Cocorico-Social\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:180
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:180
 msgid "Save all changes"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:257
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:257
 msgid "Select"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/Cocorico/plugins/CocoricoComponents.php:304
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:304
 msgid "Delete"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:14
+#: ../admin/cocorico-social-admin.php:14
 msgid "Cocorico Social Settings"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:17
+#: ../admin/cocorico-social-admin.php:17
 msgid "General"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:18
+#: ../admin/cocorico-social-admin.php:18
 msgid "Networks"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:25
+#: ../admin/cocorico-social-admin.php:25
 msgid "Buttons location"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:28
+#: ../admin/cocorico-social-admin.php:28
 msgid "Top of content"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:29
+#: ../admin/cocorico-social-admin.php:29
 msgid "Bottom of content"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:34
+#: ../admin/cocorico-social-admin.php:34
 msgid "Choose where to insert share buttons in content."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:38
+#: ../admin/cocorico-social-admin.php:38
 msgid "Display buttons in"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:44
+#: ../admin/cocorico-social-admin.php:44
 msgid "Select the post types where buttons should be displayed."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:48
+#: ../admin/cocorico-social-admin.php:48
 msgid "Networks buttons (order them by drag & drop)"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:49
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:106
+#: ../admin/cocorico-social-admin.php:49
+#: ../admin/cocorico-social-admin.php:106
 msgid "Facebook"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:50
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:111
+#: ../admin/cocorico-social-admin.php:50
+#: ../admin/cocorico-social-admin.php:111
 msgid "Twitter"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:51
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:116
+#: ../admin/cocorico-social-admin.php:51
+#: ../admin/cocorico-social-admin.php:116
 msgid "Google+"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:52
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:121
+#: ../admin/cocorico-social-admin.php:52
+#: ../admin/cocorico-social-admin.php:121
 msgid "LinkedIn"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:53
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:126
+#: ../admin/cocorico-social-admin.php:53
+#: ../admin/cocorico-social-admin.php:126
 msgid "Viadeo"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:54
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:131
+#: ../admin/cocorico-social-admin.php:54
+#: ../admin/cocorico-social-admin.php:131
 msgid "Pinterest"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:55
+#: ../admin/cocorico-social-admin.php:55
 msgid "Email"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:59
+#: ../admin/cocorico-social-admin.php:59
 msgid "Buttons' format"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:62
+#: ../admin/cocorico-social-admin.php:62
 msgid "Text and icons"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:63
+#: ../admin/cocorico-social-admin.php:63
 msgid "Icon only"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:64
+#: ../admin/cocorico-social-admin.php:64
 msgid "Text only"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:70
+#: ../admin/cocorico-social-admin.php:70
 msgid "Choose the format that makes you feel good."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:74
+#: ../admin/cocorico-social-admin.php:74
 msgid "Buttons' width"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:77
+#: ../admin/cocorico-social-admin.php:77
 msgid "Fill out the content width."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:78
+#: ../admin/cocorico-social-admin.php:78
 msgid "Auto width"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:79
+#: ../admin/cocorico-social-admin.php:79
 msgid "Big first button *"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:85
+#: ../admin/cocorico-social-admin.php:85
 msgid ""
 "Choose your best button's width.<br>* : If you select this, button's format "
 "will be ignored (give it a try it's awesome !)."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:91
+#: ../admin/cocorico-social-admin.php:91
 msgid "Share incentive"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:92
+#: ../admin/cocorico-social-admin.php:92
 msgid ""
 "If you use bottom share buttons, this text will be displayed before the "
 "buttons to motivate visitors clicks. E.g : Share this."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:107
+#: ../admin/cocorico-social-admin.php:107
 msgid "Add your Facebook profile/page link."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:112
+#: ../admin/cocorico-social-admin.php:112
 msgid "Add your Twitter username (without @)."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:117
+#: ../admin/cocorico-social-admin.php:117
 msgid "Add your Google+ profile/page link."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:122
+#: ../admin/cocorico-social-admin.php:122
 msgid "Add your LinkedIn profile link."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:127
+#: ../admin/cocorico-social-admin.php:127
 msgid "Add your Viadeo profile link."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:132
+#: ../admin/cocorico-social-admin.php:132
 msgid "Add your Pinterest profile link."
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:138
+#: ../admin/cocorico-social-admin.php:138
 msgid "Save Changes"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
+#: ../admin/cocorico-social-admin.php:146
 msgid "Cocorico Social is brought to you by"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
+#: ../admin/cocorico-social-admin.php:146
 msgid "If you found this plugin useful"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/admin/cocorico-social-admin.php:146
+#: ../admin/cocorico-social-admin.php:146
 msgid "give it 5 &#9733; on WordPress.org"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:57
+#: ../cocorico-social.php:57
 msgid "Settings"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:196
+#: ../cocorico-social.php:196
 msgid ""
 "Hey, I discovered this post and I wanted to share it with you. Tell me what "
 "you think : "
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:205
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:209
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:213
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:217
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:221
+#: ../cocorico-social.php:205
+#: ../cocorico-social.php:209
+#: ../cocorico-social.php:213
+#: ../cocorico-social.php:217
+#: ../cocorico-social.php:221
 msgid "Share on"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:217
+#: ../cocorico-social.php:217
 msgid "Share this via"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:287
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:290
+#: ../cocorico-social.php:287
+#: ../cocorico-social.php:290
 msgid "networks"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:307
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:311
+#: ../cocorico-social.php:307
+#: ../cocorico-social.php:311
 msgid "network"
 msgstr ""
 
-#: /Users/alexborto/Documents/GitHub/Cocorico-Social/cocorico-social.php:342
+#: ../cocorico-social.php:342
 msgid "cocosocial_button"
 msgstr ""

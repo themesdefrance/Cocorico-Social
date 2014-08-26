@@ -1,14 +1,64 @@
 <?php
 
-// Thanks to https://gist.github.com/jonathanmoore/2640302
+/* Get the right buttons class */
+if(!function_exists('coco_social_get_class')){
+	function coco_social_get_class($number,$size){
+		
+		$class = '';
+		
+		switch($size){
+			case 'auto_width':
+				return 'auto_width';
+			break;
+			case 'big_first':
+				return 'big_first';
+			break;
+			default:
+				$class = '';
+			
+		}
+		if($size == 'auto_width')
+			return 'auto_width';
+		
+		switch($number){
+			case 1:
+				//$class='full';
+				$class='halfs';
+			break;
+			case 2:
+				$class='halfs';
+			break;
+			case 3:
+				$class='thirds';
+			break;
+			case 4:
+				$class='fourths';
+			break;
+			case 5:
+				$class='fifths';
+			break;
+			case 6:
+				$class='sixths';
+			break;
+			case 7:
+				$class='sevenths';
+			break;
+			default :
+				$class='';
+		}
+		return $class;
+	}
 
+}
+
+// Thanks to https://gist.github.com/jonathanmoore/2640302
 if(!function_exists('coco_social_get_count')){
 	function coco_social_get_count($network_name){
 		global $post;
 		
-		$countactivation = get_option('cocosocial_count_activation');
+		//$countactivation = get_option('cocosocial_count_activation');
 		
-		if($countactivation){
+		//if($countactivation){
 			$post_url = get_permalink($post->ID);
 			
 			switch($network_name){
@@ -40,8 +90,8 @@ if(!function_exists('coco_social_get_count')){
 				$count = '';
 			
 			return $count;
-		}else
-			return '';
+		/*}else
+			return '';*/
 	}	
 }
 
