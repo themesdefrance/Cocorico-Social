@@ -48,7 +48,6 @@ if(!function_exists('coco_social_get_class')){
 		}
 		return $class;
 	}
-
 }
 
 // Thanks to https://gist.github.com/jonathanmoore/2640302
@@ -56,42 +55,39 @@ if(!function_exists('coco_social_get_count')){
 	function coco_social_get_count($network_name){
 		global $post;
 		
-		//$countactivation = get_option('cocosocial_count_activation');
+		//$post_url = get_permalink($post->ID);
+		// Post with a lot of shares for testing purpose (read it by the way, it's awesome !)
+		$post_url = "http://conversionxl.com/pricing-experiments-you-might-not-know-but-can-learn-from/";
 		
-		//if($countactivation){
-			$post_url = get_permalink($post->ID);
-			
-			switch($network_name){
-				case 'facebook' :
-					$count = coco_social_facebook_count($post_url, $post->ID);
-				break;
-				case 'twitter' :
-					$count = coco_social_twitter_count($post_url, $post->ID);
-				break;
-				case 'googleplus' :
-					$count = coco_social_googleplus_count($post_url, $post->ID);
-				break;
-				case 'linkedin' :
-					$count = coco_social_linkedin_count($post_url, $post->ID);
-				break;
-				case 'pinterest' :
-					$count = coco_social_pinterest_count($post_url, $post->ID);
-				break;
-				case 'viadeo' :
-					$count = coco_social_viadeo_count($post_url, $post->ID);
-				break;
-				default :
-					$count = '';
-			}
-			
-			$count = '<span class="coco-count">'.$count.'</span>';
-			
-			if($network_name=='email')
+		switch($network_name){
+			case 'facebook' :
+				$count = coco_social_facebook_count($post_url, $post->ID);
+			break;
+			case 'twitter' :
+				$count = coco_social_twitter_count($post_url, $post->ID);
+			break;
+			case 'googleplus' :
+				$count = coco_social_googleplus_count($post_url, $post->ID);
+			break;
+			case 'linkedin' :
+				$count = coco_social_linkedin_count($post_url, $post->ID);
+			break;
+			case 'pinterest' :
+				$count = coco_social_pinterest_count($post_url, $post->ID);
+			break;
+			case 'viadeo' :
+				$count = coco_social_viadeo_count($post_url, $post->ID);
+			break;
+			default :
 				$count = '';
-			
-			return $count;
-		/*}else
-			return '';*/
+		}
+		
+		$count = '<span class="coco-count">'.$count.'</span>';
+		
+		if($network_name=='email')
+			$count = '';
+		
+		return $count;
 	}	
 }
 
@@ -99,8 +95,12 @@ if(!function_exists('coco_social_get_count')){
 
 if(!function_exists('coco_social_facebook_count')){
 	function coco_social_facebook_count($url , $id){
-	
+		
 		$key = "fb-".$id;
+		
+		// testing only
+		//delete_transient($key);
+		
 		if(!get_transient($key)){
 		
 			$url = 'http://graph.facebook.com/?id='.$url;
@@ -109,7 +109,7 @@ if(!function_exists('coco_social_facebook_count')){
 			// Convert json response into php array
 			$response = json_decode($response['body'], true);
 			
-			$count = isset($response['shares']) ? $response['shares'] : '0';
+			$count = isset($response['shares']) ? coco_social_convert_count($response['shares']) : '0';
 			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
@@ -124,6 +124,7 @@ if(!function_exists('coco_social_twitter_count')){
 	function coco_social_twitter_count($url , $id){
 		
 		$key = "tw-".$id;
+		
 		if(!get_transient($key)){
 		
 			$url = 'https://cdn.api.twitter.com/1/urls/count.json?url='.$url;
@@ -132,7 +133,8 @@ if(!function_exists('coco_social_twitter_count')){
 			// Convert json response into php array
 			$response = json_decode($response['body'], true);
 			
-			$count = isset($response['count']) ? $response['count'] : '0';
+			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -161,7 +163,9 @@ if(!function_exists('coco_social_googleplus_count')){
 			$json = json_decode($curl_results, true);
 			
 			$response = $json[0]['result']['metadata']['globalCounts']['count'];
-			$count = isset($response) ? $response : '0';
+			
+			$count = isset($response) ? coco_social_convert_count($response) : '0';
+			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -175,6 +179,7 @@ if(!function_exists('coco_social_linkedin_count')){
 	function coco_social_linkedin_count($url , $id){
 		
 		$key = "lk-".$id;
+
 		if(!get_transient($key)){
 		
 			$url = 'http://www.linkedin.com/countserv/count/share?format=json&url='.$url;
@@ -182,7 +187,8 @@ if(!function_exists('coco_social_linkedin_count')){
 			
 			$response = json_decode($response['body'], true);
 			
-			$count = isset($response['count']) ? $response['count'] : '0';
+			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -209,7 +215,7 @@ if(!function_exists('coco_social_pinterest_count')){
 			
 			$response = json_decode($response, true);
 		
-			$count = isset($response['count']) ? $response['count'] : '0';
+			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -233,7 +239,7 @@ if(!function_exists('coco_social_viadeo_count')){
 			$results = curl_exec($ch);
 			$response = json_decode($results, true);
 			
-			$count = isset($response['count']) ? $response['count'] : '0';
+			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -241,4 +247,33 @@ if(!function_exists('coco_social_viadeo_count')){
 	}
 }
 
+/* Convert big numbers in more digest ones */
+// Thanks to https://stackoverflow.com/questions/8549463/show-1k-instead-of-1-000
 
+if(!function_exists('coco_social_convert_count')){
+	function coco_social_convert_count($coco_count){
+	    
+	    $coco_count = number_format($coco_count);
+		$coco_input_count = substr_count($coco_count, ',');
+	    
+	    if($coco_input_count != '0'){
+	        if($coco_input_count == '1'){
+	        	// Share count between 1000 and 999999 shares
+	        	$coco_next = substr($coco_count, -3, 1);
+	            return substr($coco_count, 0, -4) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'k';
+	        } else if($coco_input_count == '2'){
+	        	// Share count is more than 1000000
+	        	$coco_next = substr($coco_count, -7, 1);
+	            return substr($coco_count, 0, -8) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'm';
+	        } else if($coco_input_count == '3'){
+	        	// That's a lot of shares !
+	        	$coco_next = substr($coco_count, -10, 1);
+	            return substr($coco_count, 0, -12) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'b';
+	        } else {
+	            return '0';
+	        }
+	    } else {
+	        return $coco_count;
+	    }
+	}
+}

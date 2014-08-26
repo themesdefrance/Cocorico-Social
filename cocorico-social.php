@@ -217,7 +217,6 @@ if(!function_exists('coco_social_button')){
 				$share_url = $post_url;
 		}
 		
-		
 		switch($coco_format){
 			case 'icon_text' :
 				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
@@ -243,8 +242,3 @@ if(!function_exists('coco_social_button')){
 	}
 
 }
-
-
-
-
-
