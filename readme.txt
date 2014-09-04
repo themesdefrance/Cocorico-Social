@@ -3,8 +3,8 @@ Contributors: themesdefrance
 Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin, social share
 Requires at least: 3.8
-Tested up to: 3.9.1
-Stable tag: 1.1.6
+Tested up to: 3.9.2
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,10 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.7 =
+- Update : Better counters errors handling
+- Update : Better Facebook and Viadeo count retrieval
 
 = 1.1.6 =
 - New : Share counters are now included
