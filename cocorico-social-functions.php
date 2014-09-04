@@ -97,20 +97,23 @@ if(!function_exists('coco_social_facebook_count')){
 	function coco_social_facebook_count($url , $id){
 		
 		$key = "fb-".$id;
+		$count = '0';
 		
-		// testing only
-		//delete_transient($key);
+		//delete_transient($key); // for testing only
 		
 		if(!get_transient($key)){
 		
-			$url = 'http://graph.facebook.com/?id='.$url;
+			$url = 'https://api.facebook.com/method/links.getStats?urls='.$url.'&format=json';
 			$response = wp_remote_get($url);
 			
-			// Convert json response into php array
-			$response = json_decode($response['body'], true);
-			
-			$count = isset($response['shares']) ? coco_social_convert_count($response['shares']) : '0';
-			
+			if ( !is_wp_error( $response ) ) {
+				
+				// Convert json response into php array
+				$response = json_decode($response['body'],true);
+				
+				$count = isset($response[0]['total_count']) ? coco_social_convert_count($response[0]['total_count']) : '0';
+				
+			}
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -124,16 +127,22 @@ if(!function_exists('coco_social_twitter_count')){
 	function coco_social_twitter_count($url , $id){
 		
 		$key = "tw-".$id;
+		$count = '0';
+		
+		//delete_transient($key); // for testing only
+		
 		if(!get_transient($key)){
 		
 			$url = 'https://cdn.api.twitter.com/1/urls/count.json?url='.$url;
 			$response = wp_remote_get($url);
 			
-			// Convert json response into php array
-			$response = json_decode($response['body'], true);
+			if ( !is_wp_error( $response ) ) {
 			
-			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
-			
+				// Convert json response into php array
+				$response = json_decode($response['body'], true);
+				
+				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			}
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -147,6 +156,10 @@ if(!function_exists('coco_social_googleplus_count')){
 	function coco_social_googleplus_count($url , $id){
 			
 		$key = "gp-".$id;
+		$count = '0';
+		
+		//delete_transient($key); // for testing only
+		
 		if(!get_transient($key)){
 		
 			// Thanks to http://bradsknutson.com/blog/get-google-share-count-url/
@@ -156,14 +169,18 @@ if(!function_exists('coco_social_googleplus_count')){
 			curl_setopt($curl, CURLOPT_POSTFIELDS, '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"' . $url . '","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
-			$curl_results = curl_exec ($curl);
+			$response = curl_exec ($curl);
 			curl_close ($curl);
 			
-			$json = json_decode($curl_results, true);
-			
-			$response = $json[0]['result']['metadata']['globalCounts']['count'];
-			
-			$count = isset($response) ? coco_social_convert_count($response) : '0';
+			if ( !is_wp_error( $response ) ) {
+				
+				// Convert json response into php array
+				$json = json_decode($response, true);
+				
+				$response = $json[0]['result']['metadata']['globalCounts']['count'];
+				
+				$count = isset($response) ? coco_social_convert_count($response) : '0';
+			}
 			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
@@ -178,15 +195,23 @@ if(!function_exists('coco_social_linkedin_count')){
 	function coco_social_linkedin_count($url , $id){
 		
 		$key = "lk-".$id;
+		$count = '0';
+		
+		//delete_transient($key); // for testing only
+		
 		if(!get_transient($key)){
 		
 			$url = 'http://www.linkedin.com/countserv/count/share?format=json&url='.$url;
 			$response = wp_remote_get($url);
 			
-			$response = json_decode($response['body'], true);
+			if ( !is_wp_error( $response ) ) {
 			
-			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
-			
+				// Convert json response into php array
+				$response = json_decode($response['body'], true);
+				
+				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			}
+
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -200,20 +225,28 @@ if(!function_exists('coco_social_pinterest_count')){
 	function coco_social_pinterest_count($url , $id){
 		
 		$key = "pt-".$id;
+		$count = '0';
+		
+		//delete_transient($key); // for testing only
+		
 		if(!get_transient($key)){
 		
 			$url = 'http://api.pinterest.com/v1/urls/count.json?url='.$url;
 			$response = wp_remote_get($url);
 			
-			// Convert json response into php array
-			$response = $response['body'];
+			if ( !is_wp_error( $response ) ) {
+
+				$response = $response['body'];
+				
+				$response = str_replace("receiveCount(","",$response);
+				$response = substr($response,0, -1);
+				
+				// Convert json response into php array
+				$response = json_decode($response, true);
 			
-			$response = str_replace("receiveCount(","",$response);
-			$response = substr($response,0, -1);
+				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			
-			$response = json_decode($response, true);
-		
-			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			}
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -227,17 +260,23 @@ if(!function_exists('coco_social_viadeo_count')){
 	function coco_social_viadeo_count($url , $id){
 	
 		$key = "vd-".$id;
+		$count = '0';
+		
+		//delete_transient($key); // for testing only
+		
 		if(!get_transient($key)){
 		
 			// Thanks to https://stackoverflow.com/questions/25115109/how-get-share-count-on-viadeo-link
-			$url = 'https://api.viadeo.com/recommend?url='.$url;
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-			$results = curl_exec($ch);
-			$response = json_decode($results, true);
+			$url = 'https://api.viadeo.com/recommend?url='.$url.'&format=json';
+			$response = wp_remote_get($url);
 			
-			$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			if ( !is_wp_error( $response ) ) {
+			
+				$response = json_decode($response['body'], true);
+				
+				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
+			}
+			
 			// Set transient for 12h
 			set_transient($key, $count, 60 * 60 * 12);
 		}
@@ -255,22 +294,32 @@ if(!function_exists('coco_social_convert_count')){
 		$coco_input_count = substr_count($coco_count, ',');
 	    
 	    if($coco_input_count != '0'){
+	    
 	        if($coco_input_count == '1'){
+	        
 	        	// Share count between 1000 and 999999 shares
 	        	$coco_next = substr($coco_count, -3, 1);
 	            return substr($coco_count, 0, -4) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'k';
+	            
 	        } else if($coco_input_count == '2'){
+	        
 	        	// Share count is more than 1000000
 	        	$coco_next = substr($coco_count, -7, 1);
 	            return substr($coco_count, 0, -8) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'm';
+	            
 	        } else if($coco_input_count == '3'){
+	        
 	        	// That's a lot of shares !
 	        	$coco_next = substr($coco_count, -10, 1);
 	            return substr($coco_count, 0, -12) . ( $coco_next != '0' ? '.' . $coco_next : '' ) . 'b';
+	            
 	        } else {
+	        
 	            return '0';
+	            
 	        }
 	    } else {
+	    
 	        return $coco_count;
 	    }
 	}
