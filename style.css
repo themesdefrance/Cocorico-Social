@@ -32,6 +32,10 @@
 	background:none;
 }
 
+.coco-social ul.coco-social-buttons li:before{
+	content:none;
+}
+
 /* Counter style */
 .coco-social ul.coco-social-buttons .coco-count,
 .coco-social-single .coco-count{
