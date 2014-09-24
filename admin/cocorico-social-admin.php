@@ -15,7 +15,8 @@ $form->component('raw', __('Cocorico Social Settings', 'cocosocial'));
 $form->endWrapper('titre');
 
 $form->groupHeader(array('general'=>__('General', 'cocosocial'), 
-						 'networks'=>__('Networks', 'cocosocial')));
+						 'networks'=>__('Networks', 'cocosocial'),
+						 'other'=>__('Other', 'cocosocial')));
 
 $form->startWrapper('tab', 'general');
 
@@ -144,6 +145,35 @@ $form->setting(array('type'=>'url',
 $form->endForm();
 
 $form->endWrapper('tab');
+
+
+
+$form->startWrapper('tab', 'other');
+
+$form->startForm();
+
+$form->setting(array('type'=>'radio',
+					 'label'=>__('Counters refresh rate', 'cocosocial'),
+					 'name'=>'counter_refresh',
+					 'radios'=>array(
+					 	 '10'=>__('10 minutes', 'cocosocial'),
+					 	 '30'=>__('30 minutes', 'cocosocial'),	
+					 	 '60'=>__('1 hour', 'cocosocial'),
+						 '120'=>__('2 hours', 'cocosocial'),
+						 '360'=>__('6 hours', 'cocosocial'),
+						 '720'=>__('12 hours','cocosocial')
+					 ),
+					 'options'=>array(
+					 	'after'=>'<br/>',
+					 	'default'=>'60'
+					 ),
+					 'description'=>__("Set the refresh rate for share counters.", 'cocosocial')
+					 ));
+
+$form->endForm();
+
+$form->endWrapper('tab');
+
 
 $form->component('submit', 'submit', array('value'=>__('Save Changes', 'cocosocial')));
 

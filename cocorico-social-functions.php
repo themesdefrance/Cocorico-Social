@@ -96,12 +96,14 @@ if(!function_exists('coco_social_get_count')){
 if(!function_exists('coco_social_facebook_count')){
 	function coco_social_facebook_count($url , $id){
 		
+		$refresh = coco_social_get_refresh_count(); 
+		
 		$key = "fb-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
+		if(get_transient($key) === false){
 		
 			$url = 'https://api.facebook.com/method/links.getStats?urls='.$url.'&format=json';
 			$response = wp_remote_get($url);
@@ -114,8 +116,8 @@ if(!function_exists('coco_social_facebook_count')){
 				$count = isset($response[0]['total_count']) ? coco_social_convert_count($response[0]['total_count']) : '0';
 				
 			}
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -126,12 +128,14 @@ if(!function_exists('coco_social_facebook_count')){
 if(!function_exists('coco_social_twitter_count')){
 	function coco_social_twitter_count($url , $id){
 		
+		$refresh = coco_social_get_refresh_count(); 
+		
 		$key = "tw-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
+		if(get_transient($key) === false){
 		
 			$url = 'https://cdn.api.twitter.com/1/urls/count.json?url='.$url;
 			$response = wp_remote_get($url);
@@ -143,8 +147,8 @@ if(!function_exists('coco_social_twitter_count')){
 				
 				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			}
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -154,13 +158,15 @@ if(!function_exists('coco_social_twitter_count')){
 
 if(!function_exists('coco_social_googleplus_count')){
 	function coco_social_googleplus_count($url , $id){
-			
+		
+		$refresh = coco_social_get_refresh_count(); 
+		
 		$key = "gp-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
+		if(get_transient($key) === false){
 		
 			// Thanks to http://bradsknutson.com/blog/get-google-share-count-url/
 			$curl = curl_init();
@@ -182,8 +188,8 @@ if(!function_exists('coco_social_googleplus_count')){
 				$count = isset($response) ? coco_social_convert_count($response) : '0';
 			}
 			
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -194,12 +200,14 @@ if(!function_exists('coco_social_googleplus_count')){
 if(!function_exists('coco_social_linkedin_count')){
 	function coco_social_linkedin_count($url , $id){
 		
+		$refresh = coco_social_get_refresh_count();
+		
 		$key = "lk-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
+		if(get_transient($key) === false){
 		
 			$url = 'http://www.linkedin.com/countserv/count/share?format=json&url='.$url;
 			$response = wp_remote_get($url);
@@ -212,8 +220,8 @@ if(!function_exists('coco_social_linkedin_count')){
 				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			}
 
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -224,12 +232,14 @@ if(!function_exists('coco_social_linkedin_count')){
 if(!function_exists('coco_social_pinterest_count')){
 	function coco_social_pinterest_count($url , $id){
 		
+		$refresh = coco_social_get_refresh_count();
+		
 		$key = "pt-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
+		if(get_transient($key) === false){
 		
 			$url = 'http://api.pinterest.com/v1/urls/count.json?url='.$url;
 			$response = wp_remote_get($url);
@@ -247,8 +257,8 @@ if(!function_exists('coco_social_pinterest_count')){
 				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			
 			}
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -258,14 +268,16 @@ if(!function_exists('coco_social_pinterest_count')){
 
 if(!function_exists('coco_social_viadeo_count')){
 	function coco_social_viadeo_count($url , $id){
-	
+		
+		$refresh = coco_social_get_refresh_count(); 
+		
 		$key = "vd-".$id;
 		$count = '0';
 		
 		//delete_transient($key); // for testing only
 		
-		if(!get_transient($key)){
-		
+		if(get_transient($key) === false){
+			
 			// Thanks to https://stackoverflow.com/questions/25115109/how-get-share-count-on-viadeo-link
 			$url = 'https://api.viadeo.com/recommend?url='.$url.'&format=json';
 			$response = wp_remote_get($url);
@@ -277,8 +289,8 @@ if(!function_exists('coco_social_viadeo_count')){
 				$count = isset($response['count']) ? coco_social_convert_count($response['count']) : '0';
 			}
 			
-			// Set transient for 12h
-			set_transient($key, $count, 60 * 60 * 12);
+			// Set transient for a custom duration or 1 hour by default
+			set_transient($key, $count, apply_filters('coco_social_counter_refresh', $refresh * 60));
 		}
 		return get_transient($key);
 	}
@@ -324,3 +336,19 @@ if(!function_exists('coco_social_convert_count')){
 	    }
 	}
 }
+
+
+/* Get refresh count */
+if(!function_exists('coco_social_get_refresh_count')){
+	function coco_social_get_refresh_count(){
+	
+		if(get_option('cocosocial_counter_refresh'))
+			return intval(esc_html(get_option('cocosocial_counter_refresh')));
+		else
+			return 60;		
+	}
+}
+	
+	
+	
+	
