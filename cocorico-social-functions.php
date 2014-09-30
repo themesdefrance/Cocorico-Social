@@ -349,6 +349,10 @@ if(!function_exists('coco_social_get_refresh_count')){
 	}
 }
 	
-	
-	
+/* Open js popup */
+if(!function_exists('coco_social_open_js_popup')){
+	function coco_social_open_js_popup($url){
+		return 'javascript:window.open(\''.$url.'\',\'_blank\',config=\'height=500,width=500,top=200,left=200,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=yes,status=no\');';
+	}
+}
 	
