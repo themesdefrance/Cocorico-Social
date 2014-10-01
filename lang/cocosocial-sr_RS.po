@@ -1,0 +1,264 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cocorico Social\n"
+"POT-Creation-Date: 2014-08-26 06:30+0100\n"
+"PO-Revision-Date: 2014-09-16 15:00+0100\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: Themes de France <question@themesdefrance.fr>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../cocorico-social-shortcodes.php:10 ../cocorico-social-shortcodes.php:14
+msgid "networks"
+msgstr "mreže"
+
+#: ../cocorico-social-shortcodes.php:11 ../cocorico-social-shortcodes.php:15
+msgid "counters"
+msgstr "brojači"
+
+#: ../cocorico-social-shortcodes.php:21
+msgid "yes"
+msgstr "da"
+
+#: ../cocorico-social-shortcodes.php:35 ../cocorico-social-shortcodes.php:40
+msgid "network"
+msgstr "mreža"
+
+#: ../cocorico-social-shortcodes.php:37 ../cocorico-social-shortcodes.php:41
+msgid "counter"
+msgstr "brojač"
+
+#: ../cocorico-social.php:63
+msgid "Settings"
+msgstr "Podešavanje"
+
+#: ../cocorico-social.php:213
+msgid ""
+"Hey, I discovered this post and I wanted to share it with you. Tell me what "
+"you think : "
+msgstr ""
+"Hej, otkrio sam ovaj post i poželeo sam da ga podelim s vama. Recite mi šta "
+"mislite:"
+
+#: ../cocorico-social.php:223 ../cocorico-social.php:227
+#: ../cocorico-social.php:231 ../cocorico-social.php:235
+#: ../cocorico-social.php:239
+msgid "Share on"
+msgstr "Podeli na"
+
+#: ../cocorico-social.php:235
+msgid "Share this via"
+msgstr "Podeli putem"
+
+#: ../admin/cocorico-social-admin.php:14
+msgid "Cocorico Social Settings"
+msgstr "Cocorico Social Podešavanja"
+
+#: ../admin/cocorico-social-admin.php:17
+msgid "General"
+msgstr "Opšta"
+
+#: ../admin/cocorico-social-admin.php:18
+msgid "Networks"
+msgstr "Mreže"
+
+#: ../admin/cocorico-social-admin.php:25
+msgid "Buttons location"
+msgstr "Lokacija tastera"
+
+#: ../admin/cocorico-social-admin.php:28
+msgid "Top of content"
+msgstr "na vrhu sadržaja"
+
+#: ../admin/cocorico-social-admin.php:29
+msgid "Bottom of content"
+msgstr "na dnu sadržaja"
+
+#: ../admin/cocorico-social-admin.php:34
+msgid "Choose where to insert share buttons in content."
+msgstr "Izaberite gde ćete smestiti taster “Deli” u sadržaju."
+
+#: ../admin/cocorico-social-admin.php:38
+msgid "Display buttons in"
+msgstr "Prikaži tastere u"
+
+#: ../admin/cocorico-social-admin.php:44
+msgid "Select the post types where buttons should be displayed."
+msgstr "Odaberi vrste postova gde treba prikazati tastere. "
+
+#: ../admin/cocorico-social-admin.php:48
+msgid "Networks buttons (order them by drag & drop)"
+msgstr "Tasteri mreža (rasporedite ih funkcijom drag & drop)"
+
+#: ../admin/cocorico-social-admin.php:49
+#: ../admin/cocorico-social-admin.php:116
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../admin/cocorico-social-admin.php:50
+#: ../admin/cocorico-social-admin.php:121
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../admin/cocorico-social-admin.php:51
+#: ../admin/cocorico-social-admin.php:126
+msgid "Google+"
+msgstr "Google+"
+
+#: ../admin/cocorico-social-admin.php:52
+#: ../admin/cocorico-social-admin.php:131
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: ../admin/cocorico-social-admin.php:53
+#: ../admin/cocorico-social-admin.php:136
+msgid "Viadeo"
+msgstr "Viadeo"
+
+#: ../admin/cocorico-social-admin.php:54
+#: ../admin/cocorico-social-admin.php:141
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: ../admin/cocorico-social-admin.php:55
+msgid "Email"
+msgstr "Email"
+
+#: ../admin/cocorico-social-admin.php:59
+msgid "Buttons' format"
+msgstr "Format tastera"
+
+#: ../admin/cocorico-social-admin.php:62
+msgid "Text and icons"
+msgstr "Tekst i ikonice"
+
+#: ../admin/cocorico-social-admin.php:63
+msgid "Icon only"
+msgstr "Samo ikonice"
+
+#: ../admin/cocorico-social-admin.php:64
+msgid "Text only"
+msgstr "Samo tekst"
+
+#: ../admin/cocorico-social-admin.php:70
+msgid "Choose the format that makes you feel good."
+msgstr "Izaberite format koji vam se sviđa."
+
+#: ../admin/cocorico-social-admin.php:76
+msgid "Buttons' width"
+msgstr "Širina tastera"
+
+#: ../admin/cocorico-social-admin.php:79
+msgid "Fill out the content width."
+msgstr "Ispunite širinu sadržaja"
+
+#: ../admin/cocorico-social-admin.php:80
+msgid "Auto width"
+msgstr "Automatska širina"
+
+#: ../admin/cocorico-social-admin.php:81
+msgid "Big first button *"
+msgstr "Veliki prvi taster *"
+
+#: ../admin/cocorico-social-admin.php:87
+msgid ""
+"Choose your best button's width.<br>* : If you select this, button's format "
+"will be ignored and share counts won't show up (but give it a try it's "
+"awesome !)."
+msgstr ""
+"Izaberite odgovarajuću širinu svojih tastera. <br>* : Ako odaberete ovu, "
+"format tastera biće zanemaren i broj deljenja neće biti prikazan (ipak "
+"isprobajte, super je!)"
+
+#: ../admin/cocorico-social-admin.php:91
+msgid "Show share count"
+msgstr "Prikaži broj deljenja"
+
+#: ../admin/cocorico-social-admin.php:94
+msgid "Check to display the share count."
+msgstr "Štikliraj za prikazivanje broja deljenja"
+
+#: ../admin/cocorico-social-admin.php:96
+msgid "Check this box in order to display the share count."
+msgstr "Štiklirajte ovo polje da biste prikazali broj deljenja."
+
+#: ../admin/cocorico-social-admin.php:101
+msgid "Share incentive"
+msgstr "Podeli inicijativu"
+
+#: ../admin/cocorico-social-admin.php:102
+msgid ""
+"If you use bottom share buttons, this text will be displayed before the "
+"buttons to motivate visitors clicks. E.g : Share this."
+msgstr ""
+"Ako koristite taster “Podeli” na dnu, ovaj tekst biće prikazan pre tastera "
+"kako bi motivisao posetioce da kliknu.Npr. Podeli ovo"
+
+#: ../admin/cocorico-social-admin.php:117
+msgid "Add your Facebook profile/page link."
+msgstr "Dodajte link za svoj Facebook profil/stranicu"
+
+#: ../admin/cocorico-social-admin.php:122
+msgid "Add your Twitter username (without @)."
+msgstr "Dodajte svoje korisničko ime na Twitter-u (bez @)."
+
+#: ../admin/cocorico-social-admin.php:127
+msgid "Add your Google+ profile/page link."
+msgstr "Dodajte link za svoj Google+ profil/stranicu"
+
+#: ../admin/cocorico-social-admin.php:132
+msgid "Add your LinkedIn profile link."
+msgstr "Dodajte link za svoj LinkedIn profil"
+
+#: ../admin/cocorico-social-admin.php:137
+msgid "Add your Viadeo profile link."
+msgstr "Dodajte link za svoj Viadeo profil"
+
+#: ../admin/cocorico-social-admin.php:142
+msgid "Add your Pinterest profile link."
+msgstr "Dodajte link za svoj Pinterest profil"
+
+#: ../admin/cocorico-social-admin.php:148
+msgid "Save Changes"
+msgstr "Sačuvaj izmene"
+
+#: ../admin/cocorico-social-admin.php:156
+msgid "Cocorico Social is brought to you by"
+msgstr "Cocorico Social doneo vam je "
+
+#: ../admin/cocorico-social-admin.php:156
+msgid "If you found this plugin useful"
+msgstr "Ako vam je ovaj plugin bio koristan"
+
+#: ../admin/cocorico-social-admin.php:156
+msgid "give it 5 &#9733; on WordPress.org"
+msgstr "ocenite ga 5 &#9733; na WordPress.org"
+
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:180
+msgid "Save all changes"
+msgstr "Sačuvajte sve izmene"
+
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:257
+msgid "Select"
+msgstr "Odaberi"
+
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:304
+msgid "Delete"
+msgstr "Obriši"
+
+#~ msgid "cocosocial_button"
+#~ msgstr "bouton_cocosocial"
+
+#~ msgid "Choose your best button's width."
+#~ msgstr "Choisissez la largeur des boutons."
+
+#~ msgid "Networks buttons"
+#~ msgstr "Réseaux à utiliser"

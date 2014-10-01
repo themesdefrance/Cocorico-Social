@@ -75,6 +75,13 @@ Many filters are available to let you customize the look and feel of the buttons
 
 [Themes de France](https://www.themesdefrance.fr/).
 
+**Translators**
+
+A huge thank you to our translators :
+
+* WP Translations Team - [Contribute here](https://www.transifex.com/projects/p/cocorico-social/)
+* Borisa Djuraskovic - [sr_RS](http://www.webhostinghub.com/)
+
 = Français =
 
 Cocorico Social permet d'ajouter des boutons de partage au début et à la fin de vos contenus. Vous pourrez afficher les boutons de partage suivants :
@@ -178,6 +185,9 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 2. Tab Networks - Onglet Réseaux
 
 == Changelog ==
+
+= 1.1.8 =
+- 
 
 = 1.1.7 =
 - Update : Better counters errors handling
