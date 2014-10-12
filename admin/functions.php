@@ -1,4 +1,4 @@
-<?
+<?php
 
 // Return all post types in an array
 if(! function_exists('coco_get_all_post_types')){
