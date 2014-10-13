@@ -181,8 +181,10 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 
 == Screenshots ==
 
-1. Tab General - Onglet Général
-2. Tab Networks - Onglet Réseaux
+1. Showcase - Aperçu des boutons
+2. Tab General - Onglet Général
+3. Tab Networks - Onglet Réseaux
+4. Tab Other - Onglet Autre
 
 == Changelog ==
 
