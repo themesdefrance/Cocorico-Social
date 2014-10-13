@@ -3,8 +3,8 @@ Contributors: themesdefrance
 Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin, social share
 Requires at least: 3.8
-Tested up to: 3.9.2
-Stable tag: 1.1.7
+Tested up to: 4.0
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,7 +187,10 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 == Changelog ==
 
 = 1.1.8 =
-- 
+- New : Counters refresh rated added
+- New : Shares buttons now open popups instead of new tabs
+- New : Serbian translation added thanks to [Borisa Djuraskovic](http://www.webhostinghub.com/)
+- Fix : Some CSS fixes
 
 = 1.1.7 =
 - Update : Better counters errors handling
