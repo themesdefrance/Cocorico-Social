@@ -80,6 +80,7 @@
 .coco-social ul.coco-social-buttons li a{
 	width:auto;
 	display: block;
+	border:none;
 	text-align: center;
 	text-decoration:none !important;
 	font-size:14px;
