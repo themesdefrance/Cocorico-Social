@@ -4,7 +4,7 @@ Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin, social share
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,6 +187,9 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 4. Tab Other - Onglet Autre
 
 == Changelog ==
+
+= 1.1.9 =
+- Update : Cocorico Framework 1.1
 
 = 1.1.8 =
 - New : Counters refresh rated added
