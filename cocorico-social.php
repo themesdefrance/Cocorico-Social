@@ -24,6 +24,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
+
 // Cocorico loading
 if(is_admin())
 	require_once 'admin/Cocorico/Cocorico.php';
@@ -52,7 +54,6 @@ function coco_social_load_style() {
 add_action( 'wp_enqueue_scripts', 'coco_social_load_style' );
 
 function coco_social_admin_enqueue(){
-	define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
 	wp_register_style( 'cocosocial_custom_admin_css', COCO_SOCIAL_URI . '/extensions/cocorico-social/admin-style.css', false );
 	wp_enqueue_style( 'cocosocial_custom_admin_css' );
 }
@@ -186,7 +187,7 @@ if(!function_exists('coco_social_button')){
 		// Set up the share url for each network
 		switch($coco_network){
 			case 'facebook' :
-				$share_url = coco_social_open_js_popup('https://www.facebook.com/sharer/sharer.php?u='.$post_url);
+				$share_url = 'https://www.facebook.com/sharer/sharer.php?u='.$post_url;
 			break;
 			case 'twitter' :
 				$twitter = get_option('cocosocial_twitter_username');
@@ -195,21 +196,21 @@ if(!function_exists('coco_social_button')){
 					$twitter_hastags = urlencode( implode( ',', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) ) );
 				if(has_tag() && apply_filters('coco_social_tag_hashtags', true) )
 					$twitter_hastags .= urlencode( ','.implode( ',', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) ) );
-				$share_url = coco_social_open_js_popup('http://twitter.com/intent/tweet?url='.$post_url.'&text='.$post_title.( $twitter ? '&via='.$twitter : '').'&hashtags='.$twitter_hashtags);
+				$share_url = 'http://twitter.com/intent/tweet?url=' . $post_url . '&text=' . $post_title . ( $twitter ? '&via='.$twitter : '') . '&hashtags=' . $twitter_hashtags;
 			break;
 			case 'googleplus' :
-				$share_url = coco_social_open_js_popup('https://plus.google.com/share?url='.$post_url);
+				$share_url = 'https://plus.google.com/share?url=' . $post_url;
 				$name = 'Google+';
 			break;
 			case 'linkedin' :
-				$share_url = coco_social_open_js_popup('http://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title);//.'&summary='.$post_summary; // Summary doesn't work with js popup
+				$share_url = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $post_url . '&title=' . $post_title . '&summary=' . $post_summary; 
 			break;
 			case 'viadeo' : 
-				$share_url = 'http://www.viadeo.com/?&url='.$post_url.'&title='.$post_title;
+				$share_url = 'http://www.viadeo.com/?&url=' . $post_url . '&title=' . $post_title;
 			break;
 			case 'pinterest' :
 				$pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-				$share_url = coco_social_open_js_popup('http://pinterest.com/pin/create/button/?url='.$post_url.'&media='.$pinterestimage[0].'&description='.$post_title);
+				$share_url = 'http://pinterest.com/pin/create/button/?url=' . $post_url . '&media=' . $pinterestimage[0] . '&description=' . $post_title;
 			break;
 			case 'email' :
 				$email_intro = apply_filters('coco_social_email_body',__('Hey, I discovered this post and I wanted to share it with you. Tell me what you think : ','cocosocial'));
@@ -221,23 +222,23 @@ if(!function_exists('coco_social_button')){
 		
 		switch($coco_format){
 			case 'icon_text' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
 			break;
 			
 			case 'icon_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'text_only' :
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'big_first' :
-			$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this via','cocosocial')).' '.ucfirst($name).'</span></a>';
+			$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this via','cocosocial')).' '.ucfirst($name).'</span></a>';
 			break;
 			
 			default:
-				$button = '<a href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 		}
 		
 		return $button;
