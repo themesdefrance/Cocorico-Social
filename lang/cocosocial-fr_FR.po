@@ -1,60 +1,32 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-10-13 12:04+0100\n"
-"PO-Revision-Date: 2014-10-13 12:05+0100\n"
+"POT-Creation-Date: 2014-11-09 20:04+0100\n"
+"PO-Revision-Date: 2014-11-09 20:06+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-KeywordsList: __;_e;_x;_n\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../cocorico-social-shortcodes.php:10 ../cocorico-social-shortcodes.php:14
-msgid "networks"
-msgstr "reseaux"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:180
+msgid "Save all changes"
+msgstr "Sauvegarder les réglages"
 
-#: ../cocorico-social-shortcodes.php:11 ../cocorico-social-shortcodes.php:15
-msgid "counters"
-msgstr "compteurs"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:274
+msgid "Select"
+msgstr "Sélectionner"
 
-#: ../cocorico-social-shortcodes.php:24 ../cocorico-social-shortcodes.php:44
-msgid "yes"
-msgstr "oui"
-
-#: ../cocorico-social-shortcodes.php:38 ../cocorico-social-shortcodes.php:43
-msgid "network"
-msgstr "reseau"
-
-#: ../cocorico-social-shortcodes.php:40 ../cocorico-social-shortcodes.php:44
-msgid "counter"
-msgstr "compteur"
-
-#: ../cocorico-social.php:63
-msgid "Settings"
-msgstr "Réglages"
-
-#: ../cocorico-social.php:215
-msgid ""
-"Hey, I discovered this post and I wanted to share it with you. Tell me what "
-"you think : "
-msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
-
-#: ../cocorico-social.php:224 ../cocorico-social.php:228
-#: ../cocorico-social.php:232 ../cocorico-social.php:236
-#: ../cocorico-social.php:240
-msgid "Share on"
-msgstr "Partager sur"
-
-#: ../cocorico-social.php:236
-msgid "Share this via"
-msgstr "Partager via"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:321
+msgid "Delete"
+msgstr "Supprimer"
 
 #: ../admin/cocorico-social-admin.php:14
 msgid "Cocorico Social Settings"
@@ -279,17 +251,55 @@ msgstr "Si vous avez trouvé ce plugin utile"
 msgid "give it 5 &#9733; on WordPress.org"
 msgstr "donnez-lui 5 &#9733; sur WordPress.org"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:180
-msgid "Save all changes"
-msgstr "Sauvegarder les réglages"
+#: ../cocorico-social-shortcodes.php:10 ../cocorico-social-shortcodes.php:14
+msgid "networks"
+msgstr "reseaux"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:257
-msgid "Select"
-msgstr "Sélectionner"
+#: ../cocorico-social-shortcodes.php:11 ../cocorico-social-shortcodes.php:15
+msgid "counters"
+msgstr "compteurs"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:304
-msgid "Delete"
-msgstr "Supprimer"
+#: ../cocorico-social-shortcodes.php:24 ../cocorico-social-shortcodes.php:44
+msgid "yes"
+msgstr "oui"
+
+#: ../cocorico-social-shortcodes.php:38 ../cocorico-social-shortcodes.php:43
+msgid "network"
+msgstr "reseau"
+
+#: ../cocorico-social-shortcodes.php:40 ../cocorico-social-shortcodes.php:44
+msgid "counter"
+msgstr "compteur"
+
+#: ../cocorico-social.php:74
+msgid "Settings"
+msgstr "Réglages"
+
+#: ../cocorico-social.php:89
+msgid "Disable share buttons ?"
+msgstr "Désactiver le partage ?"
+
+#: ../cocorico-social.php:107
+msgid "Check this to disable share buttons on this content."
+msgstr ""
+"Cochez cette case pour désactiver les boutons de partage sur cette "
+"publication."
+
+#: ../cocorico-social.php:263
+msgid ""
+"Hey, I discovered this post and I wanted to share it with you. Tell me what "
+"you think : "
+msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
+
+#: ../cocorico-social.php:272 ../cocorico-social.php:276
+#: ../cocorico-social.php:280 ../cocorico-social.php:284
+#: ../cocorico-social.php:288
+msgid "Share on"
+msgstr "Partager sur"
+
+#: ../cocorico-social.php:284
+msgid "Share this via"
+msgstr "Partager via"
 
 #~ msgid "cocosocial_button"
 #~ msgstr "bouton_cocosocial"

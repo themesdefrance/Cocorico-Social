@@ -8,7 +8,7 @@ $all_post_types = coco_get_all_post_types();
 // Cocorico Framework
 ////////////////////////////////////
 
-$form = new Cocorico('cocosocial_');
+$form = new Cocorico(COCO_SOCIAL_COCORICO_PREFIX);
 
 $form->startWrapper('titre');
 $form->component('raw', __('Cocorico Social Settings', 'cocosocial'));

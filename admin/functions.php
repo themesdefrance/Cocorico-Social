@@ -30,3 +30,5 @@ if(! function_exists('coco_get_all_post_types')){
 		
 	}
 }
+
+

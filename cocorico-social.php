@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
+define('COCO_SOCIAL_COCORICO_PREFIX', 'cocosocial_');
 
 // Cocorico loading
 if(is_admin())
@@ -36,8 +37,17 @@ require_once 'cocorico-social-functions.php';
 // Load Shortcodes
 require_once 'cocorico-social-shortcodes.php';
 
-// Plugin Admin
+// Load translations
+function coco_social_load_textdomain() {
+	$domain = 'cocosocial';
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+	
+	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
+}
+add_action( 'init', 'coco_social_load_textdomain' );
 
+// Plugin Admin
 function coco_social_menu_item(){
 	add_options_page('Cocorico Social', 'Cocorico Social', 'manage_options', 'coco-social', 'coco_social_options');
 }
@@ -66,22 +76,52 @@ function coco_social_action_links( $links, $file ) {
 }
 add_filter( 'plugin_action_links_'.plugin_basename( __FILE__ ), 'coco_social_action_links', 10, 2 );
 
-// Load translations
-function coco_social_load_textdomain() {
-	$domain = 'cocosocial';
-	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	
-	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
+// Disable sharing Metaboxe loading
+if (!function_exists('cocoricosocial_meta_boxes')){
+	function cocoricosocial_meta_boxes(){
+		
+		$posttype = get_post_type();
+		$posttypes = get_option('cocosocial_pt_presence');
+		
+		if(in_array($posttype, $posttypes) && current_user_can('level_1')){
+		
+			add_meta_box('cocosocial_disable_box',
+					 __('Disable share buttons ?', 'cocosocial'),
+					 'cocosocial_disable_sharing',
+					 $posttype,
+					 'side',
+					 'default'
+			);	
+		}
+	}
 }
-add_action( 'init', 'coco_social_load_textdomain' );
+add_action('add_meta_boxes', 'cocoricosocial_meta_boxes');
 
-
+if (!function_exists('cocosocial_disable_sharing')){
+	function cocosocial_disable_sharing($post){
+		
+		$form = new Cocorico(COCO_SOCIAL_COCORICO_PREFIX, false);
+		$form->startForm();
+		
+		$form->setting(array('type'=>'boolean',
+							 'label'=>__('Check this to disable share buttons on this content.', 'cocosocial'),
+							 'name'=>'disabled',
+							 'options'=>array(
+							 	'default'=>false
+							 )));
+		
+		$form->endForm();
+		$form->render();	
+			
+	}
+}
 
 // Plugin Main Functions
 
 if(!function_exists('coco_social_share')){
 	function coco_social_share($content) {
+			
+			global $post;
 			
 			// Which buttons to display ?
 			$networks =  get_option('cocosocial_networks_blocks');
@@ -94,14 +134,21 @@ if(!function_exists('coco_social_share')){
 			
 			// On which do we have to display the share buttons
 			$posttypes = get_option('cocosocial_pt_presence');
-				
-			if(is_singular($posttypes) && $location && $networks!='') { 
-				
-					if(in_array('top', $location))
-						$content = coco_social_buttons($networks,'top',$counters).$content;
-					if(in_array('bottom', $location))
-						$content = $content.coco_social_buttons($networks,'bottom',$counters);
-	        }
+			
+			// Are buttons disabled on this content ?
+			$disabled = get_post_meta($post->ID, 'cocosocial_disabled',true);
+			
+			if(!$disabled){
+			
+				if(is_singular($posttypes) && $location && $networks!='') { 
+					
+						if(in_array('top', $location))
+							$content = coco_social_buttons($networks,'top',$counters).$content;
+						if(in_array('bottom', $location))
+							$content = $content.coco_social_buttons($networks,'bottom',$counters);
+		        }
+		    }
+		    
 	        return $content;
 	}
 }
