@@ -122,6 +122,8 @@
 	
 	margin-right:10px;
 	vertical-align:middle;
+	width: 16px;
+	display: inline-block;
 }
 
 [class^="cocosocial-icon-"]:before, [class*=" cocosocial-icon-"]:before{
