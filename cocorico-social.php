@@ -83,15 +83,18 @@ if (!function_exists('cocoricosocial_meta_boxes')){
 		$posttype = get_post_type();
 		$posttypes = get_option('cocosocial_pt_presence');
 		
-		if(in_array($posttype, $posttypes) && current_user_can('level_1')){
+		if(is_array($posttypes)){
 		
-			add_meta_box('cocosocial_disable_box',
-					 __('Disable share buttons ?', 'cocosocial'),
-					 'cocosocial_disable_sharing',
-					 $posttype,
-					 'side',
-					 'default'
-			);	
+			if(in_array($posttype, $posttypes) && current_user_can('level_1')){
+			
+				add_meta_box('cocosocial_disable_box',
+						 __('Disable share buttons ?', 'cocosocial'),
+						 'cocosocial_disable_sharing',
+						 $posttype,
+						 'side',
+						 'default'
+				);	
+			}
 		}
 	}
 }
