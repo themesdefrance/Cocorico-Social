@@ -103,15 +103,21 @@ add_action('add_meta_boxes', 'cocoricosocial_meta_boxes');
 if (!function_exists('cocosocial_disable_sharing')){
 	function cocosocial_disable_sharing($post){
 		
+		$template = get_post_meta($post->ID, '_wp_page_template', true);
+		
 		$form = new Cocorico(COCO_SOCIAL_COCORICO_PREFIX, false);
 		$form->startForm();
 		
-		$form->setting(array('type'=>'boolean',
+		if($template == 'default'){
+			$form->setting(array('type'=>'boolean',
 							 'label'=>__('Check this to disable share buttons on this content.', 'cocosocial'),
 							 'name'=>'disabled',
 							 'options'=>array(
 							 	'default'=>false
 							 )));
+		}else{ // No sharing buttons on custom page templates
+			$form->component('raw', __('Sharing is disabled on custom page templates. Use shortcodes to display the buttons','cocosocial'));	
+		}
 		
 		$form->endForm();
 		$form->render();	
@@ -129,9 +135,9 @@ if(!function_exists('coco_social_share')){
 			// Which buttons to display ?
 			$networks =  get_option('cocosocial_networks_blocks');
 			
-			// Where the buttons have to show up ? (top || bottom)
+			// Where the buttons have to show up ? (top || bottom || archives)
 			$location = get_option('cocosocial_location', false);
-			
+
 			// Do we have to show the share counters ?
 			$counters = (get_option('cocosocial_count_activation') ? true : false);
 			
@@ -142,20 +148,27 @@ if(!function_exists('coco_social_share')){
 			$disabled = get_post_meta($post->ID, 'cocosocial_disabled',true);
 			
 			if(!$disabled){
-			
-				if(is_singular($posttypes) && $location && $networks!='') { 
+				
+				// Are we on a single post/page/postype ? 					Are we on a page where no page template is used ?
+				if(is_singular($posttypes) && $location && $networks!='' && !is_page_template()) { 
 					
 						if(in_array('top', $location))
 							$content = coco_social_buttons($networks,'top',$counters).$content;
 						if(in_array('bottom', $location))
 							$content = $content.coco_social_buttons($networks,'bottom',$counters);
 		        }
+		        
+		        if(in_array('archives', $location)){
+				    if(is_home() || is_archive() || is_search() || is_tax() || is_post_type_archive($posttypes))
+				    	$content = $content.coco_social_buttons($networks,'archives',$counters);
+			    }
 		    }
 		    
 	        return $content;
 	}
 }
 add_filter ('the_content', 'coco_social_share');
+add_filter ('the_excerpt', 'coco_social_share');
 
 if(!function_exists('coco_social_buttons')){
 	function coco_social_buttons($networks,$location,$counters){

@@ -27,7 +27,8 @@ $form->setting(array('type'=>'checkbox',
 					 'name'=>'location',
 					 'checkboxes'=>array(
 					 	 'top'=>__('Top of content', 'cocosocial'),
-						 'bottom'=>__('Bottom of content', 'cocosocial')
+						 'bottom'=>__('Bottom of content', 'cocosocial'),
+						 'archives'=>__('Posts page and archives pages (categories, tags, etc.)', 'cocosocial')
 					 ),
 					 'options'=>array(
 					 	'after'=>'<br/>'

@@ -1,32 +1,78 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cocorico Social\n"
-"POT-Creation-Date: 2014-11-09 20:04+0100\n"
-"PO-Revision-Date: 2014-11-09 20:06+0100\n"
+"POT-Creation-Date: 2014-12-12 17:53+0100\n"
+"PO-Revision-Date: 2014-12-12 17:54+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Themes de France <question@themesdefrance.fr>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-KeywordsList: __;_e;_x;_n\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:180
-msgid "Save all changes"
-msgstr "Sauvegarder les réglages"
+#: ../cocorico-social-shortcodes.php:10 ../cocorico-social-shortcodes.php:14
+msgid "networks"
+msgstr "reseaux"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:274
-msgid "Select"
-msgstr "Sélectionner"
+#: ../cocorico-social-shortcodes.php:11 ../cocorico-social-shortcodes.php:15
+msgid "counters"
+msgstr "compteurs"
 
-#: ../admin/Cocorico/plugins/CocoricoComponents.php:321
-msgid "Delete"
-msgstr "Supprimer"
+#: ../cocorico-social-shortcodes.php:24 ../cocorico-social-shortcodes.php:44
+msgid "yes"
+msgstr "oui"
+
+#: ../cocorico-social-shortcodes.php:38 ../cocorico-social-shortcodes.php:43
+msgid "network"
+msgstr "reseau"
+
+#: ../cocorico-social-shortcodes.php:40 ../cocorico-social-shortcodes.php:44
+msgid "counter"
+msgstr "compteur"
+
+#: ../cocorico-social.php:74
+msgid "Settings"
+msgstr "Réglages"
+
+#: ../cocorico-social.php:91
+msgid "Disable share buttons ?"
+msgstr "Désactiver le partage ?"
+
+#: ../cocorico-social.php:113
+msgid "Check this to disable share buttons on this content."
+msgstr ""
+"Cochez cette case pour désactiver les boutons de partage sur cette "
+"publication."
+
+#: ../cocorico-social.php:119
+msgid ""
+"Sharing is disabled on custom page templates. Use shortcodes to display the "
+"buttons"
+msgstr ""
+"Le partage est désactivé sur les modèles de pages personnalisés. Utilisez "
+"les shortcodes pour insérer les boutons de partage."
+
+#: ../cocorico-social.php:279
+msgid ""
+"Hey, I discovered this post and I wanted to share it with you. Tell me what "
+"you think : "
+msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
+
+#: ../cocorico-social.php:288 ../cocorico-social.php:292
+#: ../cocorico-social.php:296 ../cocorico-social.php:300
+#: ../cocorico-social.php:304
+msgid "Share on"
+msgstr "Partager sur"
+
+#: ../cocorico-social.php:300
+msgid "Share this via"
+msgstr "Partager via"
 
 #: ../admin/cocorico-social-admin.php:14
 msgid "Cocorico Social Settings"
@@ -56,94 +102,98 @@ msgstr "Avant le contenu"
 msgid "Bottom of content"
 msgstr "Après le contenu"
 
-#: ../admin/cocorico-social-admin.php:35
+#: ../admin/cocorico-social-admin.php:31
+msgid "Posts page and archives pages (categories, tags, etc.)"
+msgstr "Page des articles et pages d'archives (catégories, mots-clés, etc.)"
+
+#: ../admin/cocorico-social-admin.php:36
 msgid "Choose where to insert share buttons in content."
 msgstr "Choisissez où placer les boutons de partage dans vos contenus."
 
-#: ../admin/cocorico-social-admin.php:39
+#: ../admin/cocorico-social-admin.php:40
 msgid "Display buttons in"
 msgstr "Afficher les boutons dans"
 
-#: ../admin/cocorico-social-admin.php:45
+#: ../admin/cocorico-social-admin.php:46
 msgid "Select the post types where buttons should be displayed."
 msgstr ""
 "Sélectionnez sur quels types de contenus les boutons doivent être affichés."
 
-#: ../admin/cocorico-social-admin.php:49
+#: ../admin/cocorico-social-admin.php:50
 msgid "Networks buttons (order them by drag & drop)"
 msgstr "Boutons à afficher (réorganisez-les par glisser déposer)"
 
-#: ../admin/cocorico-social-admin.php:50
-#: ../admin/cocorico-social-admin.php:117
+#: ../admin/cocorico-social-admin.php:51
+#: ../admin/cocorico-social-admin.php:118
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../admin/cocorico-social-admin.php:51
-#: ../admin/cocorico-social-admin.php:122
+#: ../admin/cocorico-social-admin.php:52
+#: ../admin/cocorico-social-admin.php:123
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../admin/cocorico-social-admin.php:52
-#: ../admin/cocorico-social-admin.php:127
+#: ../admin/cocorico-social-admin.php:53
+#: ../admin/cocorico-social-admin.php:128
 msgid "Google+"
 msgstr "Google+"
 
-#: ../admin/cocorico-social-admin.php:53
-#: ../admin/cocorico-social-admin.php:132
+#: ../admin/cocorico-social-admin.php:54
+#: ../admin/cocorico-social-admin.php:133
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ../admin/cocorico-social-admin.php:54
-#: ../admin/cocorico-social-admin.php:137
+#: ../admin/cocorico-social-admin.php:55
+#: ../admin/cocorico-social-admin.php:138
 msgid "Viadeo"
 msgstr "Viadeo"
 
-#: ../admin/cocorico-social-admin.php:55
-#: ../admin/cocorico-social-admin.php:142
+#: ../admin/cocorico-social-admin.php:56
+#: ../admin/cocorico-social-admin.php:143
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../admin/cocorico-social-admin.php:56
+#: ../admin/cocorico-social-admin.php:57
 msgid "Email"
 msgstr "Email"
 
-#: ../admin/cocorico-social-admin.php:60
+#: ../admin/cocorico-social-admin.php:61
 msgid "Buttons' format"
 msgstr "Format des boutons"
 
-#: ../admin/cocorico-social-admin.php:63
+#: ../admin/cocorico-social-admin.php:64
 msgid "Text and icons"
 msgstr "Texte et icônes"
 
-#: ../admin/cocorico-social-admin.php:64
+#: ../admin/cocorico-social-admin.php:65
 msgid "Icon only"
 msgstr "Icônes seules"
 
-#: ../admin/cocorico-social-admin.php:65
+#: ../admin/cocorico-social-admin.php:66
 msgid "Text only"
 msgstr "Texte seul"
 
-#: ../admin/cocorico-social-admin.php:71
+#: ../admin/cocorico-social-admin.php:72
 msgid "Choose the format that makes you feel good."
 msgstr "Choisissez le format de bouton qui vous convient le mieux."
 
-#: ../admin/cocorico-social-admin.php:77
+#: ../admin/cocorico-social-admin.php:78
 msgid "Buttons' width"
 msgstr "Largeur des boutons"
 
-#: ../admin/cocorico-social-admin.php:80
+#: ../admin/cocorico-social-admin.php:81
 msgid "Fill out the content width."
 msgstr "Prendre toute la largeur du contenu."
 
-#: ../admin/cocorico-social-admin.php:81
+#: ../admin/cocorico-social-admin.php:82
 msgid "Auto width"
 msgstr "Largeur automatique"
 
-#: ../admin/cocorico-social-admin.php:82
+#: ../admin/cocorico-social-admin.php:83
 msgid "Big first button *"
 msgstr "Premier bouton en avant *"
 
-#: ../admin/cocorico-social-admin.php:88
+#: ../admin/cocorico-social-admin.php:89
 msgid ""
 "Choose your best button's width.<br>* : If you select this, button's format "
 "will be ignored and share counts won't show up (but give it a try it's "
@@ -153,24 +203,24 @@ msgstr ""
 "sélectionnez ceci, le format des boutons sera ignoré et les compteurs de "
 "partage ne s'affichera pas (mais essayez c'est génial !)."
 
-#: ../admin/cocorico-social-admin.php:92
+#: ../admin/cocorico-social-admin.php:93
 msgid "Show share count"
 msgstr "Afficher les compteurs"
 
-#: ../admin/cocorico-social-admin.php:95
+#: ../admin/cocorico-social-admin.php:96
 msgid "Check to display the share count."
 msgstr "Cochez la case pour afficher les compteurs de partage."
 
-#: ../admin/cocorico-social-admin.php:97
+#: ../admin/cocorico-social-admin.php:98
 msgid "Check this box in order to display the share count."
 msgstr ""
 "Cochez cette case pour afficher les compteurs de partage sur les boutons."
 
-#: ../admin/cocorico-social-admin.php:102
+#: ../admin/cocorico-social-admin.php:103
 msgid "Share incentive"
 msgstr "Incitation au partage"
 
-#: ../admin/cocorico-social-admin.php:103
+#: ../admin/cocorico-social-admin.php:104
 msgid ""
 "If you use bottom share buttons, this text will be displayed before the "
 "buttons to motivate visitors clicks. E.g : Share this."
@@ -179,127 +229,89 @@ msgstr ""
 "affiché juste avant pour inciter vos visiteurs à cliquer. Exemple : Le "
 "partage c'est la vie !."
 
-#: ../admin/cocorico-social-admin.php:118
+#: ../admin/cocorico-social-admin.php:119
 msgid "Add your Facebook profile/page link."
 msgstr "Entrez l'adresse de votre profil/page Facebook."
 
-#: ../admin/cocorico-social-admin.php:123
+#: ../admin/cocorico-social-admin.php:124
 msgid "Add your Twitter username (without @)."
 msgstr "Entrez votre identifiant Twitter (sans le @)."
 
-#: ../admin/cocorico-social-admin.php:128
+#: ../admin/cocorico-social-admin.php:129
 msgid "Add your Google+ profile/page link."
 msgstr "Entrez l'adresse de votre profil/page Google+."
 
-#: ../admin/cocorico-social-admin.php:133
+#: ../admin/cocorico-social-admin.php:134
 msgid "Add your LinkedIn profile link."
 msgstr "Entrez l'adresse de votre profil LinkedIn."
 
-#: ../admin/cocorico-social-admin.php:138
+#: ../admin/cocorico-social-admin.php:139
 msgid "Add your Viadeo profile link."
 msgstr "Entrez l'adresse de votre profil Viadeo."
 
-#: ../admin/cocorico-social-admin.php:143
+#: ../admin/cocorico-social-admin.php:144
 msgid "Add your Pinterest profile link."
 msgstr "Entrez l'adresse de votre profil Pinterest."
 
-#: ../admin/cocorico-social-admin.php:156
+#: ../admin/cocorico-social-admin.php:157
 msgid "Counters refresh rate"
 msgstr "Rafraichissement des compteurs"
 
-#: ../admin/cocorico-social-admin.php:159
+#: ../admin/cocorico-social-admin.php:160
 msgid "10 minutes"
 msgstr "10 minutes"
 
-#: ../admin/cocorico-social-admin.php:160
+#: ../admin/cocorico-social-admin.php:161
 msgid "30 minutes"
 msgstr "30 minutes"
 
-#: ../admin/cocorico-social-admin.php:161
+#: ../admin/cocorico-social-admin.php:162
 msgid "1 hour"
 msgstr "1 heure"
 
-#: ../admin/cocorico-social-admin.php:162
+#: ../admin/cocorico-social-admin.php:163
 msgid "2 hours"
 msgstr "2 heures"
 
-#: ../admin/cocorico-social-admin.php:163
+#: ../admin/cocorico-social-admin.php:164
 msgid "6 hours"
 msgstr "6 heures"
 
-#: ../admin/cocorico-social-admin.php:164
+#: ../admin/cocorico-social-admin.php:165
 msgid "12 hours"
 msgstr "12 heures"
 
-#: ../admin/cocorico-social-admin.php:170
+#: ../admin/cocorico-social-admin.php:171
 msgid "Set the refresh rate for share counters."
 msgstr "Sélectionnez la fréquence de mise à jour des compteurs de partage."
 
-#: ../admin/cocorico-social-admin.php:178
+#: ../admin/cocorico-social-admin.php:179
 msgid "Save Changes"
 msgstr "Sauvegarder les réglages"
 
-#: ../admin/cocorico-social-admin.php:186
+#: ../admin/cocorico-social-admin.php:187
 msgid "Cocorico Social is brought to you by"
 msgstr "Cocorico Social est un plugin proposé par"
 
-#: ../admin/cocorico-social-admin.php:186
+#: ../admin/cocorico-social-admin.php:187
 msgid "If you found this plugin useful"
 msgstr "Si vous avez trouvé ce plugin utile"
 
-#: ../admin/cocorico-social-admin.php:186
+#: ../admin/cocorico-social-admin.php:187
 msgid "give it 5 &#9733; on WordPress.org"
 msgstr "donnez-lui 5 &#9733; sur WordPress.org"
 
-#: ../cocorico-social-shortcodes.php:10 ../cocorico-social-shortcodes.php:14
-msgid "networks"
-msgstr "reseaux"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:181
+msgid "Save all changes"
+msgstr "Sauvegarder les réglages"
 
-#: ../cocorico-social-shortcodes.php:11 ../cocorico-social-shortcodes.php:15
-msgid "counters"
-msgstr "compteurs"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:275
+msgid "Select"
+msgstr "Sélectionner"
 
-#: ../cocorico-social-shortcodes.php:24 ../cocorico-social-shortcodes.php:44
-msgid "yes"
-msgstr "oui"
-
-#: ../cocorico-social-shortcodes.php:38 ../cocorico-social-shortcodes.php:43
-msgid "network"
-msgstr "reseau"
-
-#: ../cocorico-social-shortcodes.php:40 ../cocorico-social-shortcodes.php:44
-msgid "counter"
-msgstr "compteur"
-
-#: ../cocorico-social.php:74
-msgid "Settings"
-msgstr "Réglages"
-
-#: ../cocorico-social.php:89
-msgid "Disable share buttons ?"
-msgstr "Désactiver le partage ?"
-
-#: ../cocorico-social.php:107
-msgid "Check this to disable share buttons on this content."
-msgstr ""
-"Cochez cette case pour désactiver les boutons de partage sur cette "
-"publication."
-
-#: ../cocorico-social.php:263
-msgid ""
-"Hey, I discovered this post and I wanted to share it with you. Tell me what "
-"you think : "
-msgstr "Salut, J'ai découvert cet article. Dis-moi ce que tu en penses :"
-
-#: ../cocorico-social.php:272 ../cocorico-social.php:276
-#: ../cocorico-social.php:280 ../cocorico-social.php:284
-#: ../cocorico-social.php:288
-msgid "Share on"
-msgstr "Partager sur"
-
-#: ../cocorico-social.php:284
-msgid "Share this via"
-msgstr "Partager via"
+#: ../admin/Cocorico/plugins/CocoricoComponents.php:322
+msgid "Delete"
+msgstr "Supprimer"
 
 #~ msgid "cocosocial_button"
 #~ msgstr "bouton_cocosocial"
