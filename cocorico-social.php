@@ -104,11 +104,15 @@ if (!function_exists('cocosocial_disable_sharing')){
 	function cocosocial_disable_sharing($post){
 		
 		$template = get_post_meta($post->ID, '_wp_page_template', true);
+		$sharing = true;
+		
+		if(get_post_type() == 'page' && $template != 'default')
+			$sharing = false;
 		
 		$form = new Cocorico(COCO_SOCIAL_COCORICO_PREFIX, false);
 		$form->startForm();
 		
-		if($template == 'default'){
+		if($sharing){
 			$form->setting(array('type'=>'boolean',
 							 'label'=>__('Check this to disable share buttons on this content.', 'cocosocial'),
 							 'name'=>'disabled',
