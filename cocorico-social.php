@@ -285,23 +285,23 @@ if(!function_exists('coco_social_button')){
 		
 		switch($coco_format){
 			case 'icon_text' :
-				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</span></a>';
 			break;
 			
 			case 'icon_only' :
-				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'text_only' :
-				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow">'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" rel="nofollow">'.ucfirst($name).($coco_counters ? coco_social_get_count($coco_network) : '').'</a>';
 			break;
 			
 			case 'big_first' :
-			$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this via','cocosocial')).' '.ucfirst($name).'</span></a>';
+			$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i><span>'.apply_filters('coco_social_big_first_share_label', __('Share this via','cocosocial')).' '.ucfirst($name).'</span></a>';
 			break;
 			
 			default:
-				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" target="_blank" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
+				$button = '<a onclick="window.open(this.href, \'partage\', \'height=400, width=500, top=300, left=300, toolbar=no, menubar=yes, location=no, resizable=yes, scrollbars=no, status=no\'); return false;" href="'.$share_url.'" title="'.apply_filters('coco_social_share_label', __('Share on','cocosocial')).' '.ucfirst($name).'" class="coco-'.$coco_network.'" rel="nofollow"><i class="cocosocial-icon-'.$coco_network.'"></i>'.ucfirst($name).'</a>';
 		}
 		
 		return $button;
