@@ -3,8 +3,8 @@ Contributors: themesdefrance
 Donate link: https://www.themesdefrance.fr/
 Tags: social, twitter, facebook, social media, share, sharing, googleplus, pinterest, linkedin, social share
 Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 1.1.9.3
+Tested up to: 4.1
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,6 +187,12 @@ N'attendez plus et envoyez-nous un email à question arobase themesdefrance poin
 4. Tab Other - Onglet Autre
 
 == Changelog ==
+
+= 1.2.0 =
+- New : Share buttons can be displayed on blog and archives pages
+- New : Disable share buttons on individual posts/pages, etc.
+- Update : Cocorico Framework 1.1.1
+- Fix : No more target="_blank" on buttons
 
 = 1.1.9.3 =
 - Fix : Cocorico Framework bug

@@ -3,11 +3,11 @@
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
 Description: The social share plugin from Themes de France
-Version: 1.1.9.3
+Version: 1.2.0
 Author: Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial
-Domain Path: /lang/
+Domain Path: /languages/
 License: GPL v3
 
 This program is free software: you can redistribute it and/or modify
@@ -43,7 +43,7 @@ function coco_social_load_textdomain() {
 	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 	
 	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
+	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'init', 'coco_social_load_textdomain' );
 
