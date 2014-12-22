@@ -162,7 +162,7 @@ if(!function_exists('coco_social_share')){
 							$content = $content.coco_social_buttons($networks,'bottom',$counters);
 		        }
 		        
-		        if(in_array('archives', $location)){
+		        if(($location ? in_array('archives', $location) : false)){
 				    if(is_home() || is_archive() || is_search() || is_tax() || is_post_type_archive($posttypes))
 				    	$content = $content.coco_social_buttons($networks,'archives',$counters);
 			    }
