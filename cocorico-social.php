@@ -28,6 +28,16 @@ define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
 define('COCO_SOCIAL_COCORICO_PREFIX', 'cocosocial_');
 define('COCO_SOCIAL_VERSION', '1.2.1');
 
+// Load translations
+function coco_social_load_textdomain() {
+	$domain = 'cocosocial';
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+	
+	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
+	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'coco_social_load_textdomain' );
+
 // Cocorico loading
 if(is_admin())
 	require_once 'admin/Cocorico/Cocorico.php';
@@ -37,16 +47,6 @@ require_once 'cocorico-social-functions.php';
 
 // Load Shortcodes
 require_once 'cocorico-social-shortcodes.php';
-
-// Load translations
-function coco_social_load_textdomain() {
-	$domain = 'cocosocial';
-	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-	
-	load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	load_plugin_textdomain( $domain, FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'init', 'coco_social_load_textdomain' );
 
 // Plugin Admin
 function coco_social_menu_item(){
