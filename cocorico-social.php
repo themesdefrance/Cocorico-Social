@@ -3,7 +3,7 @@
 Plugin Name: Cocorico Social
 Plugin URI: https://www.themesdefrance.fr/plugins/coco-social
 Description: The social share plugin from Themes de France
-Version: 1.2.0
+Version: 1.2.1
 Author: Themes de France
 Author URI: https://www.themesdefrance.fr
 Text Domain: cocosocial
@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 define('COCO_SOCIAL_URI', plugin_dir_url(__FILE__).'admin/Cocorico/');
 define('COCO_SOCIAL_COCORICO_PREFIX', 'cocosocial_');
+define('COCO_SOCIAL_VERSION', '1.2.1');
 
 // Cocorico loading
 if(is_admin())
@@ -59,7 +60,7 @@ function coco_social_options(){
 
 // Load Styles
 function coco_social_load_style() {
-	wp_enqueue_style( 'coco-social', plugins_url( '/style.css', __FILE__ ), false, '1.1.0', 'screen' );
+	wp_enqueue_style( 'coco-social', plugins_url( '/style.css', __FILE__ ), false, COCO_SOCIAL_VERSION, 'screen' );
 }
 add_action( 'wp_enqueue_scripts', 'coco_social_load_style' );
 
@@ -141,7 +142,8 @@ if(!function_exists('coco_social_share')){
 			
 			// Where the buttons have to show up ? (top || bottom || archives)
 			$location = get_option('cocosocial_location', false);
-
+			//$location = false;
+			
 			// Do we have to show the share counters ?
 			$counters = (get_option('cocosocial_count_activation') ? true : false);
 			
@@ -162,7 +164,7 @@ if(!function_exists('coco_social_share')){
 							$content = $content.coco_social_buttons($networks,'bottom',$counters);
 		        }
 		        
-		        if(($location ? in_array('archives', $location) : false)){
+		        if((is_array($location) ? in_array('archives', $location) : false)){
 				    if(is_home() || is_archive() || is_search() || is_tax() || is_post_type_archive($posttypes))
 				    	$content = $content.coco_social_buttons($networks,'archives',$counters);
 			    }
